@@ -1,0 +1,31 @@
+*Sujeto a que la catedra no apruebe la idea*
+
+Unidades:
+
+Faccion PRO
+Gendarme (Melee) (Basicas)
+Abortero (Rango medio) (Basicas)
+Globoludo (Rango largo) (Basicas)
+Alfredo Casero (Melee) (Especiales): Tira un flan que realentiza a todos los enemigos
+Michetti (Rango medio) (Especiales): Sale pisteando con la silla de ruedas y atropella a las unidades
+Patricia Bullrich (Rango largo) (Especiales): Maldonado attack, hunde a todos los enemigos en fila
+
+Kirchnerismo
+Feminazi (Melee) (Basicas)
+Choriplanero (Rango medio) (Basicas)
+Sindicalista (Rango largo) (Basicas)
+Daniel Scioli (Melee) (Especial): Le reduce un 50% el daño a los enemigos (los manquea)  
+Alberto Fernandez (Rango medio) (Especial): Suelta a dylan que ataca a todos los enemigos (De a uno)
+Maradona (Rango largo) (Especial): Lluvia blanca (aturde a los enemigos)/Mano de dios  
+
+Objetos:
+Lilita/Piqueteros (Barricada)
+Samid/Dolar (Bomba)
+
+Power ups:
+Nisman (Insta kill una unidad aleatoria)
+Menem (Envia a la estratosfera, aumenta velocidad de ataque)
+
+Evento aleatorio:
+La grieta (Genera un agujero de 1x3 en el mapa que hace que los enemigos caigan en el abismo)
+Corralito (Deja inmovil a una unidad)

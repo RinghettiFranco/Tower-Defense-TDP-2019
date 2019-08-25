@@ -1,0 +1,27 @@
+Algoritmo Generacion_Mapa()
+
+Creamos la ventana como una grilla de 2x1
+En la parte superior colocamos mapa()
+En la parte inferior colocamos interfaz()
+
+Algoritmo mapa()
+Creamos una grilla de 6x10 //Sujeto a cambios
+Insertamos la imagen de fondo del mapa
+
+Algoritmo interfaz()
+Creamos una grilla de 1x2
+En la celda 1;1 de la grilla
+	creamos una grilla de NxM 
+	/**N y M dependeran de la cantidad de torretas y objetos a implementar,
+	 * y la disposicion que sea mas atractiva graficamente
+	 */
+	desde i=1 hasta n hacer
+		desde j=1 hasta m hacer
+			cargar el boton que representara la opcion de compra de una torreta u objeto
+En la celda 1;2 de la grilla
+	creamos una grilla de 3x1
+	en la celda 1x1 creamos un boton que representara la opcion de venta de una torreta
+	en la celda 2x1 creamos un panel que muestra la cantidad de oro disponible para gastar
+	en la celda 3x1 creamos un panel que muestre la oleada y el puntaje
+
+

@@ -1,0 +1,16 @@
+Algoritmo Movimiento_Enemigo
+
+Mientras este vivo y no haya llegado al final hacer
+	Si no hay una torreta o un obstaculo a rango de ataque entonces	
+		Si no esta afectado su movimiento entonces
+			Avanzar
+		Sino
+			Si esta realentizado
+				Avanzar restringido
+			Sino
+				Avanzar acelerado
+	Sino
+		Mientras la torreta o el obstaculo esten vivos hacer
+			Atacar
+Si llego al final entonces
+	Perdio el jugador
