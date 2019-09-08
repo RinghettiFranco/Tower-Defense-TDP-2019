@@ -33,9 +33,7 @@ public class TableroJuego extends JPanel {
     }
 
     public void gameLoop() {
-
-
-        // Testeo por el estado de las torres y enemigos
+        // Testeamos por el estado de las torres y enemigos
         for (GameObject go: objetosMapa) {
             if (go.estaMuerto()) {
                 objetosMapa.remove(go);
@@ -44,8 +42,6 @@ public class TableroJuego extends JPanel {
             } else
                 go.actualizarPosicion();
         }
-
-        System.out.println(objetosMapa.size());
 
         // Verificamos si hay que generar un nuevo nivel
         // o enviar otra barricada
