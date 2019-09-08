@@ -8,6 +8,5 @@ public class GeneradorNivel {
     }
 
     public void generar(List<GameObject> enemigos) {
-
     }
 }

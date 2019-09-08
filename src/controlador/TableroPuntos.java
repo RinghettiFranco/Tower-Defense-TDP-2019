@@ -5,10 +5,25 @@ import java.awt.*;
 
 public class TableroPuntos extends JPanel {
 
+    private JLabel texto;
+    private int puntos;
+
     public TableroPuntos() {
         super();
 
-        this.setSize(300, 20);
-        this.setBackground(Color.BLUE);
+        puntos = 0;
+
+        this.setSize(Constantes.VENTANA_ANCHO, Constantes.PANEL_PUNTOS_ALTO);
+        this.setLocation(0, 0);
+        this.setBackground(new Color(0xE2AB7F));
+
+        texto = new JLabel("Puntaje: " + puntos + " - No se me ocurre que mas poner");
+        this.add(texto);
+    }
+
+    public void actualizarPuntaje(int incremento) {
+        puntos += incremento;
+
+        texto.setText("Puntaje: " + puntos + " - No se me ocurre que mas poner");
     }
 }
