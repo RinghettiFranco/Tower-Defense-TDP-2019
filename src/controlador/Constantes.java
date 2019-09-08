@@ -8,4 +8,5 @@ public class Constantes {
 
     public final static int VENTANA_ALTO = (PANEL_COMPRA_ALTO + PANEL_PUNTOS_ALTO + PANEL_TABLERO_ALTO);
     public final static int VENTANA_ANCHO = 900;
+    
 }
