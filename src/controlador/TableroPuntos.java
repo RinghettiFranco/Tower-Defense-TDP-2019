@@ -17,13 +17,13 @@ public class TableroPuntos extends JPanel {
         this.setLocation(0, 0);
         this.setBackground(new Color(0xE2AB7F));
 
-        texto = new JLabel("Puntaje: " + puntos + " - No se me ocurre que mas poner");
+        texto = new JLabel("Puntaje: " + puntos);
         this.add(texto);
     }
 
     public void actualizarPuntaje(int incremento) {
         puntos += incremento;
 
-        texto.setText("Puntaje: " + puntos + " - No se me ocurre que mas poner");
+        texto.setText("Puntaje: " + puntos);
     }
 }
