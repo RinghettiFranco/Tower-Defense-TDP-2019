@@ -19,6 +19,5 @@ public class Juego {
         juego.gameLoop();
 
         ventana.setVisible(true);
-        ventana.show();
     }
 }

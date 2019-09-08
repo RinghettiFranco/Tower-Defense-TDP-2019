@@ -22,7 +22,7 @@ public class TableroJuego extends JPanel {
         this.setLayout(null);
         this.setSize(Constantes.VENTANA_ANCHO, Constantes.PANEL_TABLERO_ALTO);
         this.setLocation(0, Constantes.PANEL_PUNTOS_ALTO);
-        this.setBackground(new Color(0x3A353F));
+        this.setBackground(new Color(0xD8D5C4));
 
         iniciarJuego();
 
@@ -30,9 +30,16 @@ public class TableroJuego extends JPanel {
 
         puntaje = tp;
         compras = tc;
+
+
+        // TODO Esto hay que sacarlo, lo dejo para ver como agregar elementos al mapa
+        JLabel lab = new JLabel("Texto");
+        lab.setBounds(0, 0,50, 50);
+        this.add(lab);
     }
 
     public void gameLoop() {
+
 
         // Testeo por el estado de las torres y enemigos
         for (GameObject go: objetosMapa) {
