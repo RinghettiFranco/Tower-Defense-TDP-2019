@@ -61,4 +61,13 @@ public class TableroJuego extends JPanel {
         for (GameObject go: objetosMapa)
             this.add(go);
     }
+
+    // Seteamos el fondo
+    protected void paintComponent(Graphics g) {
+        ImageIcon bgImage = new ImageIcon("src/Imagenes/PC Computer - RPG Maker MV - Sand.png");
+        Image bg = bgImage.getImage();
+
+        super.paintComponent(g);
+        g.drawImage(bg, 0 ,0, null);
+    }
 }

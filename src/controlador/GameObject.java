@@ -1,7 +1,5 @@
 package controlador;
 
-import movimiento.Movimiento;
-
 import javax.swing.*;
 
 public abstract class GameObject extends JLabel {
@@ -9,9 +7,6 @@ public abstract class GameObject extends JLabel {
     protected int vida, alcance, impacto;
 
     protected int puntaje, oro;
-
-    protected ImageIcon graphic;
-    protected Movimiento mov;
 
     public GameObject(int vida, int alcance, int impacto, ImageIcon graphic) {
         this.vida = vida;
@@ -21,7 +16,6 @@ public abstract class GameObject extends JLabel {
         this.puntaje = (int) Math.random();
         this.oro = (int) Math.random();
 
-        this.graphic = graphic;
         this.setIcon(graphic);
     }
 
