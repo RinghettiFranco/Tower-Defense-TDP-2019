@@ -1,7 +1,6 @@
 package controlador;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
@@ -15,7 +14,7 @@ public class TableroCompra extends JPanel {
     public TableroCompra() {
         super();
 
-        this.setLayout(new GridLayout(1, 5));
+        this.setLayout(new GridLayout(1, 6));
         this.setSize(Constantes.VENTANA_ANCHO,Constantes.PANEL_COMPRA_ALTO);
         this.setLocation(0, Constantes.PANEL_TABLERO_ALTO);
         this.setBackground(new Color(0x505668));
@@ -25,6 +24,8 @@ public class TableroCompra extends JPanel {
 
         inicializarTorres();
         inicializarObjetos();
+
+        this.add(new JLabel("Oro: " + cantOro));
     }
 
     public void actualizarOro(int incremento) {
