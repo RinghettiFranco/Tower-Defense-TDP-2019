@@ -30,12 +30,6 @@ public class TableroJuego extends JPanel {
 
         puntaje = tp;
         compras = tc;
-
-
-        // TODO Esto hay que sacarlo, lo dejo para ver como agregar elementos al mapa
-        JLabel lab = new JLabel("Texto");
-        lab.setBounds(0, 0,50, 50);
-        this.add(lab);
     }
 
     public void gameLoop() {
@@ -51,6 +45,8 @@ public class TableroJuego extends JPanel {
                 go.actualizarPosicion();
         }
 
+        System.out.println(objetosMapa.size());
+
         // Verificamos si hay que generar un nuevo nivel
         // o enviar otra barricada
 
@@ -65,5 +61,8 @@ public class TableroJuego extends JPanel {
 
         objetosMapa = new LinkedList<>();
         nivelGen.generar(objetosMapa);
+
+        for (GameObject go: objetosMapa)
+            this.add(go);
     }
 }

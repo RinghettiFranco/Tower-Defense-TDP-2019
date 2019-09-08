@@ -10,6 +10,6 @@ public class GeneradorNivel {
     }
 
     public void generar(List<GameObject> enemigos) {
-        enemigos.add(new Han_Solo(0, 0));
+        enemigos.add(new Han_Solo(20, 20));
     }
 }

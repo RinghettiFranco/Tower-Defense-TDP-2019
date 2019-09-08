@@ -22,6 +22,7 @@ public abstract class GameObject extends JLabel {
         this.oro = (int) Math.random();
 
         this.graphic = graphic;
+        this.setIcon(graphic);
     }
 
     public abstract void actualizarPosicion();
