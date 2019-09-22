@@ -1,5 +1,6 @@
 package controlador;
 
+import control_grafico.GameObject;
 import torres.Han_Solo;
 
 import java.util.List;

@@ -13,5 +13,7 @@ public class Han_Solo extends Torre {
 	}
 
 	@Override
-	public void actualizarPosicion(){}
+	public void actualizarPosicion(){
+		System.out.println("No me muevo");
+	}
 }

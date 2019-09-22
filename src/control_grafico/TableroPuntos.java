@@ -1,4 +1,6 @@
-package controlador;
+package control_grafico;
+
+import controlador.Constantes;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,7 @@
-package controlador;
+package control_grafico;
+
+import controlador.Constantes;
+import controlador.ThreadPrincipal;
 
 import javax.swing.*;
 
@@ -15,8 +18,6 @@ public class Juego {
         ventana.add(juego);
         ventana.add(compra);
         ventana.setSize(Constantes.VENTANA_ANCHO, Constantes.VENTANA_ALTO);
-
-        juego.gameLoop();
 
         ventana.setVisible(true);
     }

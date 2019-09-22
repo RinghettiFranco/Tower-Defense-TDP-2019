@@ -1,4 +1,9 @@
-package controlador;
+package control_grafico;
+
+import controlador.Colisionador;
+import controlador.Constantes;
+import controlador.GeneradorNivel;
+import controlador.ThreadPrincipal;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +21,8 @@ public class TableroJuego extends JPanel {
     private TableroPuntos puntaje;
     private TableroCompra compras;
 
+    private ThreadPrincipal ppal;
+
     public TableroJuego(TableroPuntos tp, TableroCompra tc) {
         super();
 
@@ -27,28 +34,29 @@ public class TableroJuego extends JPanel {
         iniciarJuego();
 
         colisionador = new Colisionador();
-
+        ppal = new ThreadPrincipal(this);
         puntaje = tp;
         compras = tc;
+        ppal.start();
     }
 
-    public void gameLoop() {
-        // Testeamos por el estado de las torres y enemigos
-        for (GameObject go: objetosMapa) {
-            if (go.estaMuerto()) {
-                objetosMapa.remove(go);
-                puntaje.actualizarPuntaje(go.obtenerPuntaje());
-                compras.actualizarOro(go.obtenerOro());
-            } else
-                go.actualizarPosicion();
-        }
+    public void actualizar() {
+        // Colisionamos todo con todo O(n^2)
+        //   Si un enemigo muere, sumammos los puntos y lo sacamos el mapa
+        //   Si una torre muere, la sacamos del mapa
 
-        // Verificamos si hay que generar un nuevo nivel
-        // o enviar otra barricada
+        // Si la cantidad de enemigos es cero:
+        //   Si ya pasamos 3 oleadas, next level
+        //   Sino, next wave
 
+        // Movemos todos los objetos restantes del mapa
+        for (GameObject go: objetosMapa)
+            go.actualizarPosicion();
+    }
 
-        // Colisionamos todo con todo O(n^2)...
-        colisionador.colisionar(objetosMapa);
+    public void renderizar() {
+        for (GameObject go: objetosMapa)
+            go.repaint();
     }
 
     private void iniciarJuego() {

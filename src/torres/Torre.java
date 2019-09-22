@@ -2,7 +2,7 @@
 package torres;
 
 import armas.Arma;
-import controlador.GameObject;
+import control_grafico.GameObject;
 
 import javax.swing.*;
 

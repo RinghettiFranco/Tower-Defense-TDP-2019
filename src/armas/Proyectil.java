@@ -1,6 +1,6 @@
 package armas;
 
-import controlador.GameObject;
+import control_grafico.GameObject;
 
 import javax.swing.*;
 

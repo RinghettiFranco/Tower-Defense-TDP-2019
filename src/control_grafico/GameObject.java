@@ -1,12 +1,14 @@
-package controlador;
+package control_grafico;
 
 import javax.swing.*;
+import java.awt.*;
 
 public abstract class GameObject extends JLabel {
 
     protected int vida, alcance, impacto;
-
     protected int puntaje, oro;
+
+    protected Rectangle hitBox;
 
     public GameObject(int vida, int alcance, int impacto, ImageIcon graphic) {
         this.vida = vida;
