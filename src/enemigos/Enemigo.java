@@ -11,5 +11,6 @@ public abstract class Enemigo extends GameObject {
 
     public Enemigo(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);
+        this.setBounds(60,60,25, 63);
     }
 }
