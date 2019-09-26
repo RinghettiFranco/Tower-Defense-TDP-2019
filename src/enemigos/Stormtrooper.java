@@ -6,7 +6,7 @@ import java.awt.geom.Point2D;
 public class Stormtrooper extends Enemigo {
 	
 	protected Movimiento pos;
-	protected static ImageIcon runningGif = new ImageIcon("src/Imagenes/Stormtroopergif.gif");
+	protected static ImageIcon runningGif = new ImageIcon("src/Imagenes/Stormtrooper.gif");
 
 	public Stormtrooper(int x, int y) {
 		super(100, 2, 13, runningGif);
