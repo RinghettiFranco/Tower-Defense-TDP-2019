@@ -2,5 +2,5 @@ package armas;
 
 public abstract class Arma {
 
-    public abstract Proyectil atacar();
+    public abstract Proyectil disparar();
 }

@@ -1,4 +1,4 @@
-package controlador;
+package control_logico;
 
 import control_grafico.TableroJuego;
 

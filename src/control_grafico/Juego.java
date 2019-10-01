@@ -1,7 +1,6 @@
 package control_grafico;
 
-import controlador.Constantes;
-import controlador.ThreadPrincipal;
+import control_logico.Constantes;
 
 import javax.swing.*;
 

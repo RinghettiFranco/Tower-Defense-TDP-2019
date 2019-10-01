@@ -1,9 +1,9 @@
 package control_grafico;
 
-import controlador.Colisionador;
-import controlador.Constantes;
-import controlador.GeneradorNivel;
-import controlador.ThreadPrincipal;
+import control_logico.Colisionador;
+import control_logico.Constantes;
+import control_logico.GeneradorNivel;
+import control_logico.ThreadPrincipal;
 
 import javax.swing.*;
 import java.awt.*;

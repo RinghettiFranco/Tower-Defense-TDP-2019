@@ -1,19 +1,20 @@
 package torres;
 
-import javax.swing.ImageIcon;
+import armas.PistolaBlaster;
 
-public class Han_Solo extends Torre {
+import javax.swing.ImageIcon;
+import java.awt.*;
+
+public class HanSolo extends Torre {
 	
 	protected static ImageIcon shooting = new ImageIcon("src/Imagenes/Shooting Han solo.png");
 	protected static ImageIcon standing = new ImageIcon("src/Imagenes/Standing Han Solo.png");
 	
-	public Han_Solo(int x, int y){
+	public HanSolo(int x, int y){
 		super(100, 2, 13, standing);
-		this.setBounds(x, y, 25, 63);
-	}
 
-	@Override
-	public void actualizarPosicion(){
-		System.out.println("No me muevo");
+		golpe = new PistolaBlaster();
+		hitBox = new Rectangle(x, y, 25, 63);
+		this.setBounds(hitBox);
 	}
 }
