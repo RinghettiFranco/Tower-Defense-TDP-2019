@@ -3,6 +3,10 @@ package torres;
 
 
 import javax.swing.*;
+
+import armas.Proyectil;
+import enemigos.Enemigo;
+
 import java.awt.*;
 
 public class Chewbaca extends Torre {
@@ -16,4 +20,16 @@ public class Chewbaca extends Torre {
         hitBox = new Rectangle(x, y, 33, 73);
         this.setBounds(hitBox);
     }
+
+	@Override
+	public void colisionar(Enemigo e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void colisionar(Proyectil p) {
+		// TODO Auto-generated method stub
+		
+	}
 }

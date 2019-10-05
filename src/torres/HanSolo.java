@@ -3,6 +3,10 @@ package torres;
 
 
 import javax.swing.ImageIcon;
+
+import armas.Proyectil;
+import enemigos.Enemigo;
+
 import java.awt.*;
 
 public class HanSolo extends Torre {
@@ -14,5 +18,17 @@ public class HanSolo extends Torre {
 		super(100, 2, 13, standing);
 		hitBox = new Rectangle(x, y, 25, 63);
 		this.setBounds(hitBox);
+	}
+
+	@Override
+	public void colisionar(Enemigo e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void colisionar(Proyectil p) {
+		// TODO Auto-generated method stub
+		
 	}
 }
