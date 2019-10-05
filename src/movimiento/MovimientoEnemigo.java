@@ -6,9 +6,9 @@ import java.awt.geom.Point2D;
 public class MovimientoEnemigo extends Movimiento {
 	Point2D actual;
 	
-public MovimientoEnemigo(int x,int y) {
-actual=new Point2D.Double(x,y);	
-}
+	public MovimientoEnemigo(int x,int y) {
+		actual=new Point2D.Double(x,y);
+	}
 	
 	
 	public Point2D proximaPosicion() {
