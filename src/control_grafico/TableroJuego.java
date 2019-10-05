@@ -32,17 +32,6 @@ public class TableroJuego extends JPanel {
         this.setLocation(0, Constantes.PANEL_PUNTOS_ALTO);
         this.setBackground(new Color(0xD8D5C4));
         
-        JButton detonar = new JButton("Detonar");
-        detonar.addActionListener(new ActionListener(){
-        	public void actionPerformed(ActionEvent e){
-        		GameObject toDetonate = nivelGen.devolverEnemigo(objetosMapa);
-        		nivelGen.removerEnemigo(objetosMapa, toDetonate);
-        		puntaje.actualizarPuntaje(100);
-        	}
-        });
-        detonar.setBounds(50, 50, 50, 50);
-        this.add(detonar);
-        detonar.setVisible(true);
 
         iniciarJuego();
 
