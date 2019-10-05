@@ -16,13 +16,4 @@ public class GeneradorNivel {
         GameObject enemy = new Stormtrooper(800,20);
         enemigos.add(enemy);
     }
-    
-    public void removerEnemigo(List<GameObject> enemigos, GameObject e){
-    	enemigos.remove(e);
-    	e.setIcon(null);
-    }
-    
-    public GameObject devolverEnemigo(List<GameObject> enemigos){
-    	return enemigos.get(1);
-    }
 }
