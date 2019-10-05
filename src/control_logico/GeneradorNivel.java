@@ -15,5 +15,7 @@ public class GeneradorNivel {
         enemigos.add(new HanSolo(20, 20));
         GameObject enemy = new Stormtrooper(800,20);
         enemigos.add(enemy);
+        enemigos.add(new HanSolo(20, 83));
+        enemigos.add(new HanSolo(20, 146));
     }
 }

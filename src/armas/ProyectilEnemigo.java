@@ -19,4 +19,14 @@ public class ProyectilEnemigo extends Proyectil {
 	public void colisionar(Torre t) {
 		t.recibirDmg(impacto);
 	}
+
+	@Override
+	public void actualizarPosicion() {
+
+	}
+
+	@Override
+	public void colisionar(GameObject go) {
+
+	}
 }

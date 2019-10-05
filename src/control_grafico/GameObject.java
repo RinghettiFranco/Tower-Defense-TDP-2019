@@ -23,6 +23,18 @@ public abstract class GameObject extends JLabel {
 
     public abstract void actualizarPosicion();
 
+    public boolean intersecta(GameObject go) {
+        return this.hitBox.intersects(go.hitBox);
+    }
+
+    public void colisionar(GameObject go) {
+        System.out.println("Esto hay que sacarlo!!");
+    }
+
+    public void recibirDmg(int dmg) {
+        this.vida -= dmg;
+    }
+
     public boolean estaMuerto() {
         return vida == 0;
     }

@@ -1,5 +1,6 @@
 package enemigos;
 
+import control_grafico.GameObject;
 import movimiento.MovimientoEnemigo;
 import torres.Torre;
 
@@ -33,4 +34,8 @@ public class DarthSidious extends Enemigo {
 		// TODO Auto-generated method stub
 		
 	}
+
+    @Override
+    public void colisionar(GameObject go) {
+    }
 }

@@ -1,6 +1,8 @@
 package control_logico;
 
+import control_grafico.GameObject;
+
 public interface Agregable {
 
-    synchronized void addToObjects(GameObject go);
+    abstract void addToObjects(GameObject go);
 }

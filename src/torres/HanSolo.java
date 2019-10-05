@@ -5,6 +5,7 @@ package torres;
 import javax.swing.ImageIcon;
 
 import armas.Proyectil;
+import control_grafico.GameObject;
 import enemigos.Enemigo;
 
 import java.awt.*;
@@ -23,7 +24,7 @@ public class HanSolo extends Torre {
 	@Override
 	public void colisionar(Enemigo e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Colisione con un enemigo");
 	}
 
 	@Override

@@ -13,6 +13,7 @@ public class Juego {
         TableroJuego juego = new TableroJuego(puntos, compra);
 
         ventana.setLayout(null);
+        ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ventana.add(puntos);
         ventana.add(juego);
         ventana.add(compra);

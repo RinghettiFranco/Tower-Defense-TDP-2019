@@ -5,6 +5,7 @@ package torres;
 import javax.swing.*;
 
 import armas.Proyectil;
+import control_grafico.GameObject;
 import enemigos.Enemigo;
 
 import java.awt.*;
@@ -32,4 +33,9 @@ public class LukeSkywalker extends Torre {
 		// TODO Auto-generated method stub
 		
 	}
+
+    @Override
+    public void colisionar(GameObject go) {
+
+    }
 }

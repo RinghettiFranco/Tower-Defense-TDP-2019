@@ -3,6 +3,7 @@ package enemigos;
 import javax.swing.ImageIcon;
 
 import armas.Proyectil;
+import control_grafico.GameObject;
 import movimiento.*;
 import torres.Torre;
 
@@ -25,7 +26,7 @@ public class Stormtrooper extends Enemigo {
 	@Override
 	public void colisionar(Torre t) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Colisione con una torre");
 	}
 
 	@Override
