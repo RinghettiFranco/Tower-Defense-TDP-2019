@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TableroJuego extends JPanel {
+public class TableroJuego extends JPanel implements Agregable {
 
     private int nivel;
 
@@ -58,6 +58,15 @@ public class TableroJuego extends JPanel {
     public void renderizar() {
         for (GameObject go: objetosMapa)
             go.repaint();
+    }
+
+    public synchronized void addToObjects(GameObject go) {
+        objetosMapa.add(go);
+    }
+
+    public synchronized void delFromObjects(List<GameObject> toDel) {
+	for (GameObject go: toDel)
+		objetosMapa.del(go);
     }
 
     private void iniciarJuego() {
