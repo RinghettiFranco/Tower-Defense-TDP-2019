@@ -14,8 +14,6 @@ public class DarthSidious extends Enemigo {
         super(400, 1, 33, walkingDarthSidious);
         pos = new MovimientoEnemigo(x, y);
 
-        golpe = null; // TODO: Agregar los rayos de los dedos
-
         hitBox = new Rectangle(x, y, 33, 73);
         this.setBounds(hitBox);
     }

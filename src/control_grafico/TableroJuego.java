@@ -1,6 +1,6 @@
 package control_grafico;
 
-import control_logico.Colisionador;
+
 import control_logico.Constantes;
 import control_logico.GeneradorNivel;
 import control_logico.ThreadPrincipal;
@@ -16,7 +16,6 @@ public class TableroJuego extends JPanel {
 
     private int nivel;
 
-    private Colisionador colisionador;
     private GeneradorNivel nivelGen;
     private List<GameObject> objetosMapa;
 
@@ -47,7 +46,6 @@ public class TableroJuego extends JPanel {
 
         iniciarJuego();
 
-        colisionador = new Colisionador();
         ppal = new ThreadPrincipal(this);
         puntaje = tp;
         compras = tc;

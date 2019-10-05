@@ -1,6 +1,5 @@
 package enemigos;
 
-import armas.Melee;
 import movimiento.MovimientoEnemigo;
 
 import javax.swing.*;
@@ -14,8 +13,6 @@ public class BobbaFet extends Enemigo {
     public BobbaFet(int x, int y) {
         super(19, 2, 20, walkingBobbaFet);
         pos = new MovimientoEnemigo(x, y);
-
-        golpe = new Melee();
 
         hitBox = new Rectangle(x, y, 33, 73);
         this.setBounds(hitBox);

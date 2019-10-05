@@ -2,7 +2,6 @@ package enemigos;
 
 import javax.swing.ImageIcon;
 
-import armas.ArmaLaser;
 import movimiento.*;
 
 import java.awt.*;
@@ -15,7 +14,6 @@ public class Stormtrooper extends Enemigo {
 		super(100, 2, 13, runningGif);
 		pos=new MovimientoEnemigo(x,y);
 
-		golpe = new ArmaLaser();
 
 		hitBox = new Rectangle(x, y, 33, 73);
 		this.setBounds(hitBox);

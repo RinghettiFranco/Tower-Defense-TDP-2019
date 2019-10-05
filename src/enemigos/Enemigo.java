@@ -1,6 +1,6 @@
 package enemigos;
 
-import armas.Arma;
+
 import control_grafico.GameObject;
 import movimiento.Movimiento;
 
@@ -10,7 +10,6 @@ import java.awt.geom.Point2D;
 public abstract class Enemigo extends GameObject {
 
     protected Movimiento pos;
-    protected Arma golpe;
 
     public Enemigo(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);

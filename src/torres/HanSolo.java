@@ -1,6 +1,6 @@
 package torres;
 
-import armas.PistolaBlaster;
+
 
 import javax.swing.ImageIcon;
 import java.awt.*;
@@ -12,8 +12,6 @@ public class HanSolo extends Torre {
 	
 	public HanSolo(int x, int y){
 		super(100, 2, 13, standing);
-
-		golpe = new PistolaBlaster();
 		hitBox = new Rectangle(x, y, 25, 63);
 		this.setBounds(hitBox);
 	}
