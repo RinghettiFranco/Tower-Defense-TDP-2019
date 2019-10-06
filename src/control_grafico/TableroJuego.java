@@ -1,15 +1,10 @@
 package control_grafico;
 
 
-import control_logico.Agregable;
-import control_logico.Constantes;
-import control_logico.GeneradorNivel;
-import control_logico.ThreadPrincipal;
+import control_logico.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,6 +38,7 @@ public class TableroJuego extends JPanel implements Agregable {
 
     public void verificarColisiones() {
         GameObject goi, goj;
+        VisitorColision vc = new VisitorColision();
 
         int i = 0;
         while (i < objetosMapa.size()) {
@@ -50,8 +46,12 @@ public class TableroJuego extends JPanel implements Agregable {
             for (int j = 0; j < objetosMapa.size(); j++) {
                 goj = objetosMapa.get(j);
                 if (!goi.equals(goj) && goi.intersecta(goj)) {
-                    goi.colisionar(goj);
-                    goj.colisionar(goi);
+                    // Colisionamos al objeto i con el j (I recibe el daño de la colision)
+                    vc.setColisionado(goj);
+                    goi.aceptar(vc);
+                    // Colisionamos al objeto j con el i (J recibe el daño de la colision)
+                    vc.setColisionado(goi);
+                    goj.aceptar(vc);
                 }
 
                 if (goi.estaMuerto())

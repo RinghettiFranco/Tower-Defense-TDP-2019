@@ -1,6 +1,9 @@
 package enemigos;
 
+import armas.ProyectilAliado;
+import armas.ProyectilEnemigo;
 import control_grafico.GameObject;
+import control_logico.VisitorColision;
 import movimiento.MovimientoEnemigo;
 import torres.Torre;
 
@@ -23,19 +26,24 @@ public class DarthSidious extends Enemigo {
         this.setBounds(hitBox);
     }
 
-	@Override
-	public void colisionar(Torre t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void colisionar(Proyectil p) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void aceptar(VisitorColision vc) {
+        vc.visit(this);
+    }
 
     @Override
-    public void colisionar(GameObject go) {
+    public void colisionar(Torre t) {
+        this.recibirDmg(t.obtenerImpacto());
     }
+
+    @Override
+    public void colisionar(Enemigo e) {}
+
+    @Override
+    public void colisionar(ProyectilAliado pa) {
+        this.recibirDmg(pa.obtenerImpacto());
+    }
+
+    @Override
+    public void colisionar(ProyectilEnemigo pe) {}
 }

@@ -1,6 +1,7 @@
 package armas;
 
 import control_grafico.GameObject;
+import control_logico.VisitorColision;
 import enemigos.Enemigo;
 import torres.Torre;
 
@@ -15,19 +16,27 @@ public class ProyectilAliado extends Proyectil {
 		super(1, 1, impacto, proyectil);
 	}
 
-	public void colisionar(Enemigo e) {
-		e.recibirDmg(impacto);
-	}
-
-	public void colisionar(Torre t) {}
-
 	@Override
 	public void actualizarPosicion() {
 
 	}
 
 	@Override
-	public void colisionar(GameObject go) {
-
+	public void aceptar(VisitorColision vc) {
+		vc.visit(this);
 	}
+
+	@Override
+	public void colisionar(Torre t) {}
+
+	@Override
+	public void colisionar(Enemigo e) {
+		this.recibirDmg(e.obtenerImpacto());
+	}
+
+	@Override
+	public void colisionar(ProyectilAliado pa) {}
+
+	@Override
+	public void colisionar(ProyectilEnemigo pe) {}
 }

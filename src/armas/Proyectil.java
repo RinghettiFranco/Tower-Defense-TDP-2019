@@ -13,6 +13,4 @@ public abstract class Proyectil extends GameObject {
         super(vida, alcance, impacto, graphic);
     }
 
-    public abstract void colisionar(Enemigo e);
-    public abstract void colisionar(Torre t);
 }

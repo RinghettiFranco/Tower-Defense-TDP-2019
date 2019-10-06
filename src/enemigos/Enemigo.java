@@ -3,6 +3,7 @@ package enemigos;
 
 import control_grafico.GameObject;
 import movimiento.Movimiento;
+import movimiento.Quieto;
 import torres.Torre;
 
 import javax.swing.*;
@@ -28,7 +29,8 @@ public abstract class Enemigo extends GameObject {
         hitBox.setBounds(x,y,33,73);
         this.setBounds(hitBox);
     }
-    
-    public abstract void colisionar(Torre t);
-    public abstract void colisionar(Proyectil p);
+
+    public void frenar() {
+        this.pos = new Quieto((int)pos.posicionActual().getX(), (int)pos.posicionActual().getY());
+    }
 }
