@@ -2,11 +2,9 @@
 package torres;
 
 import control_grafico.GameObject;
-import enemigos.Enemigo;
+import control_logico.Visitor;
 
 import javax.swing.*;
-
-import armas.Proyectil;
 
 public abstract class Torre extends GameObject {
 
@@ -19,6 +17,10 @@ public abstract class Torre extends GameObject {
     	//Manejo del colisionador verificando si hay enemigo al alcance o no.
 	// Agregar el disparo al mapa
     	
+    }
+
+    public void aceptar(Visitor v) {
+        v.visit(this);
     }
 
     public void actualizarPosicion(){}

@@ -1,8 +1,6 @@
-package armas;
+package proyectiles;
 
 import control_grafico.GameObject;
-import enemigos.Enemigo;
-import torres.Torre;
 
 import javax.swing.*;
 

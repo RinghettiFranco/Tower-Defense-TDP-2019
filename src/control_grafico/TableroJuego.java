@@ -40,8 +40,7 @@ public class TableroJuego extends JPanel implements Agregable {
         GameObject goi, goj;
         VisitorColision vc = new VisitorColision();
 
-        int i = 0;
-        while (i < objetosMapa.size()) {
+        for (int i = 0; i < objetosMapa.size(); i++) {
             goi = objetosMapa.get(i);
             for (int j = 0; j < objetosMapa.size(); j++) {
                 goj = objetosMapa.get(j);
@@ -59,7 +58,6 @@ public class TableroJuego extends JPanel implements Agregable {
                 if (goj.estaMuerto())
                     toDel.add(goj);
             }
-            i++;
         }
         delFromObjects(toDel);
     }

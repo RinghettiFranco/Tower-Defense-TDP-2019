@@ -1,7 +1,7 @@
 package control_logico;
 
-import armas.ProyectilAliado;
-import armas.ProyectilEnemigo;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
 import enemigos.Enemigo;
 import torres.Torre;
@@ -20,21 +20,25 @@ public class VisitorColision implements Visitor {
 
     @Override
     public void visit(Torre t) {
-        colisionado.colisionar(t);
+        if (colisionado != null)
+            colisionado.colisionar(t);
     }
 
     @Override
     public void visit(Enemigo e) {
-        colisionado.colisionar(e);
+        if (colisionado != null)
+            colisionado.colisionar(e);
     }
 
     @Override
     public void visit(ProyectilAliado pa) {
-        colisionado.colisionar(pa);
+        if (colisionado != null)
+            colisionado.colisionar(pa);
     }
 
     @Override
     public void visit(ProyectilEnemigo pe) {
-        colisionado.colisionar(pe);
+        if (colisionado != null)
+            colisionado.colisionar(pe);
     }
 }

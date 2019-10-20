@@ -2,11 +2,8 @@ package torres;
 
 import javax.swing.ImageIcon;
 
-import armas.Proyectil;
-import armas.ProyectilAliado;
-import armas.ProyectilEnemigo;
-import control_grafico.GameObject;
-import control_logico.VisitorColision;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import enemigos.Enemigo;
 
 import java.awt.*;
@@ -23,16 +20,13 @@ public class HanSolo extends Torre {
 	}
 
 	@Override
-	public void aceptar(VisitorColision vc) {
-		vc.visit(this);
-	}
-
-	@Override
 	public void colisionar(Torre t) {}
 
 	@Override
 	public void colisionar(Enemigo e) {
 		this.recibirDmg(e.obtenerImpacto());
+		System.out.println(this.vida + " " + e.obtenerImpacto());
+		System.out.println(e.getX() + " " + e.getY());
 	}
 
 	@Override

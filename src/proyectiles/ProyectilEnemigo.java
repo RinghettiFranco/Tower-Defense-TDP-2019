@@ -1,6 +1,6 @@
-package armas;
+package proyectiles;
 
-import control_grafico.GameObject;
+import control_logico.Visitor;
 import control_logico.VisitorColision;
 import enemigos.Enemigo;
 import torres.Torre;
@@ -20,9 +20,8 @@ public class ProyectilEnemigo extends Proyectil {
 
 	}
 
-	@Override
-	public void aceptar(VisitorColision vc) {
-		vc.visit(this);
+	public void aceptar(Visitor v) {
+		v.visit(this);
 	}
 
 	@Override

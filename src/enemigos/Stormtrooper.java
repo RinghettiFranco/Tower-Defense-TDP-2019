@@ -2,16 +2,12 @@ package enemigos;
 
 import javax.swing.ImageIcon;
 
-import armas.Proyectil;
-import armas.ProyectilAliado;
-import armas.ProyectilEnemigo;
-import control_grafico.GameObject;
-import control_logico.VisitorColision;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import movimiento.*;
 import torres.Torre;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 public class Stormtrooper extends Enemigo {
 	
@@ -24,11 +20,6 @@ public class Stormtrooper extends Enemigo {
 
 		hitBox = new Rectangle(x, y, 33, 73);
 		this.setBounds(hitBox);
-	}
-
-	@Override
-	public void aceptar(VisitorColision vc) {
-		vc.visit(this);
 	}
 
 	@Override

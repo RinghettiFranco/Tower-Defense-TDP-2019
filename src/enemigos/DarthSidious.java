@@ -1,15 +1,11 @@
 package enemigos;
 
-import armas.ProyectilAliado;
-import armas.ProyectilEnemigo;
-import control_grafico.GameObject;
-import control_logico.VisitorColision;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import movimiento.MovimientoEnemigo;
 import torres.Torre;
 
 import javax.swing.*;
-
-import armas.Proyectil;
 
 import java.awt.*;
 
@@ -24,11 +20,6 @@ public class DarthSidious extends Enemigo {
 
         hitBox = new Rectangle(x, y, 33, 73);
         this.setBounds(hitBox);
-    }
-
-    @Override
-    public void aceptar(VisitorColision vc) {
-        vc.visit(this);
     }
 
     @Override

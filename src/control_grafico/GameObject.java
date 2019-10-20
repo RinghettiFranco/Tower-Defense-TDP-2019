@@ -1,7 +1,8 @@
 package control_grafico;
 
-import armas.ProyectilAliado;
-import armas.ProyectilEnemigo;
+import control_logico.Visitor;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import control_logico.VisitorColision;
 import enemigos.Enemigo;
 import torres.Torre;
@@ -33,7 +34,8 @@ public abstract class GameObject extends JLabel {
         return this.hitBox.intersects(go.hitBox);
     }
 
-    public abstract void aceptar(VisitorColision vc);
+    public abstract void aceptar(Visitor v);
+
     public abstract void colisionar(Torre t);
     public abstract void colisionar(Enemigo e);
     public abstract void colisionar(ProyectilAliado pa);
