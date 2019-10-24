@@ -1,14 +1,10 @@
 package control_grafico;
 
 
-import control_logico.Constantes;
-import control_logico.GeneradorNivel;
-import control_logico.ThreadPrincipal;
+import control_logico.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,7 +13,7 @@ public class TableroJuego extends JPanel implements Agregable {
     private int nivel;
 
     private GeneradorNivel nivelGen;
-    private List<GameObject> objetosMapa;
+    private List<GameObject> objetosMapa, toDel;
 
     private TableroPuntos puntaje;
     private TableroCompra compras;
@@ -31,7 +27,6 @@ public class TableroJuego extends JPanel implements Agregable {
         this.setSize(Constantes.VENTANA_ANCHO, Constantes.PANEL_TABLERO_ALTO);
         this.setLocation(0, Constantes.PANEL_PUNTOS_ALTO);
         this.setBackground(new Color(0xD8D5C4));
-        
 
         iniciarJuego();
 
@@ -41,10 +36,37 @@ public class TableroJuego extends JPanel implements Agregable {
         ppal.start();
     }
 
+    public void verificarColisiones() {
+        GameObject goi, goj;
+        VisitorColision vc = new VisitorColision();
+
+        for (int i = 0; i < objetosMapa.size(); i++) {
+            goi = objetosMapa.get(i);
+            for (int j = 0; j < objetosMapa.size(); j++) {
+                goj = objetosMapa.get(j);
+                if (!goi.equals(goj) && goi.intersecta(goj)) {
+                    // Colisionamos al objeto i con el j (I recibe el daño de la colision)
+                    vc.setColisionado(goj);
+                    goi.aceptar(vc);
+                    // Colisionamos al objeto j con el i (J recibe el daño de la colision)
+                    vc.setColisionado(goi);
+                    goj.aceptar(vc);
+                }
+
+                if (goi.estaMuerto())
+                    toDel.add(goi);
+                if (goj.estaMuerto())
+                    toDel.add(goj);
+            }
+        }
+        delFromObjects(toDel);
+    }
+
     public void actualizar() {
         // Colisionamos todo con todo O(n^2)
         //   Si un enemigo muere, sumammos los puntos y lo sacamos el mapa
         //   Si una torre muere, la sacamos del mapa
+	    verificarColisiones();
 
         // Si la cantidad de enemigos es cero:
         //   Si ya pasamos 3 oleadas, next level
@@ -65,14 +87,16 @@ public class TableroJuego extends JPanel implements Agregable {
     }
 
     public synchronized void delFromObjects(List<GameObject> toDel) {
-	for (GameObject go: toDel)
-		objetosMapa.del(go);
+	    for (GameObject go: toDel)
+		    objetosMapa.remove(go);
+        toDel.clear();
     }
 
     private void iniciarJuego() {
         nivel = 1;
         nivelGen = new GeneradorNivel(nivel);
 
+	    toDel = new LinkedList<>();
         objetosMapa = new LinkedList<>();
         nivelGen.generar(objetosMapa);
 

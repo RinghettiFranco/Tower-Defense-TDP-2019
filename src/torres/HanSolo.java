@@ -1,10 +1,9 @@
 package torres;
 
-
-
 import javax.swing.ImageIcon;
 
-import armas.Proyectil;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import enemigos.Enemigo;
 
 import java.awt.*;
@@ -21,14 +20,20 @@ public class HanSolo extends Torre {
 	}
 
 	@Override
+	public void colisionar(Torre t) {}
+
+	@Override
 	public void colisionar(Enemigo e) {
-		// TODO Auto-generated method stub
-		
+		this.recibirDmg(e.obtenerImpacto());
+		System.out.println(this.vida + " " + e.obtenerImpacto());
+		System.out.println(e.getX() + " " + e.getY());
 	}
 
 	@Override
-	public void colisionar(Proyectil p) {
-		// TODO Auto-generated method stub
-		
+	public void colisionar(ProyectilAliado pa) {}
+
+	@Override
+	public void colisionar(ProyectilEnemigo pe) {
+		this.recibirDmg(pe.obtenerImpacto());
 	}
 }

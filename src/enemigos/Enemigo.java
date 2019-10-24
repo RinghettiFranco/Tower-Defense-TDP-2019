@@ -2,12 +2,11 @@ package enemigos;
 
 
 import control_grafico.GameObject;
+import control_logico.Visitor;
 import movimiento.Movimiento;
-import torres.Torre;
+import movimiento.Quieto;
 
 import javax.swing.*;
-
-import armas.Proyectil;
 
 import java.awt.geom.Point2D;
 
@@ -28,7 +27,11 @@ public abstract class Enemigo extends GameObject {
         hitBox.setBounds(x,y,33,73);
         this.setBounds(hitBox);
     }
-    
-    public abstract void colisionar(Torre t);
-    public abstract void colisionar(Proyectil p);
+    public void aceptar(Visitor v) {
+        v.visit(this);
+    }
+
+    public void frenar() {
+        this.pos = new Quieto((int)pos.posicionActual().getX(), (int)pos.posicionActual().getY());
+    }
 }
