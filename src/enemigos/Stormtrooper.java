@@ -2,12 +2,12 @@ package enemigos;
 
 import javax.swing.ImageIcon;
 
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
+import armas.Proyectil;
 import movimiento.*;
 import torres.Torre;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 
 public class Stormtrooper extends Enemigo {
 	
@@ -24,18 +24,13 @@ public class Stormtrooper extends Enemigo {
 
 	@Override
 	public void colisionar(Torre t) {
-		this.recibirDmg(t.obtenerImpacto());
-		this.frenar();
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void colisionar(Enemigo e) {}
-
-	@Override
-	public void colisionar(ProyectilAliado pa) {
-		this.recibirDmg(pa.obtenerImpacto());
+	public void colisionar(Proyectil p) {
+		// TODO Auto-generated method stub
+		
 	}
-
-	@Override
-	public void colisionar(ProyectilEnemigo pe) {}
 }

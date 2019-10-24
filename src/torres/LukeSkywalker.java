@@ -1,9 +1,10 @@
 package torres;
 
+
+
 import javax.swing.*;
 
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
+import armas.Proyectil;
 import enemigos.Enemigo;
 
 import java.awt.*;
@@ -20,19 +21,15 @@ public class LukeSkywalker extends Torre {
         this.setBounds(hitBox);
     }
 
-    @Override
-    public void colisionar(Torre t) {}
+	@Override
+	public void colisionar(Enemigo e) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void colisionar(Enemigo e) {
-        this.recibirDmg(e.obtenerImpacto());
-    }
-
-    @Override
-    public void colisionar(ProyectilAliado pa) {}
-
-    @Override
-    public void colisionar(ProyectilEnemigo pe) {
-        this.recibirDmg(pe.obtenerImpacto());
-    }
+	@Override
+	public void colisionar(Proyectil p) {
+		// TODO Auto-generated method stub
+		
+	}
 }

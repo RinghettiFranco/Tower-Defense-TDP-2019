@@ -1,11 +1,11 @@
 package enemigos;
 
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
 import movimiento.MovimientoEnemigo;
 import torres.Torre;
 
 import javax.swing.*;
+
+import armas.Proyectil;
 
 import java.awt.*;
 
@@ -22,20 +22,15 @@ public class BobbaFet extends Enemigo {
         this.setBounds(hitBox);
     }
 
-    @Override
+	@Override
 	public void colisionar(Torre t) {
 		// TODO Auto-generated method stub
 		
 	}
 
-    @Override
-    public void colisionar(Enemigo e) {}
-
-    @Override
-    public void colisionar(ProyectilAliado pa) {
-        this.recibirDmg(pa.obtenerImpacto());
-    }
-
-    @Override
-    public void colisionar(ProyectilEnemigo pe) {}
+	@Override
+	public void colisionar(Proyectil p) {
+		// TODO Auto-generated method stub
+		
+	}
 }

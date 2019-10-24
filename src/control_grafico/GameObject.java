@@ -1,12 +1,5 @@
 package control_grafico;
 
-import control_logico.Visitor;
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
-import control_logico.VisitorColision;
-import enemigos.Enemigo;
-import torres.Torre;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -30,23 +23,8 @@ public abstract class GameObject extends JLabel {
 
     public abstract void actualizarPosicion();
 
-    public boolean intersecta(GameObject go) {
-        return this.hitBox.intersects(go.hitBox);
-    }
-
-    public abstract void aceptar(Visitor v);
-
-    public abstract void colisionar(Torre t);
-    public abstract void colisionar(Enemigo e);
-    public abstract void colisionar(ProyectilAliado pa);
-    public abstract void colisionar(ProyectilEnemigo pe);
-
-    public void recibirDmg(int dmg) {
-        this.vida -= dmg;
-    }
-
     public boolean estaMuerto() {
-        return vida <= 0;
+        return vida == 0;
     }
 
     public int obtenerAlcance() {

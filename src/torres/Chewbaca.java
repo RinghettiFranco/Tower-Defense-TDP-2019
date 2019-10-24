@@ -4,8 +4,7 @@ package torres;
 
 import javax.swing.*;
 
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
+import armas.Proyectil;
 import enemigos.Enemigo;
 
 import java.awt.*;
@@ -22,19 +21,15 @@ public class Chewbaca extends Torre {
         this.setBounds(hitBox);
     }
 
-    @Override
-    public void colisionar(Torre t) {}
-
-    @Override
+	@Override
 	public void colisionar(Enemigo e) {
-		this.recibirDmg(e.obtenerImpacto());
+		// TODO Auto-generated method stub
+		
 	}
 
-    @Override
-    public void colisionar(ProyectilAliado pa) {}
-
-    @Override
-    public void colisionar(ProyectilEnemigo pe) {
-        this.recibirDmg(pe.obtenerImpacto());
-    }
+	@Override
+	public void colisionar(Proyectil p) {
+		// TODO Auto-generated method stub
+		
+	}
 }
