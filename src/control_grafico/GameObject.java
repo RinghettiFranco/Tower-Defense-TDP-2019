@@ -42,4 +42,5 @@ public abstract class GameObject extends JLabel {
     public int obtenerOro() {
         return oro;
     }
+    
 }

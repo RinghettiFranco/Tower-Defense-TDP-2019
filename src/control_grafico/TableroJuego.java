@@ -1,6 +1,7 @@
 package control_grafico;
 
 
+import control_logico.Agregable;
 import control_logico.Constantes;
 import control_logico.GeneradorNivel;
 import control_logico.ThreadPrincipal;
@@ -66,18 +67,19 @@ public class TableroJuego extends JPanel implements Agregable {
 
     public synchronized void delFromObjects(List<GameObject> toDel) {
 	for (GameObject go: toDel)
-		objetosMapa.del(go);
+		objetosMapa.remove(go);
     }
 
     private void iniciarJuego() {
         nivel = 1;
-        nivelGen = new GeneradorNivel(nivel);
+        nivelGen = new GeneradorNivel();
 
-        objetosMapa = new LinkedList<>();
-        nivelGen.generar(objetosMapa);
-
-        for (GameObject go: objetosMapa)
+        objetosMapa = nivelGen.generar(nivel);
+        
+        int i=0;
+        for (GameObject go: objetosMapa){
             this.add(go);
+        }
     }
 
     // Seteamos el fondo

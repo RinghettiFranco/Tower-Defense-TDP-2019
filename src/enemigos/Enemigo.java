@@ -31,4 +31,5 @@ public abstract class Enemigo extends GameObject {
     
     public abstract void colisionar(Torre t);
     public abstract void colisionar(Proyectil p);
+    
 }
