@@ -9,12 +9,12 @@ import armas.Proyectil;
 
 import java.awt.*;
 
-public class DarthSidious extends Enemigo {
+public class Soldier extends Enemigo {
 
-    protected static ImageIcon walkingDarthSidious = new ImageIcon("");
+    protected static ImageIcon walkingDarthSidious = new ImageIcon("src/Imagenes/WSoldier.gif");
     protected static ImageIcon attackingDarthSidious = new ImageIcon("");
 
-    public DarthSidious(int x, int y) {
+    public Soldier(int x, int y) {
         super(400, 1, 33, walkingDarthSidious);
         pos = new MovimientoEnemigo(x, y);
 

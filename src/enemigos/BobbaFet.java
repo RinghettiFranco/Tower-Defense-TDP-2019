@@ -11,7 +11,7 @@ import java.awt.*;
 
 public class BobbaFet extends Enemigo {
 
-    protected static ImageIcon walkingBobbaFet = new ImageIcon("");
+    protected static ImageIcon walkingBobbaFet = new ImageIcon("src/Imagenes/WBobbaFet.gif");
     protected static ImageIcon attackingBobbaFet = new ImageIcon("");
 
     public BobbaFet(int x, int y) {
