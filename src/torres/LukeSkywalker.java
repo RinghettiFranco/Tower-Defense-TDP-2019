@@ -16,12 +16,18 @@ public class LukeSkywalker extends Torre {
 
     public LukeSkywalker(int x, int y) {
         super(100, 1, 12, staindingLuke);
+        this.costo = 25;
 
         hitBox = new Rectangle(x, y, 25, 63);
         this.setBounds(hitBox);
     }
 
-	@Override
+    @Override
+    public Torre clone(int x, int y) {
+        return new LukeSkywalker(x, y);
+    }
+
+    @Override
 	public void colisionar(Enemigo e) {
 		// TODO Auto-generated method stub
 		

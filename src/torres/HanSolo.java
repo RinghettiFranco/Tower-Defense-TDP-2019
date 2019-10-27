@@ -16,8 +16,15 @@ public class HanSolo extends Torre {
 	
 	public HanSolo(int x, int y){
 		super(100, 2, 13, standing);
+		this.costo = 12;
+
 		hitBox = new Rectangle(x, y, 25, 63);
 		this.setBounds(hitBox);
+	}
+
+	@Override
+	public Torre clone(int x, int y) {
+		return new HanSolo(x, y);
 	}
 
 	@Override

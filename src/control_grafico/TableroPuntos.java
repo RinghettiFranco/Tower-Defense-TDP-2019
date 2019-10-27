@@ -1,6 +1,7 @@
 package control_grafico;
 
 import control_logico.Constantes;
+import control_logico.Mediator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +11,9 @@ public class TableroPuntos extends JPanel {
     private JLabel texto;
     private int puntos;
 
-    public TableroPuntos() {
+    private Mediator mediador;
+
+    public TableroPuntos(Mediator mediador) {
         super();
 
         puntos = 0;
@@ -21,6 +24,7 @@ public class TableroPuntos extends JPanel {
 
         texto = new JLabel("Puntaje: " + puntos);
         this.add(texto);
+        this.mediador = mediador;
     }
 
     public void actualizarPuntaje(int incremento) {

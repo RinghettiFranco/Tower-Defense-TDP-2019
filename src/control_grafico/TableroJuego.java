@@ -1,16 +1,13 @@
 package control_grafico;
 
 
-import control_logico.Agregable;
-import control_logico.Constantes;
-import control_logico.GeneradorNivel;
-import control_logico.ThreadPrincipal;
+import control_logico.*;
+import torres.Torre;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.LinkedList;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.List;
 
 public class TableroJuego extends JPanel implements Agregable {
@@ -20,26 +17,26 @@ public class TableroJuego extends JPanel implements Agregable {
     private GeneradorNivel nivelGen;
     private List<GameObject> objetosMapa;
 
-    private TableroPuntos puntaje;
-    private TableroCompra compras;
-
     private ThreadPrincipal ppal;
 
-    public TableroJuego(TableroPuntos tp, TableroCompra tc) {
+    private Mediator mediador;
+
+    public TableroJuego(Mediator mediador) {
         super();
 
         this.setLayout(null);
-        this.setSize(Constantes.VENTANA_ANCHO, Constantes.PANEL_TABLERO_ALTO);
+        this.setSize(Constantes.VENTANA_ANCHO, Constantes.PANEL_JUEGO_ALTO);
         this.setLocation(0, Constantes.PANEL_PUNTOS_ALTO);
         this.setBackground(new Color(0xD8D5C4));
+        this.addMouseListener(new ClickListener());
         
 
         iniciarJuego();
 
         ppal = new ThreadPrincipal(this);
-        puntaje = tp;
-        compras = tc;
         ppal.start();
+
+        this.mediador = mediador;
     }
 
     public void actualizar() {
@@ -89,6 +86,43 @@ public class TableroJuego extends JPanel implements Agregable {
 
         super.paintComponent(g);
         g.drawImage(bg, 0 ,0, null);
+    }
+
+    private class ClickListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent mouseEvent) {
+            int posX = mouseEvent.getX();
+            int posY = mouseEvent.getY();
+
+            if (mediador.tengoOro()) {
+                Torre t = mediador.getObject().clone(posX, posY);
+                add(t);
+                mediador.gastar(t.costo());
+                System.out.println("Poniendo " + t.getClass());
+            }
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent mouseEvent) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent mouseEvent) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent mouseEvent) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent mouseEvent) {
+
+        }
     }
 }
 

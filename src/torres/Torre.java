@@ -10,6 +10,7 @@ import armas.Proyectil;
 
 public abstract class Torre extends GameObject {
 
+    protected int costo;
 
     public Torre(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);
@@ -22,7 +23,13 @@ public abstract class Torre extends GameObject {
     }
 
     public void actualizarPosicion(){}
-    
+
+    public int costo() {
+        return costo;
+    }
+
+    public abstract Torre clone(int x, int y);
+
     public abstract void colisionar(Enemigo e);
     public abstract void colisionar(Proyectil p);
 }
