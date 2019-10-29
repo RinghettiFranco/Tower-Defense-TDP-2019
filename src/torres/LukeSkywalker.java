@@ -26,16 +26,4 @@ public class LukeSkywalker extends Torre {
     public Torre clone(int x, int y) {
         return new LukeSkywalker(x, y);
     }
-
-    @Override
-	public void colisionar(Enemigo e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void colisionar(Proyectil p) {
-		// TODO Auto-generated method stub
-		
-	}
 }

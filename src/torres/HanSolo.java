@@ -10,11 +10,11 @@ import enemigos.Enemigo;
 import java.awt.*;
 
 public class HanSolo extends Torre {
-	
+
 	protected static ImageIcon shooting = new ImageIcon("src/Imagenes/ShootingHansolo.png");
 	protected static ImageIcon standing = new ImageIcon("src/Imagenes/StandingHanSolo.png");
-	
-	public HanSolo(int x, int y){
+
+	public HanSolo(int x, int y) {
 		super(100, 2, 13, standing);
 		this.costo = 12;
 
@@ -25,17 +25,5 @@ public class HanSolo extends Torre {
 	@Override
 	public Torre clone(int x, int y) {
 		return new HanSolo(x, y);
-	}
-
-	@Override
-	public void colisionar(Enemigo e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void colisionar(Proyectil p) {
-		// TODO Auto-generated method stub
-		
 	}
 }

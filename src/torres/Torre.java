@@ -1,7 +1,10 @@
 
 package torres;
 
+import armas.ProyectilAliado;
+import armas.ProyectilEnemigo;
 import control_grafico.GameObject;
+import control_logico.Visitor;
 import enemigos.Enemigo;
 
 import javax.swing.*;
@@ -30,7 +33,19 @@ public abstract class Torre extends GameObject {
 
     public abstract Torre clone(int x, int y);
 
-    public abstract void colisionar(Enemigo e);
-    public abstract void colisionar(Proyectil p);
+    public void aceptar(Visitor v) {
+        v.visitar(this);
+    }
+
+    public void colisionar(Torre t){}
+    public void colisionar(ProyectilAliado pa) {}
+
+    public void colisionar(Enemigo e) {
+        this.vida -= e.obtenerImpacto();
+    }
+
+    public void colisionar(ProyectilEnemigo pe) {
+        this.vida -= pe.obtenerImpacto();
+    }
 }
 

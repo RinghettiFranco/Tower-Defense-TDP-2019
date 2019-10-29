@@ -1,8 +1,12 @@
 package enemigos;
 
 
+import armas.ProyectilAliado;
+import armas.ProyectilEnemigo;
 import control_grafico.GameObject;
+import control_logico.Visitor;
 import movimiento.Movimiento;
+import movimiento.MovimientoQuieto;
 import torres.Torre;
 
 import javax.swing.*;
@@ -28,8 +32,24 @@ public abstract class Enemigo extends GameObject {
         hitBox.setBounds(x,y,33,73);
         this.setBounds(hitBox);
     }
-    
-    public abstract void colisionar(Torre t);
-    public abstract void colisionar(Proyectil p);
-    
+
+    public void aceptar(Visitor v) {
+        v.visitar(this);
+    }
+
+    public void colisionar(Torre t) {
+        this.vida -= t.obtenerImpacto();
+        this.frenar();
+        System.out.println("Colisione con " + t.getClass());
+    }
+    public void colisionar(ProyectilAliado pa) {
+        this.vida -= pa.obtenerImpacto();
+    }
+
+    public void colisionar(Enemigo e) {}
+    public void colisionar(ProyectilEnemigo pe) {}
+
+    protected void frenar() {
+        pos = new MovimientoQuieto(hitBox.x, hitBox.y);
+    }
 }

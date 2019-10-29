@@ -43,6 +43,7 @@ public class TableroJuego extends JPanel implements Agregable {
         // Colisionamos todo con todo O(n^2)
         //   Si un enemigo muere, sumammos los puntos y lo sacamos el mapa
         //   Si una torre muere, la sacamos del mapa
+        colisionar();
 
         // Si la cantidad de enemigos es cero:
         //   Si ya pasamos 3 oleadas, next level
@@ -65,6 +66,18 @@ public class TableroJuego extends JPanel implements Agregable {
     public synchronized void delFromObjects(List<GameObject> toDel) {
 	for (GameObject go: toDel)
 		objetosMapa.remove(go);
+    }
+
+    private void colisionar() {
+        VisitorColision v = new VisitorColision();
+
+        // Colisionamos al objeto I con el objeto J
+        for (GameObject objectI: objetosMapa)
+            for (GameObject objectJ: objetosMapa)
+                if (!objectI.equals(objectJ) && objectI.hitBox.intersects(objectJ.hitBox)) {
+                    v.setObjeto(objectJ);
+                    objectI.aceptar(v);
+                }
     }
 
     private void iniciarJuego() {

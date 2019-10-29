@@ -22,16 +22,4 @@ public class DarthVader extends Enemigo {
         hitBox = new Rectangle(x, y, 60, 80);
         this.setBounds(hitBox);
     }
-
-	@Override
-	public void colisionar(Torre t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void colisionar(Proyectil p) {
-		// TODO Auto-generated method stub
-		
-	}
 }

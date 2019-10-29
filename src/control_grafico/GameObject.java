@@ -1,5 +1,11 @@
 package control_grafico;
 
+import armas.ProyectilAliado;
+import armas.ProyectilEnemigo;
+import control_logico.Visitor;
+import enemigos.Enemigo;
+import torres.Torre;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,6 +26,12 @@ public abstract class GameObject extends JLabel {
 
         this.setIcon(graphic);
     }
+
+    public abstract void aceptar(Visitor v);
+    public abstract void colisionar(Torre t);
+    public abstract void colisionar(Enemigo e);
+    public abstract void colisionar(ProyectilAliado pa);
+    public abstract void colisionar(ProyectilEnemigo pe);
 
     public abstract void actualizarPosicion();
 

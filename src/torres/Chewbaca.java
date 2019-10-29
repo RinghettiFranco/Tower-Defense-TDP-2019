@@ -27,13 +27,4 @@ public class Chewbaca extends Torre {
         return new Chewbaca(x, y);
     }
 
-    @Override
-	public void colisionar(Enemigo e) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void colisionar(Proyectil p) {
-		// TODO Auto-generated method stub
-	}
 }
