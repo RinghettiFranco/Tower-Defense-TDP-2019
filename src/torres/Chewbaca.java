@@ -11,8 +11,8 @@ import java.awt.*;
 
 public class Chewbaca extends Torre {
 
-    protected static ImageIcon standingChewbaca = new ImageIcon("");
-    protected static ImageIcon attackingChewbaca = new ImageIcon("");
+    protected static ImageIcon standingChewbaca = new ImageIcon("src/Imagenes/StandingChewbaca.png");
+    protected static ImageIcon attackingChewbaca = new ImageIcon("src/Imagenes/AttackingChewbaca.gif");
 
     public Chewbaca(int x, int y) {
         super(200, 5,  22, standingChewbaca);

@@ -11,8 +11,8 @@ import java.awt.*;
 
 public class HanSolo extends Torre {
 	
-	protected static ImageIcon shooting = new ImageIcon("src/Imagenes/Shooting Han solo.png");
-	protected static ImageIcon standing = new ImageIcon("src/Imagenes/Standing Han Solo.png");
+	protected static ImageIcon shooting = new ImageIcon("src/Imagenes/ShootingHansolo.png");
+	protected static ImageIcon standing = new ImageIcon("src/Imagenes/StandingHanSolo.png");
 	
 	public HanSolo(int x, int y){
 		super(100, 2, 13, standing);

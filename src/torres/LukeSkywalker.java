@@ -11,14 +11,14 @@ import java.awt.*;
 
 public class LukeSkywalker extends Torre {
 
-    protected static ImageIcon staindingLuke = new ImageIcon("src/Imagenes/Standing Luke Skywalker.png");
-    protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/Standing Luke Skywalker.png");
+    protected static ImageIcon standingLuke = new ImageIcon("src/Imagenes/StandingLuke.png");
+    protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/AttackingLuke.gif");
 
     public LukeSkywalker(int x, int y) {
-        super(100, 1, 12, staindingLuke);
+        super(100, 1, 12, standingLuke);
         this.costo = 25;
 
-        hitBox = new Rectangle(x, y, 25, 63);
+        hitBox = new Rectangle(x, y, 40, 80);
         this.setBounds(hitBox);
     }
 
