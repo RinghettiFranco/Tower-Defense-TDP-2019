@@ -37,17 +37,16 @@ public abstract class Enemigo extends GameObject {
         v.visitar(this);
     }
 
-    public void colisionar(Torre t) {
-        this.vida -= t.obtenerImpacto();
+    public void atacar(Torre t) {
+        vida.recibirDmg(t.obtenerImpacto());
         this.frenar();
-        System.out.println("Colisione con " + t.getClass());
     }
-    public void colisionar(ProyectilAliado pa) {
-        this.vida -= pa.obtenerImpacto();
+    public void atacar(ProyectilAliado pa) {
+        vida.recibirDmg(pa.obtenerImpacto());
     }
 
-    public void colisionar(Enemigo e) {}
-    public void colisionar(ProyectilEnemigo pe) {}
+    public void atacar(Enemigo e) {}
+    public void atacar(ProyectilEnemigo pe) {}
 
     protected void frenar() {
         pos = new MovimientoQuieto(hitBox.x, hitBox.y);

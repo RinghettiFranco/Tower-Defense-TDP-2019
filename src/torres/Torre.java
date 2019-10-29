@@ -37,15 +37,15 @@ public abstract class Torre extends GameObject {
         v.visitar(this);
     }
 
-    public void colisionar(Torre t){}
-    public void colisionar(ProyectilAliado pa) {}
+    public void atacar(Torre t){}
+    public void atacar(ProyectilAliado pa) {}
 
-    public void colisionar(Enemigo e) {
-        this.vida -= e.obtenerImpacto();
+    public void atacar(Enemigo e) {
+        vida.recibirDmg(e.obtenerImpacto());
     }
 
-    public void colisionar(ProyectilEnemigo pe) {
-        this.vida -= pe.obtenerImpacto();
+    public void atacar(ProyectilEnemigo pe) {
+        vida.recibirDmg(pe.obtenerImpacto());
     }
 }
 

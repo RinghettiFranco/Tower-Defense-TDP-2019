@@ -54,7 +54,7 @@ public class TableroJuego extends JPanel implements Agregable {
             go.actualizarPosicion();
     }
 
-    public void renderizar() {
+    public synchronized void renderizar() {
         for (GameObject go: objetosMapa)
             go.repaint();
     }
@@ -111,8 +111,8 @@ public class TableroJuego extends JPanel implements Agregable {
             if (mediador.tengoOro()) {
                 Torre t = mediador.getObject().clone(posX, posY);
                 add(t);
+                addToObjects(t);
                 mediador.gastar(t.costo());
-                System.out.println("Poniendo " + t.getClass());
             }
 
         }

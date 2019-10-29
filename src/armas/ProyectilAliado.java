@@ -13,22 +13,22 @@ public class ProyectilAliado extends Proyectil {
     }
 
     @Override
-    public void colisionar(Enemigo e) {
+    public void atacar(Enemigo e) {
 
     }
 
     @Override
-    public void colisionar(ProyectilAliado pa) {
+    public void atacar(ProyectilAliado pa) {
 
     }
 
     @Override
-    public void colisionar(ProyectilEnemigo pe) {
+    public void atacar(ProyectilEnemigo pe) {
 
     }
 
     @Override
-    public void colisionar(Torre t) {
+    public void atacar(Torre t) {
 
     }
 
