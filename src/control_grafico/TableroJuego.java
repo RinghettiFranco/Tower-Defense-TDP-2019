@@ -77,9 +77,9 @@ public class TableroJuego extends JPanel implements Agregable {
         this.add(go);
     }
 
-    public synchronized void delFromObjects(List<GameObject> toDel) {
-	for (GameObject go: toDel)
-		objetosMapa.remove(go);
+    public synchronized void delFromObjects(GameObject toDel) {
+		objetosMapa.remove(toDel);
+		this.remove(toDel);
     }
 
     private void colisionar() {
@@ -93,6 +93,9 @@ public class TableroJuego extends JPanel implements Agregable {
                     objectJ = objetosMapa.get(j);
                     if (distancia(objectI.hitBox, objectJ.hitBox) <= objectI.obtenerAlcance())
                         objectI.aceptar(new VisitorAtaque(objectJ));
+
+                    if (objectJ.estaMuerto())
+                        objectJ.morir();
                 }
         }
     }
@@ -119,10 +122,9 @@ public class TableroJuego extends JPanel implements Agregable {
         public void mouseClicked(MouseEvent mouseEvent) {
             int posX = mouseEvent.getX() - (mouseEvent.getX()%100) + 15;
             int posY = mouseEvent.getY() - (mouseEvent.getY()%100) + 25;
-            
+
             if (mediador.tengoOro()) {
                 Torre t = mediador.getObject().clone(posX, posY);
-                //add(t);
                 mediador.gastar(t.costo());
             }
         }

@@ -4,5 +4,6 @@ import control_grafico.GameObject;
 
 public interface Agregable {
 
-    abstract void addToObjects(GameObject go);
+    void addToObjects(GameObject go);
+    void delFromObjects(GameObject go);
 }

@@ -46,6 +46,10 @@ public abstract class GameObject extends JLabel {
 
     public abstract void actualizarPosicion();
 
+    public void morir() {
+        tableroJuego.delFromObjects(this);
+    }
+
     public boolean estaMuerto() {
         return vida.obtenerVida() == 0;
     }
