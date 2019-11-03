@@ -20,6 +20,8 @@ public class HanSolo extends Torre {
 
 		hitBox = new Rectangle(x, y, 25, 63);
 		this.setBounds(hitBox);
+
+		tableroJuego.addToObjects(this);
 	}
 
 	@Override

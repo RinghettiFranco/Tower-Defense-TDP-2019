@@ -21,5 +21,7 @@ public class DarthVader extends Enemigo {
 
         hitBox = new Rectangle(x, y, 60, 80);
         this.setBounds(hitBox);
+
+        tableroJuego.addToObjects(this);
     }
 }

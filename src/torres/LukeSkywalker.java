@@ -20,6 +20,8 @@ public class LukeSkywalker extends Torre {
 
         hitBox = new Rectangle(x, y, 40, 80);
         this.setBounds(hitBox);
+
+        tableroJuego.addToObjects(this);
     }
 
     @Override

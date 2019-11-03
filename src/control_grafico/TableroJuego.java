@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.LinkedList;
 import java.util.List;
 
 public class TableroJuego extends JPanel implements Agregable {
@@ -29,9 +30,19 @@ public class TableroJuego extends JPanel implements Agregable {
         this.setLocation(0, Constantes.PANEL_PUNTOS_ALTO);
         this.setBackground(new Color(0xD8D5C4));
         this.addMouseListener(new ClickListener());
-        
 
-        iniciarJuego();
+        objetosMapa = new LinkedList<>();
+        GameObject.setTableroJuego(this);
+
+        nivel = 1;
+        nivelGen = new GeneradorNivel();
+
+        objetosMapa = nivelGen.generar(nivel);
+
+        int i=0;
+        for (GameObject go: objetosMapa){
+            this.add(go);
+        }
 
         ppal = new ThreadPrincipal(this);
         ppal.start();
@@ -80,18 +91,6 @@ public class TableroJuego extends JPanel implements Agregable {
                 }
     }
 
-    private void iniciarJuego() {
-        nivel = 1;
-        nivelGen = new GeneradorNivel();
-
-        objetosMapa = nivelGen.generar(nivel);
-        
-        int i=0;
-        for (GameObject go: objetosMapa){
-            this.add(go);
-        }
-    }
-
     // Seteamos el fondo
     protected void paintComponent(Graphics g) {
         ImageIcon bgImage = new ImageIcon("src/Imagenes/PC Computer - RPG Maker MV - Sand.png");
@@ -111,7 +110,6 @@ public class TableroJuego extends JPanel implements Agregable {
             if (mediador.tengoOro()) {
                 Torre t = mediador.getObject().clone(posX, posY);
                 add(t);
-                addToObjects(t);
                 mediador.gastar(t.costo());
             }
 

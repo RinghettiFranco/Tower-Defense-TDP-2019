@@ -17,7 +17,6 @@ public class Juego {
         TableroJuego juego = new TableroJuego(mediador);
         ((MediadorCompra)mediador).setTienda(compra);
 
-
         ventana.setLayout(null);
         ventana.add(puntos);
         ventana.add(juego);
