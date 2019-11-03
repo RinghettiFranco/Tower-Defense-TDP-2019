@@ -20,5 +20,7 @@ public class BobbaFet extends Enemigo {
 
         hitBox = new Rectangle(x, y, 33, 73);
         this.setBounds(hitBox);
+
+        tableroJuego.addToObjects(this);
     }
 }

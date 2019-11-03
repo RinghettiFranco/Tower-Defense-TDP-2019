@@ -20,6 +20,8 @@ public class Chewbaca extends Torre {
 
         hitBox = new Rectangle(x, y, 33, 73);
         this.setBounds(hitBox);
+
+        tableroJuego.addToObjects(this);
     }
 
     @Override

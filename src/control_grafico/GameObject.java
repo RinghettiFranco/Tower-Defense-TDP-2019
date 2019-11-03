@@ -2,6 +2,7 @@ package control_grafico;
 
 import armas.ProyectilAliado;
 import armas.ProyectilEnemigo;
+import control_logico.Agregable;
 import control_logico.SinEscudo;
 import control_logico.Vida;
 import control_logico.Visitor;
@@ -12,6 +13,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class GameObject extends JLabel {
+
+    protected static Agregable tableroJuego;
 
     protected Vida vida;
     protected int alcance, impacto;
@@ -28,6 +31,10 @@ public abstract class GameObject extends JLabel {
         this.oro = (int) Math.random();
 
         this.setIcon(graphic);
+    }
+
+    public static void setTableroJuego(Agregable a) {
+        tableroJuego = a;
     }
 
     public abstract void aceptar(Visitor v);
