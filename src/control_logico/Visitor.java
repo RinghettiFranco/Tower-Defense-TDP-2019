@@ -11,4 +11,5 @@ public interface Visitor {
     void visitar(Enemigo e);
     void visitar(ProyectilAliado pa);
     void visitar(ProyectilEnemigo pe);
+	
 }
