@@ -56,13 +56,15 @@ public class TableroJuego extends JPanel implements Agregable {
         //   Si una torre muere, la sacamos del mapa
         colisionar();
 
-        // Si la cantidad de enemigos es cero:
-        //   Si ya pasamos 3 oleadas, next level
-        //   Sino, next wave
-
+        VisitorPerder vp = new VisitorPerder();
         // Movemos todos los objetos restantes del mapa
-        for (GameObject go: objetosMapa)
+        for (GameObject go: objetosMapa) {
             go.actualizarPosicion();
+            go.aceptar(vp);
+        }
+
+        if (vp.perdi())
+            System.exit(32);
     }
 
     public synchronized void renderizar() {
@@ -72,6 +74,7 @@ public class TableroJuego extends JPanel implements Agregable {
 
     public synchronized void addToObjects(GameObject go) {
         objetosMapa.add(go);
+        this.add(go);
     }
 
     public synchronized void delFromObjects(List<GameObject> toDel) {
@@ -80,15 +83,27 @@ public class TableroJuego extends JPanel implements Agregable {
     }
 
     private void colisionar() {
-        VisitorColision v = new VisitorColision();
+        GameObject objectI, objectJ;
+        VisitorAtaque v = new VisitorAtaque();
 
-        // Colisionamos al objeto I con el objeto J
-        for (GameObject objectI: objetosMapa)
-            for (GameObject objectJ: objetosMapa)
-                if (!objectI.equals(objectJ) && objectI.hitBox.intersects(objectJ.hitBox)) {
-                    v.setObjeto(objectJ);
-                    objectI.aceptar(v);
-                }
+        // Colisionamos a los objetos entre ellos
+        for (int i = 0; i < objetosMapa.size(); i++) {
+            objectI = objetosMapa.get(i);
+            for (int j = i+1; j < objetosMapa.size(); j++) {
+                objectJ = objetosMapa.get(j);
+
+                v.setObjeto(objectJ);
+                objectI.aceptar(v);
+
+                v.setObjeto(objectI);
+                objectJ.aceptar(v);
+            }
+
+        }
+    }
+
+    private int distancia(Rectangle r1, Rectangle r2) {
+        return (int) Math.sqrt(Math.pow(r2.x-r1.x, 2) + Math.pow(r2.y-r1.y, 2));
     }
 
     // Seteamos el fondo
@@ -109,7 +124,6 @@ public class TableroJuego extends JPanel implements Agregable {
 
             if (mediador.tengoOro()) {
                 Torre t = mediador.getObject().clone(posX, posY);
-                add(t);
                 mediador.gastar(t.costo());
             }
 

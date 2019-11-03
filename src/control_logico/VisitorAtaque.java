@@ -6,7 +6,7 @@ import control_grafico.GameObject;
 import enemigos.Enemigo;
 import torres.Torre;
 
-public class VisitorColision implements Visitor {
+public class VisitorAtaque implements Visitor {
 
     protected GameObject objeto;
 
