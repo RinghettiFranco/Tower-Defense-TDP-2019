@@ -15,7 +15,7 @@ public class HanSolo extends Torre {
 	protected static ImageIcon standing = new ImageIcon("src/Imagenes/StandingHanSolo.png");
 
 	public HanSolo(int x, int y) {
-		super(100, 2, 13, standing);
+		super(100, 300, 13, standing);
 		this.costo = 12;
 
 		hitBox = new Rectangle(x, y, 25, 63);

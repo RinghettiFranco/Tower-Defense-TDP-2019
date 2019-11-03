@@ -6,6 +6,7 @@ import armas.ProyectilEnemigo;
 import control_grafico.GameObject;
 import control_logico.Visitor;
 import movimiento.Movimiento;
+import movimiento.MovimientoEnemigo;
 import movimiento.MovimientoQuieto;
 import torres.Torre;
 
@@ -41,6 +42,7 @@ public abstract class Enemigo extends GameObject {
         vida.recibirDmg(t.obtenerImpacto());
         this.frenar();
     }
+
     public void atacar(ProyectilAliado pa) {
         vida.recibirDmg(pa.obtenerImpacto());
     }

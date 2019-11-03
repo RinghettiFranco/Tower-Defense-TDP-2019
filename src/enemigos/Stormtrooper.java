@@ -14,7 +14,7 @@ public class Stormtrooper extends Enemigo {
 	protected static ImageIcon runningGif = new ImageIcon("src/Imagenes/Stormtrooper.gif");
 
 	public Stormtrooper(int x, int y) {
-		super(100, 2, 13, runningGif);
+		super(100, 300, 13, runningGif);
 		pos=new MovimientoEnemigo(x,y);
 
 

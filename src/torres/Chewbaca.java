@@ -15,7 +15,7 @@ public class Chewbaca extends Torre {
     protected static ImageIcon attackingChewbaca = new ImageIcon("src/Imagenes/AttackingChewbaca.gif");
 
     public Chewbaca(int x, int y) {
-        super(200, 5,  22, standingChewbaca);
+        super(200, 50,  22, standingChewbaca);
         this.costo = 10;
 
         hitBox = new Rectangle(x, y, 33, 73);

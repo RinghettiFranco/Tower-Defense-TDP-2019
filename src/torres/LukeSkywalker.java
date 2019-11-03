@@ -15,7 +15,7 @@ public class LukeSkywalker extends Torre {
     protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/AttackingLuke.gif");
 
     public LukeSkywalker(int x, int y) {
-        super(100, 1, 12, standingLuke);
+        super(100, 50, 12, standingLuke);
         this.costo = 25;
 
         hitBox = new Rectangle(x, y, 40, 80);

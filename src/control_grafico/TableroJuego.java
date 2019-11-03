@@ -84,26 +84,24 @@ public class TableroJuego extends JPanel implements Agregable {
 
     private void colisionar() {
         GameObject objectI, objectJ;
-        VisitorAtaque v = new VisitorAtaque();
 
         // Colisionamos a los objetos entre ellos
         for (int i = 0; i < objetosMapa.size(); i++) {
             objectI = objetosMapa.get(i);
-            for (int j = i+1; j < objetosMapa.size(); j++) {
-                objectJ = objetosMapa.get(j);
-
-                v.setObjeto(objectJ);
-                objectI.aceptar(v);
-
-                v.setObjeto(objectI);
-                objectJ.aceptar(v);
-            }
-
+            for (int j = 0; j < objetosMapa.size(); j++)
+                if (i != j) {
+                    objectJ = objetosMapa.get(j);
+                    if (distancia(objectI.hitBox, objectJ.hitBox) <= objectI.obtenerAlcance())
+                        objectI.aceptar(new VisitorAtaque(objectJ));
+                }
         }
     }
 
     private int distancia(Rectangle r1, Rectangle r2) {
-        return (int) Math.sqrt(Math.pow(r2.x-r1.x, 2) + Math.pow(r2.y-r1.y, 2));
+        if (r1.y == r2.y)
+            return (int) Math.sqrt((r2.x-r1.x)*(r2.x-r1.x) + (r2.y-r1.y)*(r2.y-r1.y));
+        else
+            return Constantes.MAX_INF;
     }
 
     // Seteamos el fondo
@@ -119,12 +117,13 @@ public class TableroJuego extends JPanel implements Agregable {
 
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
-            int posX = mouseEvent.getX();
-            int posY = mouseEvent.getY();
+            int posX = mouseEvent.getX() - (mouseEvent.getX()%100);
+            int posY = mouseEvent.getY() - (mouseEvent.getY()%100) + 25;
 
             if (mediador.tengoOro()) {
                 Torre t = mediador.getObject().clone(posX, posY);
                 mediador.gastar(t.costo());
+                System.out.println("Agregando " + t.getClass() + " en " + posX + ", " + posY);
             }
 
         }

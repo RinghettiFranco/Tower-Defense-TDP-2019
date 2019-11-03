@@ -14,6 +14,10 @@ public class VisitorAtaque implements Visitor {
         objeto = go;
     }
 
+    public VisitorAtaque(GameObject go) {
+        objeto = go;
+    }
+
     @Override
     public void visitar(Torre t) {
         objeto.atacar(t);

@@ -16,7 +16,7 @@ public class DarthVader extends Enemigo {
     private static ImageIcon attackingVader = new ImageIcon("");
 
     public DarthVader(int x, int y) {
-        super(350, 5, 29 ,walkingVader);
+        super(350, 50, 29 ,walkingVader);
         pos = new MovimientoEnemigo(x, y);
 
         hitBox = new Rectangle(x, y, 60, 80);

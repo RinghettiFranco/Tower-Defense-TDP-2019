@@ -15,7 +15,7 @@ public class Soldier extends Enemigo {
     protected static ImageIcon attackingDarthSidious = new ImageIcon("");
 
     public Soldier(int x, int y) {
-        super(400, 1, 33, walkingDarthSidious);
+        super(400, 50, 33, walkingDarthSidious);
         pos = new MovimientoEnemigo(x, y);
 
         hitBox = new Rectangle(x, y, 33, 73);

@@ -15,7 +15,7 @@ public class BobbaFet extends Enemigo {
     protected static ImageIcon attackingBobbaFet = new ImageIcon("");
 
     public BobbaFet(int x, int y) {
-        super(19, 2, 20, walkingBobbaFet);
+        super(19, 50, 20, walkingBobbaFet);
         pos = new MovimientoEnemigo(x, y);
 
         hitBox = new Rectangle(x, y, 33, 73);
