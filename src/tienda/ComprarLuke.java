@@ -1,5 +1,6 @@
 package tienda;
 
+import control_logico.Constantes;
 import control_logico.Mediator;
 import torres.LukeSkywalker;
 
@@ -23,8 +24,7 @@ public class ComprarLuke extends JLabel {
 
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
-            System.out.println("Luke");
-            med.setObject(new LukeSkywalker(0,0));
+            med.setObject(new LukeSkywalker(Constantes.MAX_INF,Constantes.MAX_INF));
         }
 
         @Override

@@ -1,5 +1,6 @@
 package tienda;
 
+import control_logico.Constantes;
 import control_logico.Mediator;
 import torres.HanSolo;
 
@@ -24,30 +25,19 @@ public class ComprarHan extends JLabel {
 
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
-            System.out.println("Han");
-            med.setObject(new HanSolo(0, 0));
-
-            //setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            med.setObject(new HanSolo(Constantes.MAX_INF, Constantes.MAX_INF));
         }
 
         @Override
-        public void mousePressed(MouseEvent mouseEvent) {
-
-        }
+        public void mousePressed(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseReleased(MouseEvent mouseEvent) {
-
-        }
+        public void mouseReleased(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseEntered(MouseEvent mouseEvent) {
-
-        }
+        public void mouseEntered(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseExited(MouseEvent mouseEvent) {
-
-        }
+        public void mouseExited(MouseEvent mouseEvent) {}
     }
 }

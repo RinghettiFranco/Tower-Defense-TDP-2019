@@ -1,5 +1,6 @@
 package tienda;
 
+import control_logico.Constantes;
 import control_logico.Mediator;
 import torres.Chewbaca;
 
@@ -24,28 +25,19 @@ public class ComprarChewy extends JLabel {
 
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
-            System.out.println("Chewy");
-            med.setObject(new Chewbaca(0, 0));
+            med.setObject(new Chewbaca(Constantes.MAX_INF, Constantes.MAX_INF));
         }
 
         @Override
-        public void mousePressed(MouseEvent mouseEvent) {
-
-        }
+        public void mousePressed(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseReleased(MouseEvent mouseEvent) {
-
-        }
+        public void mouseReleased(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseEntered(MouseEvent mouseEvent) {
-
-        }
+        public void mouseEntered(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseExited(MouseEvent mouseEvent) {
-
-        }
+        public void mouseExited(MouseEvent mouseEvent) {}
     }
 }
