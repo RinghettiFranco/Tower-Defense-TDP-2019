@@ -122,6 +122,58 @@ public class TableroJuego extends JPanel implements Agregable {
             int posX = mouseEvent.getX();
             int posY = mouseEvent.getY();
 
+            if(posY<125){
+            	posY=25;
+            }else{
+            	if(posY<225){
+            		posY=125;
+            	}else{
+            		if(posY<325){
+            			posY=225;
+            		}else{
+            			if(posY<425){
+            				posY=325;
+            			}else{
+            				posY=425;
+            			}
+            		}
+            	}
+            }
+            
+            if(posX<125){
+            	posX=25;
+            }else{
+            	if(posX<225){
+            		posX=125;
+            	}else{
+            		if(posX<325){
+            			posX=225;
+            		}else{
+            			if(posX<425){
+            				posX=325;
+            			}else{
+            				if(posX<525){
+            					posX=425;
+            				}else{
+            					if(posX<625){
+            						posX=525;
+            					}else{
+            						if(posX<725){
+            							posX=625;
+            						}else{
+            							if(posX<825){
+            								posX=725;
+            							}else{
+            								posX=825;
+            							}
+            						}
+            					}
+            				}
+            			}
+            		}
+            	}
+            }
+            
             if (mediador.tengoOro()) {
                 Torre t = mediador.getObject().clone(posX, posY);
                 mediador.gastar(t.costo());
