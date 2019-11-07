@@ -50,6 +50,7 @@ public abstract class GameObject extends JLabel {
 
     public abstract void actualizarPosicion();
 
+    public abstract void frenar();
     public abstract void morir();
     public boolean estaMuerto() {
         return vida.obtenerVida() <= 0;

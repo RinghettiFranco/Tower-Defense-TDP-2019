@@ -52,7 +52,7 @@ public abstract class Enemigo extends GameObject {
         pa.morir();
     }
 
-    protected void frenar() {
+    public void frenar() {
         pos = new MovimientoQuieto(hitBox.x, hitBox.y);
     }
 }

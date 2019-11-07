@@ -1,5 +1,6 @@
 package enemigos;
 
+import control_logico.Constantes;
 import movimiento.MovimientoEnemigo;
 import proyectiles.ProyectilAliado;
 import torres.Torre;
@@ -14,10 +15,10 @@ public class Soldier extends Enemigo {
     protected static ImageIcon attackingDarthSidious = new ImageIcon("");
 
     public Soldier(int x, int y) {
-        super(100, 10, 12, walkingDarthSidious);
+        super(100, 1*Constantes.ANCHO_CELDA, 12, walkingDarthSidious);
         pos = new MovimientoEnemigo(x, y);
 
-        hitBox = new Rectangle(x, y, 100, 100);
+        hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
         this.setBounds(hitBox);
 
         tableroJuego.addToObjects(this);

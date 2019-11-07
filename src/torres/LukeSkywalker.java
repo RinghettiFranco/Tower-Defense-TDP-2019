@@ -2,6 +2,7 @@ package torres;
 
 
 
+import control_logico.Constantes;
 import enemigos.Enemigo;
 import proyectiles.ProyectilEnemigo;
 
@@ -15,10 +16,10 @@ public class LukeSkywalker extends Torre {
     protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/AttackingLuke.gif");
 
     public LukeSkywalker(int x, int y) {
-        super(250, 10, 16, standingLuke);
+        super(250, 1*Constantes.ANCHO_CELDA, 16, standingLuke);
         this.costo = 25;
 
-        hitBox = new Rectangle(x, y, 100, 100);
+        hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
         this.setBounds(hitBox);
 
         tableroJuego.addToObjects(this);
@@ -38,5 +39,6 @@ public class LukeSkywalker extends Torre {
             e.recibirDmg(this.impacto);
             cuentaRegresiva = 30;
         }
+        e.frenar();
     }
 }

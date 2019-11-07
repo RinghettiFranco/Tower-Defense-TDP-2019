@@ -10,4 +10,6 @@ public abstract class ObjetoMapa extends GameObject {
     public ObjetoMapa(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);
     }
+
+    public void frenar() {}
 }

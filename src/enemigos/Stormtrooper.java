@@ -2,6 +2,7 @@ package enemigos;
 
 import javax.swing.ImageIcon;
 
+import control_logico.Constantes;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import movimiento.*;
@@ -15,10 +16,10 @@ public class Stormtrooper extends Enemigo {
 	protected int cuentaRegresiva;
 
 	public Stormtrooper(int x, int y) {
-		super(125, 300, 13, runningGif);
+		super(125, 3*Constantes.ANCHO_CELDA, 13, runningGif);
 		pos=new MovimientoEnemigo(x,y);
 
-		hitBox = new Rectangle(x, y, 100, 100);
+		hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
 		this.setBounds(hitBox);
 
 		cuentaRegresiva = 70;
@@ -31,9 +32,11 @@ public class Stormtrooper extends Enemigo {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
-			System.out.println("Intersecto con " + t.getClass());
 			tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, this.impacto));
 			cuentaRegresiva = 70;
 		}
+
+		if (t.estaMuerto())
+			pos = new MovimientoEnemigo(hitBox.x, hitBox.y);
 	}
 }

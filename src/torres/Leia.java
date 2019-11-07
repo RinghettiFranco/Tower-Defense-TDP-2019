@@ -2,6 +2,7 @@ package torres;
 
 
 
+import control_logico.Constantes;
 import enemigos.Enemigo;
 import proyectiles.ProyectilEnemigo;
 
@@ -15,10 +16,10 @@ public class Leia extends Torre {
 	protected static ImageIcon standingleia = new ImageIcon("src/Imagenes/standingLeia.png");
 
 	public Leia(int x, int y) {
-		super(150, 300, 13, standingleia);
+		super(150, 3*Constantes.ANCHO_CELDA, 13, standingleia);
 		this.costo = 12;
 
-		hitBox = new Rectangle(x, y, 100, 100);
+		hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
 		this.setBounds(hitBox);
 
 		tableroJuego.addToObjects(this);
@@ -38,6 +39,6 @@ public class Leia extends Torre {
 			e.recibirDmg(this.impacto);
 			cuentaRegresiva = 35;
 		}
-
+		e.frenar();
 	}
 }

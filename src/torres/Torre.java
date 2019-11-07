@@ -41,5 +41,6 @@ public abstract class Torre extends GameObject {
     public void morir() {
         tableroJuego.delFromObjects(this);
     }
+    public void frenar() {}
 }
 
