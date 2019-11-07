@@ -31,7 +31,7 @@ public class TableroCompra extends JPanel {
         this.setBackground(new Color(0x505668));
         this.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-        cantOro = 50;
+        cantOro = 100;
 
         inicializarTorres();
         inicializarObjetos();

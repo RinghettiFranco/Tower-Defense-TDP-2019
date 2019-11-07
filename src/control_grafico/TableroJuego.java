@@ -98,11 +98,12 @@ public class TableroJuego extends JPanel implements Agregable {
                     if (distancia(objectI.hitBox, objectJ.hitBox) <= objectI.obtenerAlcance())
                         objectI.aceptar(new VisitorAtaque(objectJ));
 
-                    if (objectJ.estaMuerto()) {
-                        System.out.println("El objeto J esta muerto");
+                    if (objectJ.estaMuerto())
                         objectJ.morir();
-                    }
                 }
+
+            if (objectI.estaMuerto())
+                objectI.morir();
         }
     }
 

@@ -39,10 +39,14 @@ public abstract class GameObject extends JLabel {
 
     public abstract void aceptar(Visitor v);
 
-    public abstract void atacar(Torre t);
-    public abstract void atacar(Enemigo e);
-    public abstract void atacar(ProyectilAliado pa);
-    public abstract void atacar(ProyectilEnemigo pe);
+    public abstract void colisionar(Torre t);
+    public abstract void colisionar(Enemigo e);
+    public abstract void colisionar(ProyectilAliado pa);
+    public abstract void colisionar(ProyectilEnemigo pe);
+
+    public void recibirDmg(int dmg) {
+        vida.recibirDmg(dmg);
+    }
 
     public abstract void actualizarPosicion();
 
@@ -62,9 +66,4 @@ public abstract class GameObject extends JLabel {
     public int obtenerPuntaje() {
         return puntaje;
     }
-
-    public int obtenerOro() {
-        return oro;
-    }
-    
 }

@@ -19,6 +19,7 @@ public abstract class Enemigo extends GameObject {
 
     private Random rnd;
     protected int oro;
+    protected int cuentaRegresiva;
     protected Movimiento pos;
 
     public Enemigo(int vida, int alcance, int impacto, ImageIcon graphic) {
@@ -42,22 +43,14 @@ public abstract class Enemigo extends GameObject {
         v.visitar(this);
     }
 
-    public void atacar(Torre t) {
-        vida.recibirDmg(t.obtenerImpacto());
-        this.frenar();
-    }
-
-    public void atacar(ProyectilAliado pa) {
-        vida.recibirDmg(pa.obtenerImpacto());
-    }
-
     public void morir() {
         tableroJuego.addToObjects(new Oro(hitBox.x, hitBox.y, oro));
         tableroJuego.delFromObjects(this);
     }
 
-    public void atacar(Enemigo e) {}
-    public void atacar(ProyectilEnemigo pe) {}
+    public void colisionar(Enemigo e) {}
+    public void colisionar(ProyectilEnemigo pe) {}
+    public void colisionar(ProyectilAliado pa) {}
 
     protected void frenar() {
         pos = new MovimientoQuieto(hitBox.x, hitBox.y);

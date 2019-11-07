@@ -2,6 +2,9 @@ package torres;
 
 
 
+import enemigos.Enemigo;
+import proyectiles.ProyectilEnemigo;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -19,10 +22,22 @@ public class LukeSkywalker extends Torre {
         this.setBounds(hitBox);
 
         tableroJuego.addToObjects(this);
+
+        this.cuentaRegresiva = 30;
     }
 
     @Override
     public Torre clone(int x, int y) {
         return new LukeSkywalker(x, y);
+    }
+
+    public void colisionar(Enemigo e) {
+        cuentaRegresiva--;
+
+        if (cuentaRegresiva == 0) {
+            e.recibirDmg(this.impacto);
+            cuentaRegresiva = 30;
+        }
+
     }
 }

@@ -32,16 +32,16 @@ public class Oro extends ObjetoMapa {
     public void aceptar(Visitor v) {}
 
     @Override
-    public void atacar(Torre t) {}
+    public void colisionar(Torre t) {}
 
     @Override
-    public void atacar(Enemigo e) {}
+    public void colisionar(Enemigo e) {}
 
     @Override
-    public void atacar(ProyectilAliado pa) {}
+    public void colisionar(ProyectilAliado pa) {}
 
     @Override
-    public void atacar(ProyectilEnemigo pe) {}
+    public void colisionar(ProyectilEnemigo pe) {}
 
     @Override
     public void actualizarPosicion() {}

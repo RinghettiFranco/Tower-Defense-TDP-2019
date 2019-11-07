@@ -12,6 +12,7 @@ import javax.swing.*;
 public abstract class Torre extends GameObject {
 
     protected int costo;
+    protected int cuentaRegresiva;
 
     public Torre(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);
@@ -35,16 +36,9 @@ public abstract class Torre extends GameObject {
         v.visitar(this);
     }
 
-    public void atacar(Torre t){}
-    public void atacar(ProyectilAliado pa) {}
-
-    public void atacar(Enemigo e) {
-        vida.recibirDmg(e.obtenerImpacto());
-    }
-
-    public void atacar(ProyectilEnemigo pe) {
-        vida.recibirDmg(pe.obtenerImpacto());
-    }
+    public void colisionar(Torre t){}
+    public void colisionar(ProyectilAliado pa) {}
+    public void colisionar(ProyectilEnemigo pe) {}
 
     @Override
     public void morir() {

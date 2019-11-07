@@ -20,21 +20,21 @@ public class VisitorAtaque implements Visitor {
 
     @Override
     public void visitar(Torre t) {
-        objeto.atacar(t);
+        objeto.colisionar(t);
     }
 
     @Override
     public void visitar(Enemigo e) {
-        objeto.atacar(e);
+        objeto.colisionar(e);
     }
 
     @Override
     public void visitar(ProyectilAliado pa) {
-        objeto.atacar(pa);
+        objeto.colisionar(pa);
     }
 
     @Override
     public void visitar(ProyectilEnemigo pe) {
-        objeto.atacar(pe);
+        objeto.colisionar(pe);
     }
 }
