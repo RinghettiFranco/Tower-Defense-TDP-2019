@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public abstract class Proyectil extends GameObject {
 
+    protected int cuentaRegresiva;
     protected Movimiento pos;
 
     public Proyectil(int vida, int alcance, int impacto, ImageIcon graphic) {

@@ -16,10 +16,10 @@ public class HanSolo extends Torre {
 	protected static ImageIcon standing = new ImageIcon("src/Imagenes/StandingHanSolo.png");
 
 	public HanSolo(int x, int y) {
-		super(150, 300, 13, standing);
+		super(150, 350, 15, standing);
 		this.costo = 12;
 
-		hitBox = new Rectangle(x, y, 25, 63);
+		hitBox = new Rectangle(x, y, 100, 100);
 		this.setBounds(hitBox);
 
 		tableroJuego.addToObjects(this);
@@ -37,8 +37,6 @@ public class HanSolo extends Torre {
 
 		if (cuentaRegresiva == 0) {
 			tableroJuego.addToObjects(new ProyectilAliado(hitBox.x, hitBox.y, this.impacto));
-			this.setIcon(shooting);
-			System.out.println("Pone un disparo... han solo");
 			cuentaRegresiva = 35;
 		} else
 			this.setIcon(standing);

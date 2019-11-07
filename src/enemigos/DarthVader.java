@@ -15,10 +15,10 @@ public class DarthVader extends Enemigo {
     private static ImageIcon attackingVader = new ImageIcon("");
 
     public DarthVader(int x, int y) {
-        super(350, 50, 29 ,walkingVader);
+        super(350, 10, 29 ,walkingVader);
         pos = new MovimientoEnemigo(x, y);
 
-        hitBox = new Rectangle(x, y, 60, 80);
+        hitBox = new Rectangle(x, y, 100, 100);
         this.setBounds(hitBox);
 
         tableroJuego.addToObjects(this);
@@ -32,7 +32,6 @@ public class DarthVader extends Enemigo {
         if (cuentaRegresiva == 0) {
             t.recibirDmg(this.impacto);
             cuentaRegresiva = 30;
-            pos = new MovimientoEnemigo(hitBox.x, hitBox.y);
         }
     }
 }

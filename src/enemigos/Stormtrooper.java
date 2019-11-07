@@ -15,10 +15,10 @@ public class Stormtrooper extends Enemigo {
 	protected int cuentaRegresiva;
 
 	public Stormtrooper(int x, int y) {
-		super(125, 400, 13, runningGif);
+		super(125, 300, 13, runningGif);
 		pos=new MovimientoEnemigo(x,y);
 
-		hitBox = new Rectangle(x, y, 33, 73);
+		hitBox = new Rectangle(x, y, 100, 100);
 		this.setBounds(hitBox);
 
 		cuentaRegresiva = 70;
@@ -31,10 +31,9 @@ public class Stormtrooper extends Enemigo {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
+			System.out.println("Intersecto con " + t.getClass());
 			tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, this.impacto));
-			System.out.println("Puse un disparo... stormtrooper");
-			cuentaRegresiva = 35;
-			pos = new MovimientoEnemigo(hitBox.x, hitBox.y);
+			cuentaRegresiva = 70;
 		}
 	}
 }

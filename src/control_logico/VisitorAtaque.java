@@ -10,10 +10,6 @@ public class VisitorAtaque implements Visitor {
 
     protected GameObject objeto;
 
-    public void setObjeto(GameObject go) {
-        objeto = go;
-    }
-
     public VisitorAtaque(GameObject go) {
         objeto = go;
     }

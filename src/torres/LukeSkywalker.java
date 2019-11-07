@@ -15,10 +15,10 @@ public class LukeSkywalker extends Torre {
     protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/AttackingLuke.gif");
 
     public LukeSkywalker(int x, int y) {
-        super(250, 50, 16, standingLuke);
+        super(250, 10, 16, standingLuke);
         this.costo = 25;
 
-        hitBox = new Rectangle(x, y, 40, 80);
+        hitBox = new Rectangle(x, y, 100, 100);
         this.setBounds(hitBox);
 
         tableroJuego.addToObjects(this);
@@ -38,6 +38,5 @@ public class LukeSkywalker extends Torre {
             e.recibirDmg(this.impacto);
             cuentaRegresiva = 30;
         }
-
     }
 }

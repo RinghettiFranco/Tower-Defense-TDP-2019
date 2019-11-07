@@ -3,6 +3,7 @@ package enemigos;
 
 import movimiento.MovimientoEnemigo;
 import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import torres.Torre;
 
 import javax.swing.*;
@@ -15,7 +16,7 @@ public class Soldier2 extends Enemigo {
     private static ImageIcon attackingSoldier2 = new ImageIcon("src/Imagenes/AttackingE2.png");
 
     public Soldier2(int x, int y) {
-        super(100, 50, 12, walkingSoldier2);
+        super(100, 200, 12, walkingSoldier2);
         pos = new MovimientoEnemigo(x, y);
 
         hitBox = new Rectangle(x, y, 100, 100);
@@ -30,9 +31,8 @@ public class Soldier2 extends Enemigo {
         cuentaRegresiva--;
 
         if (cuentaRegresiva == 0) {
-            t.recibirDmg(this.impacto);
+            tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, this.impacto));
             cuentaRegresiva = 35;
-            pos = new MovimientoEnemigo(hitBox.x, hitBox.y);
         }
     }
 }

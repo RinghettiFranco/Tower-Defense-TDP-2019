@@ -14,10 +14,10 @@ public class Soldier extends Enemigo {
     protected static ImageIcon attackingDarthSidious = new ImageIcon("");
 
     public Soldier(int x, int y) {
-        super(100, 50, 12, walkingDarthSidious);
+        super(100, 10, 12, walkingDarthSidious);
         pos = new MovimientoEnemigo(x, y);
 
-        hitBox = new Rectangle(x, y, 33, 73);
+        hitBox = new Rectangle(x, y, 100, 100);
         this.setBounds(hitBox);
 
         tableroJuego.addToObjects(this);
@@ -31,7 +31,6 @@ public class Soldier extends Enemigo {
         if (cuentaRegresiva == 0) {
             t.recibirDmg(this.impacto);
             cuentaRegresiva = 35;
-            pos = new MovimientoEnemigo(hitBox.x, hitBox.y);
         }
     }
 }
