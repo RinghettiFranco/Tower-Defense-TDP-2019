@@ -2,13 +2,11 @@ package enemigos;
 
 import javax.swing.ImageIcon;
 
-import armas.Proyectil;
-import armas.ProyectilEnemigo;
+import proyectiles.ProyectilEnemigo;
 import movimiento.*;
 import torres.Torre;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 public class Stormtrooper extends Enemigo {
 	
@@ -22,7 +20,7 @@ public class Stormtrooper extends Enemigo {
 		hitBox = new Rectangle(x, y, 33, 73);
 		this.setBounds(hitBox);
 
-		cuentaRegresiva = 35;
+		cuentaRegresiva = 70;
 		tableroJuego.addToObjects(this);
 	}
 
@@ -33,7 +31,7 @@ public class Stormtrooper extends Enemigo {
 		cuentaRegresiva--;
 		if (cuentaRegresiva == 0) {
 			tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, impacto));
-			cuentaRegresiva = 35;
+			cuentaRegresiva = 70;
 		}
 	}
 }

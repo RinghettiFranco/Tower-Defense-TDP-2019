@@ -1,8 +1,7 @@
-package armas;
+package proyectiles;
 
 import control_logico.Visitor;
 import enemigos.Enemigo;
-import movimiento.MovimientoEnemigo;
 import movimiento.MovimientoProyectil;
 import torres.Torre;
 

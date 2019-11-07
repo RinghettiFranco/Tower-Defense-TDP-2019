@@ -1,7 +1,7 @@
 package control_grafico;
 
-import armas.ProyectilAliado;
-import armas.ProyectilEnemigo;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import control_logico.Agregable;
 import control_logico.SinEscudo;
 import control_logico.Vida;
@@ -46,12 +46,9 @@ public abstract class GameObject extends JLabel {
 
     public abstract void actualizarPosicion();
 
-    public void morir() {
-        tableroJuego.delFromObjects(this);
-    }
-
+    public abstract void morir();
     public boolean estaMuerto() {
-        return vida.obtenerVida() == 0;
+        return vida.obtenerVida() <= 0;
     }
 
     public int obtenerAlcance() {

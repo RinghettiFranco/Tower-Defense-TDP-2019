@@ -2,11 +2,8 @@ package enemigos;
 
 
 import movimiento.MovimientoEnemigo;
-import torres.Torre;
 
 import javax.swing.*;
-
-import armas.Proyectil;
 
 import java.awt.*;
 

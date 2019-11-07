@@ -82,6 +82,10 @@ public class TableroJuego extends JPanel implements Agregable {
 		this.remove(toDel);
     }
 
+    public synchronized void sumarOro(int cant) {
+        mediador.sumarOro(cant);
+    }
+
     private void colisionar() {
         GameObject objectI, objectJ;
 
@@ -94,8 +98,10 @@ public class TableroJuego extends JPanel implements Agregable {
                     if (distancia(objectI.hitBox, objectJ.hitBox) <= objectI.obtenerAlcance())
                         objectI.aceptar(new VisitorAtaque(objectJ));
 
-                    if (objectJ.estaMuerto())
+                    if (objectJ.estaMuerto()) {
+                        System.out.println("El objeto J esta muerto");
                         objectJ.morir();
+                    }
                 }
         }
     }

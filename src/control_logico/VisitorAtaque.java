@@ -1,7 +1,7 @@
 package control_logico;
 
-import armas.ProyectilAliado;
-import armas.ProyectilEnemigo;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
 import enemigos.Enemigo;
 import torres.Torre;

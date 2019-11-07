@@ -90,4 +90,8 @@ public class MediadorCompra implements Mediator {
     public void gastar(int oro) {
         tienda.actualizarOro(-oro);
     }
+
+    public void sumarOro(int cant) {
+        tienda.actualizarOro(cant);
+    }
 }

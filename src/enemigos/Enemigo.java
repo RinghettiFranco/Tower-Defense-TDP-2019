@@ -1,28 +1,32 @@
 package enemigos;
 
 
-import armas.ProyectilAliado;
-import armas.ProyectilEnemigo;
+import premios.Oro;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
 import control_logico.Visitor;
 import movimiento.Movimiento;
-import movimiento.MovimientoEnemigo;
 import movimiento.MovimientoQuieto;
 import torres.Torre;
 
 import javax.swing.*;
 
-import armas.Proyectil;
-
 import java.awt.geom.Point2D;
+import java.util.Random;
 
 public abstract class Enemigo extends GameObject {
 
+    private Random rnd;
+    protected int oro;
     protected Movimiento pos;
 
     public Enemigo(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);
         this.setBounds(60,60,25, 63);
+
+        rnd = new Random(System.currentTimeMillis());
+        this.oro = rnd.nextInt(30);
     }
 
     public void actualizarPosicion() {
@@ -45,6 +49,11 @@ public abstract class Enemigo extends GameObject {
 
     public void atacar(ProyectilAliado pa) {
         vida.recibirDmg(pa.obtenerImpacto());
+    }
+
+    public void morir() {
+        tableroJuego.addToObjects(new Oro(hitBox.x, hitBox.y, oro));
+        tableroJuego.delFromObjects(this);
     }
 
     public void atacar(Enemigo e) {}

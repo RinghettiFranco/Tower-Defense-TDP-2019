@@ -1,15 +1,13 @@
 
 package torres;
 
-import armas.ProyectilAliado;
-import armas.ProyectilEnemigo;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
 import control_logico.Visitor;
 import enemigos.Enemigo;
 
 import javax.swing.*;
-
-import armas.Proyectil;
 
 public abstract class Torre extends GameObject {
 
@@ -46,6 +44,11 @@ public abstract class Torre extends GameObject {
 
     public void atacar(ProyectilEnemigo pe) {
         vida.recibirDmg(pe.obtenerImpacto());
+    }
+
+    @Override
+    public void morir() {
+        tableroJuego.delFromObjects(this);
     }
 }
 

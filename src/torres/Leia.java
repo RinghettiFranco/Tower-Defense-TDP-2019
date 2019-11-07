@@ -4,9 +4,6 @@ package torres;
 
 import javax.swing.ImageIcon;
 
-import armas.Proyectil;
-import enemigos.Enemigo;
-
 import java.awt.*;
 
 public class Leia extends Torre {
@@ -15,7 +12,7 @@ public class Leia extends Torre {
 	protected static ImageIcon standingleia = new ImageIcon("src/Imagenes/standingLeia.png");
 
 	public Leia(int x, int y) {
-		super(100, 300, 13, standingleia);
+		super(150, 300, 13, standingleia);
 		this.costo = 12;
 
 		hitBox = new Rectangle(x, y, 100, 100);

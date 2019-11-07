@@ -1,11 +1,8 @@
 package enemigos;
 
 import movimiento.MovimientoEnemigo;
-import torres.Torre;
 
 import javax.swing.*;
-
-import armas.Proyectil;
 
 import java.awt.*;
 
@@ -15,7 +12,7 @@ public class BobbaFet extends Enemigo {
     protected static ImageIcon attackingBobbaFet = new ImageIcon("");
 
     public BobbaFet(int x, int y) {
-        super(19, 50, 20, walkingBobbaFet);
+        super(150, 50, 20, walkingBobbaFet);
         pos = new MovimientoEnemigo(x, y);
 
         hitBox = new Rectangle(x, y, 33, 73);

@@ -17,4 +17,5 @@ public interface Mediator {
 
     boolean tengoOro();
     void gastar(int oro);
+    void sumarOro(int cant);
 }

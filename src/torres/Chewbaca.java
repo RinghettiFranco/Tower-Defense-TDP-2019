@@ -4,9 +4,6 @@ package torres;
 
 import javax.swing.*;
 
-import armas.Proyectil;
-import enemigos.Enemigo;
-
 import java.awt.*;
 
 public class Chewbaca extends Torre {
