@@ -2,6 +2,7 @@ package torres;
 
 
 
+import control_logico.Constantes;
 import enemigos.Enemigo;
 import proyectiles.ProyectilEnemigo;
 
@@ -15,15 +16,15 @@ public class Chewbaca extends Torre {
     protected static ImageIcon attackingChewbaca = new ImageIcon("src/Imagenes/AttackingChewbaca.gif");
 
     public Chewbaca(int x, int y) {
-        super(200, 50,  20, standingChewbaca);
+        super(200, 1*Constantes.ANCHO_CELDA,  20, standingChewbaca);
         this.costo = 10;
 
-        hitBox = new Rectangle(x, y, 33, 73);
+        hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
         this.setBounds(hitBox);
 
         tableroJuego.addToObjects(this);
 
-        this.cuentaRegresiva = 45;
+        this.cuentaRegresiva = 65;
     }
 
     @Override
@@ -36,8 +37,8 @@ public class Chewbaca extends Torre {
 
         if (cuentaRegresiva == 0) {
             e.recibirDmg(this.impacto);
-            cuentaRegresiva = 45;
+            cuentaRegresiva = 65;
         }
-
+        e.frenar();
     }
 }

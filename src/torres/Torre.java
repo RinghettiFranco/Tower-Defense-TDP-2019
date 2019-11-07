@@ -16,12 +16,7 @@ public abstract class Torre extends GameObject {
 
     public Torre(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);
-    }
-    
-    public void disparar(){
-    	//Manejo del colisionador verificando si hay enemigo al alcance o no.
-	// Agregar el disparo al mapa
-    	
+        this.puntaje = -this.puntaje;
     }
 
     public void actualizarPosicion(){}
@@ -38,11 +33,14 @@ public abstract class Torre extends GameObject {
 
     public void colisionar(Torre t){}
     public void colisionar(ProyectilAliado pa) {}
-    public void colisionar(ProyectilEnemigo pe) {}
+    public void colisionar(ProyectilEnemigo pe) {
+        pe.morir();
+    }
 
     @Override
     public void morir() {
         tableroJuego.delFromObjects(this);
     }
+    public void frenar() {}
 }
 

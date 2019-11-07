@@ -1,6 +1,7 @@
 package enemigos;
 
 
+import control_logico.Constantes;
 import movimiento.MovimientoEnemigo;
 import proyectiles.ProyectilAliado;
 import torres.Torre;
@@ -15,10 +16,10 @@ public class DarthVader extends Enemigo {
     private static ImageIcon attackingVader = new ImageIcon("");
 
     public DarthVader(int x, int y) {
-        super(350, 50, 29 ,walkingVader);
+        super(350, 1*Constantes.ANCHO_CELDA, 29 ,walkingVader);
         pos = new MovimientoEnemigo(x, y);
 
-        hitBox = new Rectangle(x, y, 60, 80);
+        hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
         this.setBounds(hitBox);
 
         tableroJuego.addToObjects(this);
@@ -32,7 +33,6 @@ public class DarthVader extends Enemigo {
         if (cuentaRegresiva == 0) {
             t.recibirDmg(this.impacto);
             cuentaRegresiva = 30;
-            pos = new MovimientoEnemigo(hitBox.x, hitBox.y);
         }
     }
 }

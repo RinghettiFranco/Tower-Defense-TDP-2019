@@ -1,6 +1,7 @@
 package enemigos;
 
 
+import control_grafico.TableroJuego;
 import premios.Oro;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
@@ -17,17 +18,12 @@ import java.util.Random;
 
 public abstract class Enemigo extends GameObject {
 
-    private Random rnd;
-    protected int oro;
     protected int cuentaRegresiva;
     protected Movimiento pos;
 
     public Enemigo(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);
         this.setBounds(60,60,25, 63);
-
-        rnd = new Random(System.currentTimeMillis());
-        this.oro = rnd.nextInt(30);
     }
 
     public void actualizarPosicion() {
@@ -35,7 +31,7 @@ public abstract class Enemigo extends GameObject {
         int x=(int) nueva.getX();
         int y=(int) nueva.getY();
 
-        hitBox.setBounds(x,y,33,73);
+        hitBox.setBounds(x,y,100, 100);
         this.setBounds(hitBox);
     }
 
@@ -46,13 +42,17 @@ public abstract class Enemigo extends GameObject {
     public void morir() {
         tableroJuego.addToObjects(new Oro(hitBox.x, hitBox.y, oro));
         tableroJuego.delFromObjects(this);
+        // TODO Sumar puntos
     }
 
     public void colisionar(Enemigo e) {}
     public void colisionar(ProyectilEnemigo pe) {}
-    public void colisionar(ProyectilAliado pa) {}
 
-    protected void frenar() {
+    public void colisionar(ProyectilAliado pa) {
+        pa.morir();
+    }
+
+    public void frenar() {
         pos = new MovimientoQuieto(hitBox.x, hitBox.y);
     }
 }

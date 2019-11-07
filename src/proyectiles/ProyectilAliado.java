@@ -11,23 +11,29 @@ import java.awt.geom.Point2D;
 
 public class ProyectilAliado extends Proyectil {
 
+
     protected static ImageIcon grafico = new ImageIcon("src/Imagenes/dispEnemigo1.png");
 
     public ProyectilAliado(int x, int y, int impacto) {
-        super(1, 25, impacto, grafico);
+        super(1, 10, impacto, grafico);
 
-        pos=new MovimientoProyectil(x,y);
+        pos=new MovimientoProyectil(x,y, 1);
 
-        hitBox = new Rectangle(x, y, 33, 73);
+        hitBox = new Rectangle(x, y, 100, 100);
         this.setBounds(hitBox);
 
         tableroJuego.addToObjects(this);
+
+        this.cuentaRegresiva = 35;
     }
 
     @Override
     public void colisionar(Enemigo e) {
-        e.recibirDmg(this.impacto);
-        //this.morir();
+        cuentaRegresiva--;
+
+        if (cuentaRegresiva == 0) {
+            e.recibirDmg(this.impacto);
+        }
     }
 
     public void colisionar(ProyectilAliado pa) {}
