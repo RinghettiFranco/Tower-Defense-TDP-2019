@@ -16,8 +16,8 @@ public class GeneradorNivel {
 
 		int corrimiento = 900;
 		int distancia = 1200;
-		int auxInicio;
-		for(int i=0;i<(nivel*2);i++){
+		int auxInicio,inicio,pos; 
+		for(int i=0;i<nivel;i++){
 			auxInicio = (i==0)?0:1;
 			oleada.add(new Stormtrooper(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),25));
 			oleada.add(new Stormtrooper(900+(i*distancia)+auxInicio*(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),125));
@@ -28,8 +28,19 @@ public class GeneradorNivel {
 			corrimiento +=(distancia/4);
 			
 		}
-		int inicio = corrimiento;
-		int pos = (rnd.nextInt(5))*100 + 25;
+		inicio = corrimiento;
+		for(int i=0;i<nivel;i++){
+			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),25));
+			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),125));
+			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),225));
+			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),325));
+			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),425));
+			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),525));
+			corrimiento +=(distancia/4);
+			
+		}
+		inicio = corrimiento;
+		pos = (rnd.nextInt(5))*100 + 25;
 		for(int k=0;k<nivel;k++){
 			corrimiento += distancia;
 			oleada.add(new BobbaFet(corrimiento,pos));
