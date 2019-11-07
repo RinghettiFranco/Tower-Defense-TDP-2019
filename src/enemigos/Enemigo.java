@@ -6,6 +6,7 @@ import premios.Oro;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
+import control_logico.Escudo;
 import control_logico.Visitor;
 import movimiento.Movimiento;
 import movimiento.MovimientoQuieto;
@@ -24,6 +25,11 @@ public abstract class Enemigo extends GameObject {
     public Enemigo(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);
         this.setBounds(60,60,25, 63);
+        
+        Random rnd = new Random(System.currentTimeMillis());
+        int ran = rnd.nextInt(20);
+        
+        if(ran==10)this.vida=new Escudo(vida);
     }
 
     public void actualizarPosicion() {
@@ -33,6 +39,7 @@ public abstract class Enemigo extends GameObject {
 
         hitBox.setBounds(x,y,100, 100);
         this.setBounds(hitBox);
+
     }
 
     public void aceptar(Visitor v) {
