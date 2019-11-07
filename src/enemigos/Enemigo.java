@@ -2,12 +2,12 @@ package enemigos;
 
 
 import control_grafico.TableroJuego;
-import premios.Oro;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
 import control_logico.Escudo;
 import control_logico.Visitor;
+import miscelaneos.Oro;
 import movimiento.Movimiento;
 import movimiento.MovimientoQuieto;
 import torres.Torre;

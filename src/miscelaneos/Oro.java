@@ -1,4 +1,4 @@
-package premios;
+package miscelaneos;
 
 import control_grafico.TableroJuego;
 import control_logico.Visitor;

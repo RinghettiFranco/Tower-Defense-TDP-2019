@@ -1,4 +1,4 @@
-package premios;
+package miscelaneos;
 
 import control_grafico.GameObject;
 
