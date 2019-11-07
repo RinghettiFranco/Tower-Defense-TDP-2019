@@ -21,6 +21,8 @@ public class Stormtrooper extends Enemigo {
 
 		hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
 		this.setBounds(hitBox);
+		labelVida.setBounds(hitBox.x, hitBox.y, 100, 3);
+		this.add(labelVida);
 
 		cuentaRegresiva = 70;
 		tableroJuego.addToObjects(this);

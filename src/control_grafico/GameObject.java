@@ -14,6 +14,8 @@ import java.awt.*;
 
 public abstract class GameObject extends JLabel {
 
+    protected JLabel labelVida;
+
     protected static Agregable tableroJuego;
 
     protected Vida vida;
@@ -31,6 +33,10 @@ public abstract class GameObject extends JLabel {
         this.oro = (int) Math.random();
 
         this.setIcon(graphic);
+
+        labelVida = new JLabel();
+        labelVida.setOpaque(true);
+        labelVida.setBackground(Color.GREEN);
     }
 
     public static void setTableroJuego(Agregable a) {
