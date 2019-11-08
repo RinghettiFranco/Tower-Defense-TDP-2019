@@ -11,11 +11,11 @@ import java.awt.*;
 
 public class Soldier extends Enemigo {
 
-    protected static ImageIcon walkingDarthSidious = new ImageIcon("src/Imagenes/WSoldier.gif");
-    protected static ImageIcon attackingDarthSidious = new ImageIcon("");
+    protected static ImageIcon walkingSoldier = new ImageIcon("src/Imagenes/WSoldier.gif");
+    protected static ImageIcon attackingSoldier = new ImageIcon("");
 
     public Soldier(int x, int y) {
-        super(100, 1*Constantes.ANCHO_CELDA, 12, walkingDarthSidious);
+        super(100, 1*Constantes.ANCHO_CELDA, 12, walkingSoldier);
         pos = new MovimientoEnemigo(x, y);
 
         hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
