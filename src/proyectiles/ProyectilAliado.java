@@ -1,5 +1,6 @@
 package proyectiles;
 
+import control_logico.Constantes;
 import control_logico.Visitor;
 import enemigos.Enemigo;
 import movimiento.MovimientoProyectil;
@@ -15,7 +16,7 @@ public class ProyectilAliado extends Proyectil {
     protected static ImageIcon grafico = new ImageIcon("src/Imagenes/dispEnemigo1.png");
 
     public ProyectilAliado(int x, int y, int impacto) {
-        super(1, 10, impacto, grafico);
+        super(Constantes.MAX_INF, 1*Constantes.ANCHO_CELDA, impacto, grafico);
 
         pos=new MovimientoProyectil(x,y, 1);
 

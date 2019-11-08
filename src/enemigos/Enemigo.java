@@ -56,7 +56,7 @@ public abstract class Enemigo extends GameObject {
     public void colisionar(ProyectilEnemigo pe) {}
 
     public void colisionar(ProyectilAliado pa) {
-        pa.morir();
+        //pa.morir();
     }
 
     public void frenar() {

@@ -94,7 +94,7 @@ public class TableroJuego extends JPanel implements Agregable {
             objectI = objetosMapa.get(i);
             for (int j = 0; j < objetosMapa.size(); j++) {
                 objectJ = objetosMapa.get(j);
-                if (distancia(objectI.hitBox, objectJ.hitBox) <= objectI.obtenerAlcance()) {
+                if (distancia(objectI.hitBox, objectJ.hitBox) <= objectJ.obtenerAlcance()) {
                     objectI.aceptar(new VisitorAtaque(objectJ)); // Esto es equivalente a J.atacar(I)
                 }
                 if (objectJ.estaMuerto())

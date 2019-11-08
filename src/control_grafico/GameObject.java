@@ -49,7 +49,6 @@ public abstract class GameObject extends JLabel {
 
     public void recibirDmg(int dmg) {
         vida.recibirDmg(dmg);
-        System.out.println("Recibo " + dmg + " de daño, vida = " + vida.obtenerVida());
     }
 
     public abstract void actualizar();

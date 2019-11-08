@@ -35,7 +35,7 @@ public abstract class Torre extends GameObject {
     public void colisionar(ProyectilAliado pa) {}
 
     public void colisionar(ProyectilEnemigo pe) {
-        pe.morir();
+        //pe.morir();
     }
 
     public void morir() {
