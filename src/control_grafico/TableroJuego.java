@@ -92,16 +92,11 @@ public class TableroJuego extends JPanel implements Agregable {
         // Colisionamos a los objetos entre ellos
         for (int i = 0; i < objetosMapa.size(); i++) {
             objectI = objetosMapa.get(i);
-            for (int j = i+1; j < objetosMapa.size(); j++) {
+            for (int j = 0; j < objetosMapa.size(); j++) {
                 objectJ = objetosMapa.get(j);
-                if (distancia(objectI.hitBox, objectJ.hitBox) <= objectJ.obtenerAlcance()) {
+                if (distancia(objectI.hitBox, objectJ.hitBox) <= objectI.obtenerAlcance()) {
                     objectI.aceptar(new VisitorAtaque(objectJ)); // Esto es equivalente a J.atacar(I)
                 }
-
-                if (distancia(objectJ.hitBox, objectI.hitBox) <= objectI.obtenerAlcance()) {
-                    objectJ.aceptar(new VisitorAtaque(objectI)); // Esto equivale a I.atacar(J)
-                }
-
                 if (objectJ.estaMuerto())
                     objectJ.morir();
             }
