@@ -37,9 +37,9 @@ public class HanSolo extends Torre {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
-			if (distancia(hitBox, e.getBounds()) >= Constantes.ANCHO_CELDA) {
+			if (distancia(hitBox, e.getBounds()) >= Constantes.ANCHO_CELDA)
 				tableroJuego.addToObjects(new ProyectilAliado(hitBox.x, hitBox.y, this.impacto));
-			} else {
+			else {
 				e.recibirDmg(3 * this.impacto / 4);
 				e.frenar();
 			}
