@@ -4,6 +4,7 @@ package torres;
 
 import control_logico.Constantes;
 import enemigos.Enemigo;
+import proyectiles.BalaAliado;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 
@@ -38,7 +39,7 @@ public class HanSolo extends Torre {
 
 		if (cuentaRegresiva == 0) {
 			if (distancia(hitBox, e.getBounds()) >= Constantes.ANCHO_CELDA)
-				tableroJuego.addToObjects(new ProyectilAliado(hitBox.x, hitBox.y, this.impacto));
+				tableroJuego.addToObjects(new BalaAliado(hitBox.x, hitBox.y, this.impacto));
 			else {
 				e.recibirDmg(3 * this.impacto / 4);
 				e.frenar();

@@ -12,10 +12,9 @@ import java.awt.geom.Point2D;
 public class ProyectilAliado extends Proyectil {
 
 
-    protected static ImageIcon grafico = new ImageIcon("src/Imagenes/dispEnemigo1.png");
 
-    public ProyectilAliado(int x, int y, int impacto) {
-        super(1, 10, impacto, grafico);
+    public ProyectilAliado(int x, int y, int impacto,ImageIcon graphic) {
+        super(1, 10, impacto, graphic);
 
         pos=new MovimientoProyectil(x,y, 1);
 
