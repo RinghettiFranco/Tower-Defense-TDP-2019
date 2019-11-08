@@ -13,7 +13,7 @@ import java.awt.*;
 public class LukeSkywalker extends Torre {
 
     protected static ImageIcon standingLuke = new ImageIcon("src/Imagenes/StandingLuke.png");
-    protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/Luke.gif");
+    protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/luke.gif");
 
     public LukeSkywalker(int x, int y) {
         super(250, 1*Constantes.ANCHO_CELDA, 16, attackingLuke);
