@@ -13,10 +13,10 @@ import java.awt.*;
 public class LukeSkywalker extends Torre {
 
     protected static ImageIcon standingLuke = new ImageIcon("src/Imagenes/StandingLuke.png");
-    protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/AttackingLuke.gif");
+    protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/Luke.gif");
 
     public LukeSkywalker(int x, int y) {
-        super(250, 1*Constantes.ANCHO_CELDA, 16, standingLuke);
+        super(250, 1*Constantes.ANCHO_CELDA, 16, attackingLuke);
         this.costo = 25;
 
         hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);

@@ -10,13 +10,13 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class Chewbaca extends Torre {
+public class Ewok extends Torre {
 
-    protected static ImageIcon standingChewbaca = new ImageIcon("src/Imagenes/Chewy.png");
-    protected static ImageIcon attackingChewbaca = new ImageIcon("src/Imagenes/AttackingChewbaca.gif");
+    protected static ImageIcon standingEwok = new ImageIcon("src/Imagenes/StandingEwok.png");
+    protected static ImageIcon attackingEwok = new ImageIcon("src/Imagenes/AttackingEwok.gif");
 
-    public Chewbaca(int x, int y) {
-        super(200, 1*Constantes.ANCHO_CELDA,  20, standingChewbaca);
+    public Ewok(int x, int y) {
+        super(200, 1*Constantes.ANCHO_CELDA,  20, standingEwok);
         this.costo = 10;
 
         hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
@@ -29,7 +29,7 @@ public class Chewbaca extends Torre {
 
     @Override
     public Torre clone(int x, int y) {
-        return new Chewbaca(x, y);
+        return new Ewok(x, y);
     }
 
     public void colisionar(Enemigo e) {
