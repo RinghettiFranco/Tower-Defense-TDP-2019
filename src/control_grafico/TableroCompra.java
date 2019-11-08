@@ -4,10 +4,7 @@ import control_logico.Constantes;
 import control_logico.Inventario;
 import control_logico.Mediator;
 import miscelaneos.Premio;
-import tienda.ComprarChewy;
-import tienda.ComprarHan;
-import tienda.ComprarLeia;
-import tienda.ComprarLuke;
+import tienda.*;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -17,8 +14,8 @@ public class TableroCompra extends JPanel implements Inventario {
 
     private int cantOro;
 
-    private JLabel[] torres;
-    private JLabel[] objetos;
+    private JLabel[] torres, objetos;
+    private JPanel panelObjetos;
     private JLabel labelOro;
 
     private Mediator mediator;
@@ -26,9 +23,11 @@ public class TableroCompra extends JPanel implements Inventario {
     public TableroCompra(Mediator med) {
         super();
 
+        this.panelObjetos = new JPanel(new GridLayout(2, 2));
+        panelObjetos.setBackground(new Color(0x505668));
         this.mediator = med;
 
-        this.setLayout(new GridLayout(1, 8));
+        this.setLayout(new GridLayout(1, 6));
         this.setSize(Constantes.VENTANA_ANCHO,Constantes.PANEL_COMPRA_ALTO);
         this.setLocation(0, Constantes.PANEL_JUEGO_ALTO);
         this.setBackground(new Color(0x505668));
@@ -53,7 +52,7 @@ public class TableroCompra extends JPanel implements Inventario {
     }
 
     private void inicializarTorres() {
-        this.torres = new JLabel[4];
+        this.torres = new JLabel[5];
 
         torres[0] = new ComprarHan(mediator);
         this.add(torres[0]);
@@ -63,19 +62,23 @@ public class TableroCompra extends JPanel implements Inventario {
         this.add(torres[2]);
         torres[3] = new ComprarLeia(mediator);
         this.add(torres[3]);
+        torres[4] = new ComprarEwok(mediator);
+        this.add(torres[4]);
     }
 
     private void inicializarObjetos() {
         this.objetos = new JLabel[4];
 
         objetos[0] = new JLabel("Obj0");
-        this.add(objetos[0]);
+        panelObjetos.add(objetos[0]);
         objetos[1] = new JLabel("Obj1");
-        this.add(objetos[1]);
+        panelObjetos.add(objetos[1]);
         objetos[2] = new JLabel("Obj2");
-        this.add(objetos[2]);
+        panelObjetos.add(objetos[2]);
         objetos[3] = new JLabel("Obj3");
-        this.add(objetos[3]);
+        panelObjetos.add(objetos[3]);
+
+        this.add(panelObjetos);
     }
 
     @Override

@@ -2,49 +2,43 @@ package tienda;
 
 import control_logico.Constantes;
 import control_logico.Mediator;
-import torres.LukeSkywalker;
+import torres.Chewbaca;
+import torres.Ewok;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ComprarLuke extends JLabel {
+public class ComprarEwok extends JLabel {
 
     private Mediator med;
 
-    public ComprarLuke(Mediator med) {
+    public ComprarEwok(Mediator med) {
         super();
 
-        this.setText("Luke");
+        this.setText("Ewok");
         this.addMouseListener(new ClickListener());
         this.med = med;
     }
+
 
     private class ClickListener implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
-            med.setObject(new LukeSkywalker(Constantes.MAX_INF,Constantes.MAX_INF));
+            med.setObject(new Ewok(Constantes.MAX_INF, Constantes.MAX_INF));
         }
 
         @Override
-        public void mousePressed(MouseEvent mouseEvent) {
-
-        }
+        public void mousePressed(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseReleased(MouseEvent mouseEvent) {
-
-        }
+        public void mouseReleased(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseEntered(MouseEvent mouseEvent) {
-
-        }
+        public void mouseEntered(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseExited(MouseEvent mouseEvent) {
-
-        }
+        public void mouseExited(MouseEvent mouseEvent) {}
     }
 }

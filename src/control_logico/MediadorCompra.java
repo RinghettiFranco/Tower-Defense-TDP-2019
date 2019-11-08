@@ -8,15 +8,18 @@ public class MediadorCompra implements Mediator {
     private Chewbaca chewy;
     private HanSolo hanSolo;
     private LukeSkywalker lukeSkywalker;
+    private Leia leia;
+    private Ewok ewok;
 
     private TableroCompra tienda;
-    private Leia leia;
+
 
     public MediadorCompra() {
         chewy = null;
         hanSolo = null;
         lukeSkywalker = null;
         leia = null;
+        ewok = null;
     }
 
     @Override
@@ -25,6 +28,7 @@ public class MediadorCompra implements Mediator {
         hanSolo = null;
         lukeSkywalker = null;
         leia = null;
+        ewok = null;
     }
 
     @Override
@@ -33,6 +37,7 @@ public class MediadorCompra implements Mediator {
         chewy = null;
         lukeSkywalker = null;
         leia = null;
+        ewok = null;
     }
 
     @Override
@@ -41,6 +46,7 @@ public class MediadorCompra implements Mediator {
         hanSolo = null;
         chewy = null;
         leia = null;
+        ewok = null;
     }
 
     public void setObject(Leia leia) {
@@ -48,6 +54,16 @@ public class MediadorCompra implements Mediator {
         hanSolo = null;
         chewy = null;
         lukeSkywalker = null;
+        ewok = null;
+    }
+
+    @Override
+    public void setObject(Ewok ewok) {
+        this.ewok = ewok;
+        hanSolo = null;
+        chewy = null;
+        lukeSkywalker = null;
+        leia = null;
     }
 
     @Override
@@ -56,6 +72,7 @@ public class MediadorCompra implements Mediator {
         hanSolo = null;
         lukeSkywalker = null;
         leia = null;
+        ewok = null;
     }
 
     @Override
@@ -72,6 +89,8 @@ public class MediadorCompra implements Mediator {
         if (leia != null)
             return leia;
 
+        if (ewok != null)
+            return ewok;
         // Nunca tendria que llegar aca
         return null;
     }
@@ -90,6 +109,9 @@ public class MediadorCompra implements Mediator {
 
         if (leia != null)
             return leia.costo() <= oro;
+
+        if (ewok != null)
+            return ewok.costo() <= oro;
 
         return false;
     }
