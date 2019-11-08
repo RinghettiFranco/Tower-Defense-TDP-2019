@@ -1,11 +1,8 @@
 package control_grafico;
 
+import control_logico.*;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
-import control_logico.Agregable;
-import control_logico.SinEscudo;
-import control_logico.Vida;
-import control_logico.Visitor;
 import enemigos.Enemigo;
 import torres.Torre;
 
@@ -54,7 +51,7 @@ public abstract class GameObject extends JLabel {
         vida.recibirDmg(dmg);
     }
 
-    public abstract void actualizarPosicion();
+    public abstract void actualizar();
 
     public abstract void frenar();
     public abstract void morir();
@@ -72,5 +69,12 @@ public abstract class GameObject extends JLabel {
 
     public int obtenerPuntaje() {
         return puntaje;
+    }
+
+    protected int distancia (Rectangle r1, Rectangle r2) {
+        if (r1.y == r2.y)
+            return (int) Math.sqrt((r2.x-r1.x)*(r2.x-r1.x) + (r2.y-r1.y)*(r2.y-r1.y));
+        else
+            return Constantes.MAX_INF;
     }
 }

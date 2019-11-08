@@ -44,7 +44,7 @@ public class Oro extends ObjetoMapa {
     public void colisionar(ProyectilEnemigo pe) {}
 
     @Override
-    public void actualizarPosicion() {}
+    public void actualizar() {}
 
     @Override
     public void morir() {}

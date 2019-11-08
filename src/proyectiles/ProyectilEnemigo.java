@@ -46,7 +46,7 @@ public class ProyectilEnemigo extends Proyectil {
     }
 
     @Override
-    public void actualizarPosicion() {
+    public void actualizar() {
         Point2D nueva=pos.proximaPosicion();
         int x=(int) nueva.getX();
         int y=(int) nueva.getY();

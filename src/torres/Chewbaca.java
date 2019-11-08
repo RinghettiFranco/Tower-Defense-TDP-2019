@@ -24,7 +24,7 @@ public class Chewbaca extends Torre {
 
         tableroJuego.addToObjects(this);
 
-        this.cuentaRegresiva = 65;
+        this.cuentaRegresiva = 55;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class Chewbaca extends Torre {
 
         if (cuentaRegresiva == 0) {
             e.recibirDmg(this.impacto);
-            cuentaRegresiva = 65;
+            cuentaRegresiva = 55;
         }
         e.frenar();
     }

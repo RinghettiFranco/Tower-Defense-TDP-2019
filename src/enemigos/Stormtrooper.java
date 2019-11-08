@@ -34,7 +34,10 @@ public class Stormtrooper extends Enemigo {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
-			tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, this.impacto));
+			if (distancia(hitBox, t.getBounds()) >= Constantes.ANCHO_CELDA)
+				tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, this.impacto));
+			else
+				t.recibirDmg(3*this.impacto/4);
 			cuentaRegresiva = 70;
 		}
 

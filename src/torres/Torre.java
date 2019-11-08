@@ -19,7 +19,7 @@ public abstract class Torre extends GameObject {
         this.puntaje = -this.puntaje;
     }
 
-    public void actualizarPosicion(){}
+    public void actualizar(){}
 
     public int costo() {
         return costo;

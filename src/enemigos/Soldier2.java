@@ -32,7 +32,10 @@ public class Soldier2 extends Enemigo {
         cuentaRegresiva--;
 
         if (cuentaRegresiva == 0) {
-            tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, this.impacto));
+            if (distancia(hitBox, t.getBounds()) >= Constantes.ANCHO_CELDA)
+                tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, this.impacto));
+            else
+                t.recibirDmg(this.impacto/2);
             cuentaRegresiva = 35;
         }
     }

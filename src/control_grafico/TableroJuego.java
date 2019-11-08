@@ -59,7 +59,7 @@ public class TableroJuego extends JPanel implements Agregable {
         VisitorPerder vp = new VisitorPerder();
         // Movemos todos los objetos restantes del mapa
         for (GameObject go: objetosMapa) {
-            go.actualizarPosicion();
+            go.actualizar();
             go.aceptar(vp);
         }
 

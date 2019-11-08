@@ -37,18 +37,13 @@ public class HanSolo extends Torre {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
-			System.out.println("Pongo un disparo");
-			tableroJuego.addToObjects(new ProyectilAliado(hitBox.x, hitBox.y, this.impacto));
+			if (distancia(hitBox, e.getBounds()) >= Constantes.ANCHO_CELDA)
+				tableroJuego.addToObjects(new ProyectilAliado(hitBox.x, hitBox.y, this.impacto));
+			else {
+				e.recibirDmg(3 * this.impacto / 4);
+				e.frenar();
+			}
 			cuentaRegresiva = 35;
 		}
-		if (distancia(hitBox, e.getBounds()) <= Constantes.ANCHO_CELDA)
-			e.frenar();
-	}
-
-	private int distancia(Rectangle r1, Rectangle r2) {
-		if (r1.y == r2.y)
-			return (int) Math.sqrt((r2.x-r1.x)*(r2.x-r1.x) + (r2.y-r1.y)*(r2.y-r1.y));
-		else
-			return Constantes.MAX_INF;
 	}
 }
