@@ -27,6 +27,10 @@ public class ProyectilAliado extends Proyectil {
         this.cuentaRegresiva = 35;
     }
 
+    public void colisionar(ProyectilAliado pa) {}
+    public void colisionar(ProyectilEnemigo pe) {}
+    public void colisionar(Torre t) {}
+
     @Override
     public void colisionar(Enemigo e) {
         cuentaRegresiva--;
@@ -35,10 +39,6 @@ public class ProyectilAliado extends Proyectil {
             e.recibirDmg(this.impacto);
         }
     }
-
-    public void colisionar(ProyectilAliado pa) {}
-    public void colisionar(ProyectilEnemigo pe) {}
-    public void colisionar(Torre t) {}
 
     @Override
     public void aceptar(Visitor v) {

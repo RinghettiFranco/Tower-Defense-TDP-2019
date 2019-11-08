@@ -33,11 +33,11 @@ public abstract class Torre extends GameObject {
 
     public void colisionar(Torre t){}
     public void colisionar(ProyectilAliado pa) {}
+
     public void colisionar(ProyectilEnemigo pe) {
         pe.morir();
     }
 
-    @Override
     public void morir() {
         tableroJuego.delFromObjects(this);
     }

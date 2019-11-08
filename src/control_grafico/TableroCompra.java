@@ -1,16 +1,19 @@
 package control_grafico;
 
 import control_logico.Constantes;
+import control_logico.Inventario;
 import control_logico.Mediator;
+import miscelaneos.Premio;
 import tienda.ComprarChewy;
 import tienda.ComprarHan;
+import tienda.ComprarLeia;
 import tienda.ComprarLuke;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class TableroCompra extends JPanel {
+public class TableroCompra extends JPanel implements Inventario {
 
     private int cantOro;
 
@@ -25,7 +28,7 @@ public class TableroCompra extends JPanel {
 
         this.mediator = med;
 
-        this.setLayout(new GridLayout(1, 6));
+        this.setLayout(new GridLayout(1, 8));
         this.setSize(Constantes.VENTANA_ANCHO,Constantes.PANEL_COMPRA_ALTO);
         this.setLocation(0, Constantes.PANEL_JUEGO_ALTO);
         this.setBackground(new Color(0x505668));
@@ -50,7 +53,7 @@ public class TableroCompra extends JPanel {
     }
 
     private void inicializarTorres() {
-        this.torres = new JLabel[3];
+        this.torres = new JLabel[4];
 
         torres[0] = new ComprarHan(mediator);
         this.add(torres[0]);
@@ -58,14 +61,25 @@ public class TableroCompra extends JPanel {
         this.add(torres[1]);
         torres[2] = new ComprarLuke(mediator);
         this.add(torres[2]);
+        torres[3] = new ComprarLeia(mediator);
+        this.add(torres[3]);
     }
 
     private void inicializarObjetos() {
-        this.objetos = new JLabel[2];
+        this.objetos = new JLabel[4];
 
         objetos[0] = new JLabel("Obj0");
         this.add(objetos[0]);
         objetos[1] = new JLabel("Obj1");
         this.add(objetos[1]);
+        objetos[2] = new JLabel("Obj2");
+        this.add(objetos[2]);
+        objetos[3] = new JLabel("Obj3");
+        this.add(objetos[3]);
+    }
+
+    @Override
+    public void addPremio(Premio p) {
+        System.out.println("Not yet implemented");
     }
 }

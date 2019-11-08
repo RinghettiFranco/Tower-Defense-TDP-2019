@@ -17,7 +17,7 @@ public class HanSolo extends Torre {
 	protected static ImageIcon standing = new ImageIcon("src/Imagenes/StandingHanSolo.png");
 
 	public HanSolo(int x, int y) {
-		super(150, (int) (3.5*Constantes.ANCHO_CELDA), 15, standing);
+		super(150, 3*Constantes.ANCHO_CELDA, 15, standing);
 		this.costo = 12;
 
 		hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
@@ -37,9 +37,18 @@ public class HanSolo extends Torre {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
+			System.out.println("Pongo un disparo");
 			tableroJuego.addToObjects(new ProyectilAliado(hitBox.x, hitBox.y, this.impacto));
 			cuentaRegresiva = 35;
 		}
-		e.frenar();
+		if (distancia(hitBox, e.getBounds()) <= Constantes.ANCHO_CELDA)
+			e.frenar();
+	}
+
+	private int distancia(Rectangle r1, Rectangle r2) {
+		if (r1.y == r2.y)
+			return (int) Math.sqrt((r2.x-r1.x)*(r2.x-r1.x) + (r2.y-r1.y)*(r2.y-r1.y));
+		else
+			return Constantes.MAX_INF;
 	}
 }

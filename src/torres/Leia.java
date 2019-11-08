@@ -16,7 +16,7 @@ public class Leia extends Torre {
 	protected static ImageIcon standingleia = new ImageIcon("src/Imagenes/standingLeia.png");
 
 	public Leia(int x, int y) {
-		super(150, 3*Constantes.ANCHO_CELDA, 13, standingleia);
+		super(150, 1*Constantes.ANCHO_CELDA, 13, standingleia);
 		this.costo = 12;
 
 		hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);

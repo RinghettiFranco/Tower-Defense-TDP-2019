@@ -94,11 +94,11 @@ public class TableroJuego extends JPanel implements Agregable {
             objectI = objetosMapa.get(i);
             for (int j = i+1; j < objetosMapa.size(); j++) {
                 objectJ = objetosMapa.get(j);
-                if (distancia(objectI.hitBox, objectJ.hitBox) <= objectI.obtenerAlcance()) {
+                if (distancia(objectI.hitBox, objectJ.hitBox) <= objectJ.obtenerAlcance()) {
                     objectI.aceptar(new VisitorAtaque(objectJ)); // Esto es equivalente a J.atacar(I)
                 }
 
-                if (distancia(objectJ.hitBox, objectI.hitBox) <= objectJ.obtenerAlcance()) {
+                if (distancia(objectJ.hitBox, objectI.hitBox) <= objectI.obtenerAlcance()) {
                     objectJ.aceptar(new VisitorAtaque(objectI)); // Esto equivale a I.atacar(J)
                 }
 
@@ -137,7 +137,8 @@ public class TableroJuego extends JPanel implements Agregable {
             if (mediador.tengoOro()) {
                 Torre t = mediador.getObject().clone(posX, posY);
                 mediador.gastar(t.costo());
-            }
+            } else
+                mediador.delObject();
         }
 
         @Override

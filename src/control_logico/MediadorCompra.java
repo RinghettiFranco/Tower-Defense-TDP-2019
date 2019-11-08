@@ -1,10 +1,7 @@
 package control_logico;
 
 import control_grafico.TableroCompra;
-import torres.Chewbaca;
-import torres.HanSolo;
-import torres.LukeSkywalker;
-import torres.Torre;
+import torres.*;
 
 public class MediadorCompra implements Mediator {
 
@@ -13,11 +10,13 @@ public class MediadorCompra implements Mediator {
     private LukeSkywalker lukeSkywalker;
 
     private TableroCompra tienda;
+    private Leia leia;
 
     public MediadorCompra() {
         chewy = null;
         hanSolo = null;
         lukeSkywalker = null;
+        leia = null;
     }
 
     @Override
@@ -25,6 +24,7 @@ public class MediadorCompra implements Mediator {
         this.chewy = chewy;
         hanSolo = null;
         lukeSkywalker = null;
+        leia = null;
     }
 
     @Override
@@ -32,6 +32,7 @@ public class MediadorCompra implements Mediator {
         this.hanSolo = han;
         chewy = null;
         lukeSkywalker = null;
+        leia = null;
     }
 
     @Override
@@ -39,18 +40,22 @@ public class MediadorCompra implements Mediator {
         this.lukeSkywalker = luke;
         hanSolo = null;
         chewy = null;
+        leia = null;
+    }
+
+    public void setObject(Leia leia) {
+        this.leia = leia;
+        hanSolo = null;
+        chewy = null;
+        lukeSkywalker = null;
     }
 
     @Override
     public void delObject() {
-        if (chewy != null)
-            chewy = null;
-
-        if (hanSolo != null)
-            hanSolo = null;
-
-        if (lukeSkywalker != null)
-            lukeSkywalker = null;
+        chewy = null;
+        hanSolo = null;
+        lukeSkywalker = null;
+        leia = null;
     }
 
     @Override
@@ -63,6 +68,9 @@ public class MediadorCompra implements Mediator {
 
         if (lukeSkywalker != null)
             return lukeSkywalker;
+
+        if (leia != null)
+            return leia;
 
         // Nunca tendria que llegar aca
         return null;
@@ -79,6 +87,9 @@ public class MediadorCompra implements Mediator {
 
         if (lukeSkywalker != null)
             return lukeSkywalker.costo() <= oro;
+
+        if (leia != null)
+            return leia.costo() <= oro;
 
         return false;
     }
