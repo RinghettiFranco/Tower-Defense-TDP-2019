@@ -4,11 +4,7 @@ import torres.*;
 
 public interface Mediator {
 
-    void setObject(Chewbaca chewy);
-    void setObject(HanSolo han);
-    void setObject(LukeSkywalker luke);
-    void setObject(Leia leia);
-    void setObject(Ewok ewok);
+    void setObject(Torre t);
 
     void delObject();
 
