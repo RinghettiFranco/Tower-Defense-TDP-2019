@@ -6,6 +6,4 @@ public interface Agregable {
 
     void addToObjects(GameObject go);
     void delFromObjects(GameObject go);
-
-    void sumarOro(int cant);
 }

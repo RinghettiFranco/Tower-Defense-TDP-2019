@@ -40,11 +40,14 @@ public class TableroCompra extends JPanel implements Inventario {
 
         labelOro = new JLabel("Oro: " + cantOro);
         this.add(labelOro);
+
+        GameObject.setInventario(this);
     }
 
     public int getCantOro() {
         return cantOro;
     }
+
     public void actualizarOro(int incremento) {
         cantOro += incremento;
         labelOro.setText("Oro: " + cantOro);

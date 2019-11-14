@@ -8,12 +8,14 @@ import torres.Torre;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
 public abstract class GameObject extends JLabel {
 
     protected JLabel labelVida;
 
     protected static Agregable tableroJuego;
+    protected static Inventario inventario;
 
     protected Vida vida;
     protected int alcance, impacto;
@@ -22,12 +24,13 @@ public abstract class GameObject extends JLabel {
     protected Rectangle hitBox;
 
     public GameObject(int vida, int alcance, int impacto, ImageIcon graphic) {
+        Random rnd = new Random(System.currentTimeMillis());
         this.vida = new SinEscudo(vida);
         this.alcance = alcance;
         this.impacto = impacto;
 
         this.puntaje = (int) Math.random();
-        this.oro = (int) Math.random();
+        this.oro = rnd.nextInt(30);
 
         this.setIcon(graphic);
 
@@ -38,6 +41,9 @@ public abstract class GameObject extends JLabel {
 
     public static void setTableroJuego(Agregable a) {
         tableroJuego = a;
+    }
+    public static void setInventario(Inventario i) {
+        inventario = i;
     }
 
     public abstract void aceptar(Visitor v);

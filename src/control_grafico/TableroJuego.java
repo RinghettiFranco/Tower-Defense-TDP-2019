@@ -13,6 +13,8 @@ import java.util.List;
 
 public class TableroJuego extends JPanel implements Agregable {
 
+    private boolean posicionesOcupadas[][];
+
     private int nivel;
 
     private GeneradorNivel nivelGen;
@@ -43,6 +45,8 @@ public class TableroJuego extends JPanel implements Agregable {
         for (GameObject go: objetosMapa){
             this.add(go);
         }
+
+        this.posicionesOcupadas = new boolean[Constantes.VENTANA_ANCHO/Constantes.ANCHO_CELDA][Constantes.VENTANA_ALTO/Constantes.ALTO_CELDA];
 
         ppal = new ThreadPrincipal(this);
         ppal.start();
@@ -80,10 +84,6 @@ public class TableroJuego extends JPanel implements Agregable {
     public synchronized void delFromObjects(GameObject toDel) {
 		objetosMapa.remove(toDel);
 		this.remove(toDel);
-    }
-
-    public synchronized void sumarOro(int cant) {
-        mediador.sumarOro(cant);
     }
 
     private void colisionar() {
@@ -128,33 +128,33 @@ public class TableroJuego extends JPanel implements Agregable {
         public void mouseClicked(MouseEvent mouseEvent) {
             int posX = mouseEvent.getX() - (mouseEvent.getX()%100) + 15;
             int posY = mouseEvent.getY() - (mouseEvent.getY()%100) + 25;
+            int x = posX / Constantes.ANCHO_CELDA;
+            int y = posY / Constantes.ALTO_CELDA;
 
-            if (mediador.tengoOro()) {
-                Torre t = mediador.getObject().clone(posX, posY);
-                mediador.gastar(t.costo());
-            } else
-                mediador.delObject();
+            if (!posicionesOcupadas[x][y]) {
+                Torre t = mediador.getObject();
+                if (t != null) {
+                    if (mediador.tengoOro()) {
+                        t.clone(posX, posY);
+                        System.out.println(x + ", " + y);
+                        posicionesOcupadas[x][y] = true;
+                        mediador.gastar(t.costo());
+                    } else
+                        mediador.delObject();
+                }
+            }
         }
 
         @Override
-        public void mousePressed(MouseEvent mouseEvent) {
-
-        }
+        public void mousePressed(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseReleased(MouseEvent mouseEvent) {
-
-        }
+        public void mouseReleased(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseEntered(MouseEvent mouseEvent) {
-
-        }
+        public void mouseEntered(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseExited(MouseEvent mouseEvent) {
-
-        }
+        public void mouseExited(MouseEvent mouseEvent) {}
     }
 }
-

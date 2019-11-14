@@ -1,16 +1,13 @@
 package enemigos;
 
 
-import control_grafico.TableroJuego;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
 import control_logico.Escudo;
 import control_logico.Visitor;
-import miscelaneos.Oro;
 import movimiento.Movimiento;
 import movimiento.MovimientoQuieto;
-import torres.Torre;
 
 import javax.swing.*;
 
@@ -47,7 +44,7 @@ public abstract class Enemigo extends GameObject {
     }
 
     public void morir() {
-        tableroJuego.addToObjects(new Oro(hitBox.x, hitBox.y, oro));
+        inventario.actualizarOro(this.oro);
         tableroJuego.delFromObjects(this);
         // TODO Sumar puntos
     }

@@ -5,9 +5,7 @@ import torres.*;
 public interface Mediator {
 
     void setObject(Torre t);
-
     void delObject();
-
     Torre getObject();
 
     boolean tengoOro();
