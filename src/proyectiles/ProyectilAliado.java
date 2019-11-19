@@ -38,6 +38,7 @@ public class ProyectilAliado extends Proyectil {
 
         if (cuentaRegresiva == 0) {
             e.recibirDmg(this.impacto);
+            tableroJuego.delFromObjects(this);
         }
     }
 
