@@ -19,10 +19,7 @@ public class Stormtrooper extends Enemigo {
 		super(125, 3*Constantes.ANCHO_CELDA, 13, runningGif);
 		pos=new MovimientoEnemigo(x,y);
 
-		hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
-		this.setBounds(hitBox);
-		labelVida.setBounds(hitBox.x, hitBox.y, 100, 3);
-		this.add(labelVida);
+		this.setBounds(x, y, 100, 100);
 
 		cuentaRegresiva = 70;
 		tableroJuego.addToObjects(this);
@@ -34,14 +31,11 @@ public class Stormtrooper extends Enemigo {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
-			if (distancia(hitBox, t.getBounds()) >= Constantes.ANCHO_CELDA)
-				tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, this.impacto));
+			if (distancia(t) >= Constantes.ANCHO_CELDA)
+				tableroJuego.addToObjects(new ProyectilEnemigo(this.getX(), this.getY(), this.impacto));
 			else
 				t.recibirDmg(3*this.impacto/4);
 			cuentaRegresiva = 70;
 		}
-
-		if (t.estaMuerto())
-			pos = new MovimientoEnemigo(hitBox.x, hitBox.y);
 	}
 }

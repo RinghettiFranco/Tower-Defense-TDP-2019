@@ -21,8 +21,7 @@ public class Ewok extends Torre {
         super(200, 1*Constantes.ANCHO_CELDA,  20, standingEwok);
         this.costo = 10;
 
-        hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
-        this.setBounds(hitBox);
+        this.setBounds(x, y, 100, 100);
 
         tableroJuego.addToObjects(this);
 
@@ -39,8 +38,8 @@ public class Ewok extends Torre {
     	this.setIcon(attackingEwok);
 
 		if (cuentaRegresiva == 0) {
-			if (distancia(hitBox, e.getBounds()) >= Constantes.ANCHO_CELDA)
-				tableroJuego.addToObjects(new Flecha(hitBox.x, hitBox.y, this.impacto));
+			if (distancia(e) >= Constantes.ANCHO_CELDA)
+				tableroJuego.addToObjects(new Flecha(this.getX(), this.getY(), this.impacto));
 			else {
 				e.recibirDmg(3 * this.impacto / 4);
 				e.frenar();

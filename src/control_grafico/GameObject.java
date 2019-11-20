@@ -21,8 +21,6 @@ public abstract class GameObject extends JLabel {
     protected int alcance, impacto;
     protected int puntaje, oro;
 
-    protected Rectangle hitBox;
-
     public GameObject(int vida, int alcance, int impacto, ImageIcon graphic) {
         Random rnd = new Random(System.currentTimeMillis());
         this.vida = new SinEscudo(vida);
@@ -77,9 +75,10 @@ public abstract class GameObject extends JLabel {
         return puntaje;
     }
 
-    protected int distancia (Rectangle r1, Rectangle r2) {
-        if (r1.y == r2.y)
-            return (int) Math.sqrt((r2.x-r1.x)*(r2.x-r1.x) + (r2.y-r1.y)*(r2.y-r1.y));
+
+    public int distancia (GameObject go) {
+        if (this.getY() == go.getY())
+            return (int) Math.sqrt((go.getX()-this.getX())*(go.getX()-this.getX()) + (go.getY()-this.getY())*(go.getY()-this.getY()));
         else
             return Constantes.MAX_INF;
     }

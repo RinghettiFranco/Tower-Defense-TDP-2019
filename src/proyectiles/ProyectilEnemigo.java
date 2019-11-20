@@ -16,12 +16,11 @@ public class ProyectilEnemigo extends Proyectil {
     protected static ImageIcon grafico = new ImageIcon("src/Imagenes/disp3.png");
 
     public ProyectilEnemigo(int x, int y, int impacto) {
-        super(Constantes.MAX_INF, 1*Constantes.ANCHO_CELDA, impacto, grafico);
+        super(1, 1*Constantes.ANCHO_CELDA, impacto, grafico);
 
         pos=new MovimientoProyectil(x,y, -1);
 
-        hitBox = new Rectangle(x, y, 100, 100);
-        this.setBounds(hitBox);
+        this.setBounds(x, y, 100, 100);
 
         tableroJuego.addToObjects(this);
 
@@ -38,6 +37,7 @@ public class ProyectilEnemigo extends Proyectil {
 
         if (cuentaRegresiva == 0) {
             t.recibirDmg(this.impacto);
+            this.morir();
         }
     }
 
@@ -48,11 +48,10 @@ public class ProyectilEnemigo extends Proyectil {
 
     @Override
     public void actualizar() {
-        Point2D nueva=pos.proximaPosicion();
-        int x=(int) nueva.getX();
-        int y=(int) nueva.getY();
+        Point2D nueva = pos.proximaPosicion();
+        int x = (int) nueva.getX();
+        int y = (int) nueva.getY();
 
-        hitBox.setBounds(x,y,33,73);
-        this.setBounds(hitBox);
+        this.setBounds(x, y, 100, 100);
     }
 }

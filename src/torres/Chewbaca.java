@@ -19,8 +19,7 @@ public class Chewbaca extends Torre {
         super(200, 1*Constantes.ANCHO_CELDA,  20, standingChewbaca);
         this.costo = 10;
 
-        hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
-        this.setBounds(hitBox);
+        this.setBounds(x, y, 100, 100);
 
         tableroJuego.addToObjects(this);
 

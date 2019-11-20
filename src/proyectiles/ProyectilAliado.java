@@ -12,16 +12,11 @@ import java.awt.geom.Point2D;
 
 public class ProyectilAliado extends Proyectil {
 
-
-    
-
     public ProyectilAliado(int x, int y, int impacto,ImageIcon grafico) {
-        super(Constantes.MAX_INF, 1*Constantes.ANCHO_CELDA, impacto, grafico);
+        super(1, 1*Constantes.ANCHO_CELDA, impacto, grafico);
 
         pos=new MovimientoProyectil(x,y, 1);
-
-        hitBox = new Rectangle(x, y, 100, 100);
-        this.setBounds(hitBox);
+        this.setBounds(x, y, 100, 100);
 
         tableroJuego.addToObjects(this);
 
@@ -38,7 +33,7 @@ public class ProyectilAliado extends Proyectil {
 
         if (cuentaRegresiva == 0) {
             e.recibirDmg(this.impacto);
-            tableroJuego.delFromObjects(this);
+            this.morir();
         }
     }
 
@@ -49,11 +44,9 @@ public class ProyectilAliado extends Proyectil {
 
     @Override
     public void actualizar() {
-        Point2D nueva=pos.proximaPosicion();
-        int x=(int) nueva.getX();
-        int y=(int) nueva.getY();
-
-        hitBox.setBounds(x,y,33,73);
-        this.setBounds(hitBox);
+        Point2D nueva = pos.proximaPosicion();
+        int x = (int) nueva.getX();
+        int y = (int) nueva.getY();
+        this.setBounds(x, y, 100, 100);
     }
 }

@@ -19,8 +19,7 @@ public class LukeSkywalker extends Torre {
         super(250, 1*Constantes.ANCHO_CELDA, 16, attackingLuke);
         this.costo = 25;
 
-        hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
-        this.setBounds(hitBox);
+        this.setBounds(x, y, 100, 100);
 
         tableroJuego.addToObjects(this);
 

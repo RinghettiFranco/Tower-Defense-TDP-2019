@@ -1,6 +1,7 @@
 package enemigos;
 
 
+import control_logico.Constantes;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
@@ -30,13 +31,15 @@ public abstract class Enemigo extends GameObject {
     }
 
     public void actualizar() {
-        Point2D nueva=pos.proximaPosicion();
-        int x=(int) nueva.getX();
-        int y=(int) nueva.getY();
+        if (this.vida.obtenerVida() <= 0)
+            morir();
+        else {
+            Point2D nueva = pos.proximaPosicion();
+            int x = (int) nueva.getX();
+            int y = (int) nueva.getY();
 
-        hitBox.setBounds(x,y,100, 100);
-        this.setBounds(hitBox);
-
+            this.setBounds(x, y, 100, 100);
+        }
     }
 
     public void aceptar(Visitor v) {
@@ -57,6 +60,6 @@ public abstract class Enemigo extends GameObject {
     }
 
     public void frenar() {
-        pos = new MovimientoQuieto(hitBox.x, hitBox.y);
+        pos = new MovimientoQuieto(this.getX(), this.getY());
     }
 }

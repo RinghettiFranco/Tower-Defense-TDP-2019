@@ -19,7 +19,10 @@ public abstract class Torre extends GameObject {
         this.puntaje = -this.puntaje;
     }
 
-    public void actualizar(){}
+    public void actualizar(){
+        if (this.vida.obtenerVida() <= 0)
+            morir();
+    }
 
     public int costo() {
         return costo;

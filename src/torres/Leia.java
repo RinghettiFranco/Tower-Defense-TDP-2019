@@ -19,8 +19,7 @@ public class Leia extends Torre {
 		super(150, 1*Constantes.ANCHO_CELDA, 13, standingleia);
 		this.costo = 12;
 
-		hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
-		this.setBounds(hitBox);
+		this.setBounds(x, y, 100, 100);
 
 		tableroJuego.addToObjects(this);
 

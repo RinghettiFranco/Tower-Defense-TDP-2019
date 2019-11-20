@@ -14,8 +14,7 @@ public class BalaAliado extends ProyectilAliado {
 
 	        pos=new MovimientoProyectil(x,y, 1);
 
-	        hitBox = new Rectangle(x, y, 100, 100);
-	        this.setBounds(hitBox);
+			this.setBounds(x, y, 100, 100);
 
 	        tableroJuego.addToObjects(this);
 

@@ -20,8 +20,7 @@ public class Soldier2 extends Enemigo {
         super(100, 2*Constantes.ANCHO_CELDA, 12, walkingSoldier2);
         pos = new MovimientoEnemigo(x, y);
 
-        hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
-        this.setBounds(hitBox);
+        this.setBounds(x, y, 100, 100);
 
         tableroJuego.addToObjects(this);
 
@@ -32,8 +31,8 @@ public class Soldier2 extends Enemigo {
         cuentaRegresiva--;
 
         if (cuentaRegresiva == 0) {
-            if (distancia(hitBox, t.getBounds()) >= Constantes.ANCHO_CELDA)
-                tableroJuego.addToObjects(new ProyectilEnemigo(hitBox.x, hitBox.y, this.impacto));
+            if (distancia(t) >= Constantes.ANCHO_CELDA)
+                tableroJuego.addToObjects(new ProyectilEnemigo(this.getX(), this.getY(), this.impacto));
             else
                 t.recibirDmg(this.impacto/2);
             cuentaRegresiva = 35;

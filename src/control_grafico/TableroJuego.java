@@ -18,7 +18,7 @@ public class TableroJuego extends JPanel implements Agregable {
     private int nivel;
 
     private GeneradorNivel nivelGen;
-    private List<GameObject> objetosMapa;
+    private List<GameObject> objetosMapa, toDel;
 
     private ThreadPrincipal ppal;
 
@@ -39,6 +39,7 @@ public class TableroJuego extends JPanel implements Agregable {
         nivel = 1;
         nivelGen = new GeneradorNivel();
 
+        toDel = new LinkedList<>();
         objetosMapa = nivelGen.generar(nivel);
 
         int i=0;
@@ -67,6 +68,11 @@ public class TableroJuego extends JPanel implements Agregable {
             go.aceptar(vp);
         }
 
+        for (GameObject go: toDel) {
+            objetosMapa.remove(go);
+            this.remove(go);
+        }
+
         if (vp.perdi())
             System.exit(32);
     }
@@ -82,8 +88,7 @@ public class TableroJuego extends JPanel implements Agregable {
     }
 
     public synchronized void delFromObjects(GameObject toDel) {
-		objetosMapa.remove(toDel);
-		this.remove(toDel);
+		this.toDel.add(toDel);
     }
 
     private void colisionar() {
@@ -94,23 +99,11 @@ public class TableroJuego extends JPanel implements Agregable {
             objectI = objetosMapa.get(i);
             for (int j = 0; j < objetosMapa.size(); j++) {
                 objectJ = objetosMapa.get(j);
-                if (distancia(objectI.hitBox, objectJ.hitBox) <= objectJ.obtenerAlcance()) {
+                if (objectI.distancia(objectJ) <= objectJ.obtenerAlcance()) {
                     objectI.aceptar(new VisitorAtaque(objectJ)); // Esto es equivalente a J.atacar(I)
                 }
-                if (objectJ.estaMuerto())
-                    objectJ.morir();
             }
-
-            if (objectI.estaMuerto())
-                objectI.morir();
         }
-    }
-
-    private int distancia(Rectangle r1, Rectangle r2) {
-        if (r1.y == r2.y)
-            return (int) Math.sqrt((r2.x-r1.x)*(r2.x-r1.x) + (r2.y-r1.y)*(r2.y-r1.y));
-        else
-            return Constantes.MAX_INF;
     }
 
     // Seteamos el fondo
@@ -136,7 +129,6 @@ public class TableroJuego extends JPanel implements Agregable {
                 if (t != null) {
                     if (mediador.tengoOro()) {
                         t.clone(posX, posY);
-                        System.out.println(x + ", " + y);
                         posicionesOcupadas[x][y] = true;
                         mediador.gastar(t.costo());
                     } else

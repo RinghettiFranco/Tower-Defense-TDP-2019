@@ -21,8 +21,7 @@ public class HanSolo extends Torre {
 		super(150, 3*Constantes.ANCHO_CELDA, 15, standing);
 		this.costo = 12;
 
-		hitBox = new Rectangle(x, y, Constantes.ALTO_CELDA, Constantes.ANCHO_CELDA);
-		this.setBounds(hitBox);
+		this.setBounds(x, y, 100, 100);
 
 		tableroJuego.addToObjects(this);
 
@@ -38,8 +37,8 @@ public class HanSolo extends Torre {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
-			if (distancia(hitBox, e.getBounds()) >= Constantes.ANCHO_CELDA)
-				tableroJuego.addToObjects(new BalaAliado(hitBox.x, hitBox.y, this.impacto));
+			if (distancia(e) >= Constantes.ANCHO_CELDA)
+				tableroJuego.addToObjects(new BalaAliado(this.getX(), this.getY(), this.impacto));
 			else {
 				e.recibirDmg(3 * this.impacto / 4);
 				e.frenar();
