@@ -19,7 +19,7 @@ public class Leia extends Torre {
 		super(150, 1*Constantes.ANCHO_CELDA, 13, standingleia);
 		this.costo = 12;
 
-		this.setBounds(x, y, 100, 100);
+		this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
 		tableroJuego.addToObjects(this);
 

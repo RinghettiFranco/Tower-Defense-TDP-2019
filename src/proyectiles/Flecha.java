@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
+import control_logico.Constantes;
 import movimiento.MovimientoProyectil;
 
 public class Flecha extends ProyectilAliado {
@@ -14,7 +15,7 @@ public class Flecha extends ProyectilAliado {
 
 	        pos=new MovimientoProyectil(x,y, 1);
 
-			this.setBounds(x, y, 100, 100);
+			this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
 	        tableroJuego.addToObjects(this);
 

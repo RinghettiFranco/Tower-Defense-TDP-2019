@@ -18,7 +18,7 @@ public class ProyectilAliado extends Proyectil {
         pos=new MovimientoProyectil(x,y, 1);
         this.setBounds(x, y, 100, 100);
 
-        tableroJuego.addToObjects(this);
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         this.cuentaRegresiva = 35;
     }

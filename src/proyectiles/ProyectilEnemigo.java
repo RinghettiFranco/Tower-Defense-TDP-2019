@@ -20,7 +20,7 @@ public class ProyectilEnemigo extends Proyectil {
 
         pos=new MovimientoProyectil(x,y, -1);
 
-        this.setBounds(x, y, 100, 100);
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         tableroJuego.addToObjects(this);
 

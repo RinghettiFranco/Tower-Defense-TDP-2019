@@ -13,29 +13,29 @@ public class GeneradorNivel {
 	public List<GameObject> generar(int nivel){
 		List<GameObject> oleada = new LinkedList();
 		Random rnd = new Random(System.currentTimeMillis());
-
+		int h = Constantes.PANEL_JUEGO_ALTO;
 		int corrimiento = 900;
 		int distancia = 1200;
 		int auxInicio,inicio,pos; 
 		for(int i=0;i<nivel;i++){
 			auxInicio = (i==0)?0:1;
-			oleada.add(new Stormtrooper(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),25));
-			oleada.add(new Stormtrooper(900+(i*distancia)+auxInicio*(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),125));
-			oleada.add(new Stormtrooper(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),225));
-			oleada.add(new Stormtrooper(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),325));
-			oleada.add(new Stormtrooper(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),425));
-			oleada.add(new Stormtrooper(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),525));
+			oleada.add(new Stormtrooper(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), 0));
+			oleada.add(new Stormtrooper(Constantes.VENTANA_ANCHO+(i*distancia)+auxInicio*(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), h/3));
+			oleada.add(new Stormtrooper(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), h/2));
+			oleada.add(new Stormtrooper(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), 2*h/3));
+			oleada.add(new Stormtrooper(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), 5*h/6));
+			oleada.add(new Stormtrooper(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), h));
 			corrimiento +=(distancia/4);
 			
 		}
 		inicio = corrimiento;
 		for(int i=0;i<nivel;i++){
-			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),25));
-			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),125));
-			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),225));
-			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),325));
-			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),425));
-			oleada.add(new Soldier2(900+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50),525));
+			oleada.add(new Soldier2(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), 0));
+			oleada.add(new Soldier2(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), h/3));
+			oleada.add(new Soldier2(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), h/2));
+			oleada.add(new Soldier2(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), 2*h/3));
+			oleada.add(new Soldier2(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), 5*h/6));
+			oleada.add(new Soldier2(Constantes.VENTANA_ANCHO+(i*distancia)+(distancia/4)*(rnd.nextInt(3)+1)+rnd.nextInt(50), h));
 			corrimiento +=(distancia/4);
 			
 		}
@@ -46,12 +46,12 @@ public class GeneradorNivel {
 			oleada.add(new BobbaFet(corrimiento,pos));
 		}
 		for(int j=0;j<nivel;j++){
-			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50),25));
-			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50),125));
-			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50),225));
-			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50),325));
-			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50),425));
-			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50),525));
+			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50), 0));
+			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50), h/3));
+			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50), h/2));
+			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50), 2*h/3));
+			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50), 5*h/6));
+			oleada.add(new Soldier(inicio+(j*distancia)+(distancia/6)*(rnd.nextInt(3)+1)+rnd.nextInt(50), h));
 			corrimiento += (distancia/4);
 		}
 		corrimiento += 200*nivel;

@@ -19,7 +19,7 @@ public class Stormtrooper extends Enemigo {
 		super(125, 3*Constantes.ANCHO_CELDA, 13, runningGif);
 		pos=new MovimientoEnemigo(x,y);
 
-		this.setBounds(x, y, 100, 100);
+		this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
 		cuentaRegresiva = 70;
 		tableroJuego.addToObjects(this);

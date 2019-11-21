@@ -18,7 +18,7 @@ public class BobbaFet extends Enemigo {
         super(150, 1*Constantes.ANCHO_CELDA, 20, walkingBobbaFet);
         pos = new MovimientoEnemigo(x, y);
 
-        this.setBounds(x, y, 100, 100);
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         tableroJuego.addToObjects(this);
 

@@ -119,8 +119,8 @@ public class TableroJuego extends JPanel implements Agregable {
 
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
-            int posX = mouseEvent.getX() - (mouseEvent.getX()%100) + 15;
-            int posY = mouseEvent.getY() - (mouseEvent.getY()%100) + 25;
+            int posX = mouseEvent.getX() - (mouseEvent.getX() % Constantes.ANCHO_CELDA) + 15;
+            int posY = mouseEvent.getY() - (mouseEvent.getY() % Constantes.ALTO_CELDA);
             int x = posX / Constantes.ANCHO_CELDA;
             int y = posY / Constantes.ALTO_CELDA;
 

@@ -18,7 +18,7 @@ public class Soldier extends Enemigo {
         super(100, 1*Constantes.ANCHO_CELDA, 12, walkingSoldier);
         pos = new MovimientoEnemigo(x, y);
 
-        this.setBounds(x, y, 100, 100);
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         tableroJuego.addToObjects(this);
 

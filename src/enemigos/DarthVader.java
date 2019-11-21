@@ -19,7 +19,7 @@ public class DarthVader extends Enemigo {
         super(350, 1*Constantes.ANCHO_CELDA, 29 ,walkingVader);
         pos = new MovimientoEnemigo(x, y);
 
-        this.setBounds(x, y, 100, 100);
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         tableroJuego.addToObjects(this);
 

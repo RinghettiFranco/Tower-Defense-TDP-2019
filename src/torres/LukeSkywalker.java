@@ -19,7 +19,7 @@ public class LukeSkywalker extends Torre {
         super(250, 1*Constantes.ANCHO_CELDA, 16, attackingLuke);
         this.costo = 25;
 
-        this.setBounds(x, y, 100, 100);
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         tableroJuego.addToObjects(this);
 
