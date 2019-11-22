@@ -24,7 +24,7 @@ public class Stormtrooper extends Enemigo {
 		cuentaRegresiva = 70;
 		tableroJuego.addToObjects(this);
 
-		this.cuentaRegresiva = 70;
+		this.cuentaRegresiva = 2*Constantes.SEGUNDO;
 	}
 
 	public void colisionar(Torre t) {

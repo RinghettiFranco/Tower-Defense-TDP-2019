@@ -5,6 +5,7 @@ import control_logico.Mediator;
 import torres.Leia;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -24,6 +25,7 @@ public class ComprarLeia extends JLabel {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
             mediador.setObject(new Leia(Constantes.MAX_INF, Constantes.MAX_INF));
+            setForeground(Color.GREEN);
         }
 
         @Override

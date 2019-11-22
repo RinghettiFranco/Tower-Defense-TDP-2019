@@ -87,8 +87,8 @@ public class TableroJuego extends JPanel implements Agregable {
         this.add(go);
     }
 
-    public synchronized void delFromObjects(GameObject toDel) {
-		this.toDel.add(toDel);
+    public synchronized void delFromObjects(GameObject go) {
+		toDel.add(go);
     }
 
     private void colisionar() {

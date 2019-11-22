@@ -23,7 +23,7 @@ public class Chewbaca extends Torre {
 
         tableroJuego.addToObjects(this);
 
-        this.cuentaRegresiva = 55;
+        this.cuentaRegresiva = (int) 1.3*Constantes.SEGUNDO;
     }
 
     @Override

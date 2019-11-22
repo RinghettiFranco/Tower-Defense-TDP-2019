@@ -24,7 +24,7 @@ public class ProyectilEnemigo extends Proyectil {
 
         tableroJuego.addToObjects(this);
 
-        this.cuentaRegresiva = 35;
+        this.cuentaRegresiva = 10;
     }
 
     public void colisionar(Enemigo e) {}

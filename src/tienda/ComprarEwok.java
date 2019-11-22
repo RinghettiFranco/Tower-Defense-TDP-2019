@@ -6,6 +6,7 @@ import torres.Chewbaca;
 import torres.Ewok;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -27,6 +28,7 @@ public class ComprarEwok extends JLabel {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
             med.setObject(new Ewok(Constantes.MAX_INF, Constantes.MAX_INF));
+            setForeground(Color.GREEN);
         }
 
         @Override

@@ -15,12 +15,14 @@ public class MediadorCompra implements Mediator {
 
     @Override
     public void setObject(Torre t) {
+        tienda.limpiarSeleccion();
         miTorre = t;
     }
 
     @Override
     public void delObject() {
         miTorre = null;
+        tienda.limpiarSeleccion();
     }
 
     @Override

@@ -5,6 +5,7 @@ import control_logico.Mediator;
 import torres.Chewbaca;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -15,7 +16,7 @@ public class ComprarChewy extends JLabel {
     public ComprarChewy(Mediator med) {
         super();
 
-        this.setText("Chewbaca");
+        this.setText("Chewy");
         this.addMouseListener(new ClickListener());
         this.med = med;
     }
@@ -26,6 +27,7 @@ public class ComprarChewy extends JLabel {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
             med.setObject(new Chewbaca(Constantes.MAX_INF, Constantes.MAX_INF));
+            setForeground(Color.GREEN);
         }
 
         @Override

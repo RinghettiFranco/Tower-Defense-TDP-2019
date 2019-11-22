@@ -20,7 +20,7 @@ public class ProyectilAliado extends Proyectil {
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
-        this.cuentaRegresiva = 35;
+        this.cuentaRegresiva = 10;
     }
 
     public void colisionar(ProyectilAliado pa) {}

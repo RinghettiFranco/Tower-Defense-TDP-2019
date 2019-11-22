@@ -22,7 +22,7 @@ public class Soldier extends Enemigo {
 
         tableroJuego.addToObjects(this);
 
-        this.cuentaRegresiva = 35;
+        this.cuentaRegresiva = 1*Constantes.SEGUNDO;
     }
 
     public void colisionar(Torre t) {

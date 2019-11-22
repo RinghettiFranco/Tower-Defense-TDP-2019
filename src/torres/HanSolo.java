@@ -25,7 +25,7 @@ public class HanSolo extends Torre {
 
 		tableroJuego.addToObjects(this);
 
-		this.cuentaRegresiva = 35;
+		this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 	}
 
 	@Override

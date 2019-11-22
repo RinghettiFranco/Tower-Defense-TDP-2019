@@ -23,7 +23,7 @@ public class LukeSkywalker extends Torre {
 
         tableroJuego.addToObjects(this);
 
-        this.cuentaRegresiva = 30;
+        this.cuentaRegresiva = (int) 0.85*Constantes.SEGUNDO;
     }
 
     @Override

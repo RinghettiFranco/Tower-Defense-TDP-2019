@@ -44,7 +44,7 @@ public class Ewok extends Torre {
 				e.recibirDmg(3 * this.impacto / 4);
 				e.frenar();
 			}
-			cuentaRegresiva = 35;
+            this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 		}
 	}
 }

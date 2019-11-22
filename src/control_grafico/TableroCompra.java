@@ -54,6 +54,13 @@ public class TableroCompra extends JPanel implements Inventario {
 
     }
 
+    public void limpiarSeleccion() {
+        for (int i = 0; i < 5; i++)
+            torres[i].setForeground(Color.BLACK);
+        for (int i = 0; i < 4; i++)
+            objetos[i].setForeground(Color.BLACK);
+    }
+
     private void inicializarTorres() {
         this.torres = new JLabel[5];
 

@@ -5,6 +5,7 @@ import control_logico.Mediator;
 import torres.LukeSkywalker;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -25,6 +26,7 @@ public class ComprarLuke extends JLabel {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
             med.setObject(new LukeSkywalker(Constantes.MAX_INF,Constantes.MAX_INF));
+            setForeground(Color.GREEN);
         }
 
         @Override

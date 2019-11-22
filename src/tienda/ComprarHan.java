@@ -26,6 +26,7 @@ public class ComprarHan extends JLabel {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
             med.setObject(new HanSolo(Constantes.MAX_INF, Constantes.MAX_INF));
+            setForeground(Color.GREEN);
         }
 
         @Override

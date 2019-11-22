@@ -23,7 +23,7 @@ public class DarthVader extends Enemigo {
 
         tableroJuego.addToObjects(this);
 
-        this.cuentaRegresiva = 30;
+        this.cuentaRegresiva = (int) 0.9*Constantes.SEGUNDO;
     }
 
     public void colisionar(Torre t) {

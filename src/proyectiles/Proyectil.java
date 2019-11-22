@@ -18,5 +18,6 @@ public abstract class Proyectil extends GameObject {
     public void morir() {
         tableroJuego.delFromObjects(this);
     }
+
     public void frenar() {}
 }

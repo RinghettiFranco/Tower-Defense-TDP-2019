@@ -19,7 +19,7 @@ public class Flecha extends ProyectilAliado {
 
 	        tableroJuego.addToObjects(this);
 
-	        this.cuentaRegresiva = 35;
+			this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 	    }
 
 
