@@ -1,4 +1,4 @@
-package miscelaneos;
+package objetos_mapa;
 
 import control_grafico.GameObject;
 

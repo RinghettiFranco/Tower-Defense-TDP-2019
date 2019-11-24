@@ -1,4 +1,4 @@
-package control_logico;
+package tienda;
 
 import control_grafico.TableroCompra;
 import torres.*;

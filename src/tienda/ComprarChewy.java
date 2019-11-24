@@ -1,7 +1,6 @@
 package tienda;
 
 import control_logico.Constantes;
-import control_logico.Mediator;
 import torres.Chewbaca;
 
 import javax.swing.*;

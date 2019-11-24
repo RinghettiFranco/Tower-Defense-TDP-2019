@@ -1,51 +1,43 @@
 package tienda;
 
 import control_logico.Constantes;
-import torres.LukeSkywalker;
+import objetos_jugador.R2D2;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ComprarLuke extends JLabel {
-
+public class ComprarR2D2 extends JLabel {
     private Mediator med;
 
-    public ComprarLuke(Mediator med) {
+    public ComprarR2D2(Mediator med) {
         super();
 
-        this.setText("Luke");
+        this.setText("R2D2");
         this.addMouseListener(new ClickListener());
         this.med = med;
     }
+
 
     private class ClickListener implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
-            med.setObject(new LukeSkywalker(Constantes.MAX_INF,Constantes.MAX_INF));
+            med.setObject(new R2D2(Constantes.MAX_INF, Constantes.MAX_INF));
             setForeground(Color.GREEN);
         }
 
         @Override
-        public void mousePressed(MouseEvent mouseEvent) {
-
-        }
+        public void mousePressed(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseReleased(MouseEvent mouseEvent) {
-
-        }
+        public void mouseReleased(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseEntered(MouseEvent mouseEvent) {
-
-        }
+        public void mouseEntered(MouseEvent mouseEvent) {}
 
         @Override
-        public void mouseExited(MouseEvent mouseEvent) {
-
-        }
+        public void mouseExited(MouseEvent mouseEvent) {}
     }
 }

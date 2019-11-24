@@ -2,8 +2,8 @@ package control_grafico;
 
 import control_logico.Constantes;
 import control_logico.Inventario;
-import control_logico.Mediator;
-import miscelaneos.Premio;
+import tienda.Mediator;
+import premios.Premio;
 import tienda.*;
 
 import javax.swing.*;

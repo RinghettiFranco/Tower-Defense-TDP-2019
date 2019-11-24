@@ -2,6 +2,7 @@ package control_grafico;
 
 
 import control_logico.*;
+import tienda.Mediator;
 import torres.Torre;
 
 import javax.swing.*;

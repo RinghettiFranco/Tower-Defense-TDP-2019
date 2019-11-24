@@ -1,4 +1,4 @@
-package control_logico;
+package tienda;
 
 import torres.*;
 

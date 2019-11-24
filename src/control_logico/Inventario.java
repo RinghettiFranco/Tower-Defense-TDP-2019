@@ -1,6 +1,6 @@
 package control_logico;
 
-import miscelaneos.Premio;
+import premios.Premio;
 
 public interface Inventario {
 
