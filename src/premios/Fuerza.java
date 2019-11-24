@@ -53,4 +53,9 @@ public class Fuerza extends Premio {
     public void morir() {
 
     }
+
+    @Override
+    public Fuerza clone(int posX, int posY) {
+        return null;
+    }
 }

@@ -52,4 +52,9 @@ public class RobotPiso extends ObjetosJugador {
     public void morir() {
 
     }
+
+    @Override
+    public RobotPiso clone(int posX, int posY) {
+        return null;
+    }
 }

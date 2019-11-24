@@ -3,7 +3,6 @@ package control_grafico;
 
 import control_logico.*;
 import tienda.Mediator;
-import torres.Torre;
 
 import javax.swing.*;
 import java.awt.*;
@@ -126,7 +125,7 @@ public class TableroJuego extends JPanel implements Agregable {
             int y = posY / Constantes.ALTO_CELDA;
 
             if (!posicionesOcupadas[x][y]) {
-                Torre t = mediador.getObject();
+                GameObject t = mediador.getObject();
                 if (t != null) {
                     if (mediador.tengoOro()) {
                         t.clone(posX, posY);

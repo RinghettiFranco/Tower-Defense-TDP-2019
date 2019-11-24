@@ -52,4 +52,9 @@ public class RobotBarrera extends ObjetosJugador {
     public void morir() {
 
     }
+
+    @Override
+    public RobotBarrera clone(int posX, int posY) {
+        return null;
+    }
 }

@@ -52,4 +52,9 @@ public class Espinas extends ObjetosJugador {
     public void morir() {
 
     }
+
+    @Override
+    public Espinas clone(int posX, int posY) {
+        return null;
+    }
 }

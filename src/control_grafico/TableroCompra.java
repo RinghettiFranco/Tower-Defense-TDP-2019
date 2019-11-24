@@ -79,13 +79,13 @@ public class TableroCompra extends JPanel implements Inventario {
     private void inicializarObjetos() {
         this.objetos = new JLabel[4];
 
-        objetos[0] = new JLabel("Obj0");
+        objetos[0] = new ComprarR2D2(mediator);
         panelObjetos.add(objetos[0]);
-        objetos[1] = new JLabel("Obj1");
+        objetos[1] = new ComprarEspinas(mediator);
         panelObjetos.add(objetos[1]);
-        objetos[2] = new JLabel("Obj2");
+        objetos[2] = new ComprarBarrera(mediator);
         panelObjetos.add(objetos[2]);
-        objetos[3] = new JLabel("Obj3");
+        objetos[3] = new ComprarBarrera(mediator);
         panelObjetos.add(objetos[3]);
 
         this.add(panelObjetos);

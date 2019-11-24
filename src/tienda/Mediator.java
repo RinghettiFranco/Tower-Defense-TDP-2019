@@ -1,12 +1,12 @@
 package tienda;
 
-import torres.*;
+import control_grafico.GameObject;
 
 public interface Mediator {
 
-    void setObject(Torre t);
+    void setObject(GameObject t);
     void delObject();
-    Torre getObject();
+    GameObject getObject();
 
     boolean tengoOro();
     void gastar(int oro);

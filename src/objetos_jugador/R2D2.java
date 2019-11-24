@@ -52,4 +52,9 @@ public class R2D2 extends ObjetosJugador {
     public void morir() {
 
     }
+
+    @Override
+    public R2D2 clone(int posX, int posY) {
+        return null;
+    }
 }

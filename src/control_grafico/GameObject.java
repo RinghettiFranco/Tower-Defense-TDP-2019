@@ -75,6 +75,11 @@ public abstract class GameObject extends JLabel {
         return puntaje;
     }
 
+    public int costo() {
+        return 0;
+    }
+
+    public abstract GameObject clone(int posX, int posY);
 
     public int distancia (GameObject go) {
         if (this.getY() == go.getY())

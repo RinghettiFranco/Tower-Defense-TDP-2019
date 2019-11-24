@@ -53,4 +53,9 @@ public class Fuego extends Premio {
     public void morir() {
 
     }
+
+    @Override
+    public Fuego clone(int posX, int posY) {
+        return null;
+    }
 }

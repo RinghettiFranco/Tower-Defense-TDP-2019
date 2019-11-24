@@ -48,4 +48,9 @@ public class AgujeroNegro extends ObjetoMapa {
     public void morir() {
 
     }
+
+    @Override
+    public AgujeroNegro clone(int posX, int posY) {
+        return null;
+    }
 }

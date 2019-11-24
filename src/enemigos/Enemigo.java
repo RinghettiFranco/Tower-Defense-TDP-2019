@@ -1,17 +1,15 @@
 package enemigos;
 
 
-import control_logico.Constantes;
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
 import control_logico.Escudo;
 import control_logico.Visitor;
 import movimiento.Movimiento;
 import movimiento.MovimientoQuieto;
+import proyectiles.ProyectilAliado;
+import proyectiles.ProyectilEnemigo;
 
 import javax.swing.*;
-
 import java.awt.geom.Point2D;
 import java.util.Random;
 
@@ -61,5 +59,9 @@ public abstract class Enemigo extends GameObject {
 
     public void frenar() {
         pos = new MovimientoQuieto(this.getX(), this.getY());
+    }
+
+    public Enemigo clone(int posX, int posY) {
+        return null;
     }
 }

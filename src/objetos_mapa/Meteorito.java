@@ -48,4 +48,9 @@ public class Meteorito extends ObjetoMapa {
     public void morir() {
 
     }
+
+    @Override
+    public Meteorito clone(int posX, int posY) {
+        return null;
+    }
 }

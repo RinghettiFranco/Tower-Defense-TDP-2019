@@ -53,4 +53,9 @@ public class Escudo extends Premio {
     public void morir() {
 
     }
+
+    @Override
+    public Escudo clone(int posX, int posY) {
+        return null;
+    }
 }

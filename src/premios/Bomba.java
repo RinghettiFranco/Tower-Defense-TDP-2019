@@ -53,4 +53,9 @@ public class Bomba extends Premio {
     public void morir() {
 
     }
+
+    @Override
+    public Bomba clone(int posX, int posY) {
+        return null;
+    }
 }

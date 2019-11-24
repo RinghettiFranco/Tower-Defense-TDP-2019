@@ -1,39 +1,40 @@
 package tienda;
 
+import control_grafico.GameObject;
 import control_grafico.TableroCompra;
 import torres.*;
 
 public class MediadorCompra implements Mediator {
 
-    protected Torre miTorre;
+    protected GameObject miObjeto;
 
     private TableroCompra tienda;
 
     public MediadorCompra() {
-        miTorre = null;
+        miObjeto = null;
     }
 
     @Override
-    public void setObject(Torre t) {
+    public void setObject(GameObject t) {
         tienda.limpiarSeleccion();
-        miTorre = t;
+        miObjeto = t;
     }
 
     @Override
     public void delObject() {
-        miTorre = null;
+        miObjeto = null;
         tienda.limpiarSeleccion();
     }
 
     @Override
-    public Torre getObject() {
-        return miTorre;
+    public GameObject getObject() {
+        return miObjeto;
     }
 
     public boolean tengoOro() {
         int oro = tienda.getCantOro();
 
-        return miTorre.costo() <= oro;
+        return miObjeto.costo() <= oro;
     }
 
     public void setTienda(TableroCompra tienda) {
@@ -44,7 +45,7 @@ public class MediadorCompra implements Mediator {
         tienda.actualizarOro(-oro);
     }
 
-    public void sumarOro(int cant) {
-        tienda.actualizarOro(cant);
+    public void sumarOro(int oro) {
+        tienda.actualizarOro(oro);
     }
 }
