@@ -7,8 +7,6 @@ import control_logico.Escudo;
 import control_logico.Visitor;
 import movimiento.Movimiento;
 import movimiento.MovimientoQuieto;
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
 
 import javax.swing.*;
 import java.awt.geom.Point2D;
@@ -59,10 +57,6 @@ public abstract class Enemigo extends GameObject {
 
         }
     }
-
-    public void colisionar(Enemigo e) {}
-    public void colisionar(ProyectilEnemigo pe) {}
-    public void colisionar(ProyectilAliado pa) {}
 
     public void frenar() {
         pos = new MovimientoQuieto(this.getX(), this.getY());

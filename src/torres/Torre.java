@@ -1,11 +1,8 @@
-
 package torres;
 
 import control_grafico.GameObject;
 import control_logico.Constantes;
 import control_logico.Visitor;
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -37,13 +34,6 @@ public abstract class Torre extends GameObject {
 
     public void aceptar(Visitor v) {
         v.visitar(this);
-    }
-
-    public void colisionar(Torre t){}
-    public void colisionar(ProyectilAliado pa) {}
-
-    public void colisionar(ProyectilEnemigo pe) {
-        //pe.morir();
     }
 
     public void morir() {
@@ -82,28 +72,13 @@ public abstract class Torre extends GameObject {
 		}
 
 		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
+		public void mouseEntered(MouseEvent e) {}
 		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
+		public void mouseExited(MouseEvent e) {}
 		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
+		public void mousePressed(MouseEvent e) {}
 		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+		public void mouseReleased(MouseEvent e) {}
     	
     }
 }

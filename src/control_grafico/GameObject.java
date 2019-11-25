@@ -1,9 +1,18 @@
 package control_grafico;
 
 import control_logico.*;
+import enemigos.Enemigo;
+import objetos_jugador.Espinas;
+import objetos_jugador.R2D2;
+import objetos_jugador.RobotBarrera;
+import objetos_jugador.RobotPiso;
+import objetos_mapa.AgujeroNegro;
+import objetos_mapa.Meteorito;
+import premios.Bomba;
+import premios.Fuego;
+import premios.Fuerza;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
-import enemigos.Enemigo;
 import torres.Torre;
 
 import javax.swing.*;
@@ -50,10 +59,24 @@ public abstract class GameObject extends JLabel {
 
     public abstract void aceptar(Visitor v);
 
-    public abstract void colisionar(Torre t);
-    public abstract void colisionar(Enemigo e);
-    public abstract void colisionar(ProyectilAliado pa);
-    public abstract void colisionar(ProyectilEnemigo pe);
+    public void colisionar(Torre t) {}
+    public void colisionar(Enemigo e) {}
+    public void colisionar(ProyectilAliado pa) {}
+    public void colisionar(ProyectilEnemigo pe) {}
+
+    public void colisionar(Espinas e) {}
+    public void colisionar(R2D2 r2) {}
+    public void colisionar(RobotBarrera rb) {}
+    public void colisionar(RobotPiso rp) {}
+
+    public void colisionar(AgujeroNegro an) {}
+    public void colisionar(Meteorito m) {}
+
+    public void colisionar(Bomba b) {}
+    public void colisionar(Escudo e) {}
+    public void colisionar(Fuego f) {}
+    public void colisionar(Fuerza f) {}
+
 
     public void recibirDmg(int dmg) {
         vida.recibirDmg(dmg);

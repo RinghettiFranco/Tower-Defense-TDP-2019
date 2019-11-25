@@ -4,10 +4,8 @@ import control_logico.Constantes;
 import control_logico.Visitor;
 import enemigos.Enemigo;
 import movimiento.MovimientoProyectil;
-import torres.Torre;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.geom.Point2D;
 
 public class ProyectilAliado extends Proyectil {
@@ -22,10 +20,6 @@ public class ProyectilAliado extends Proyectil {
 
         this.cuentaRegresiva = 10;
     }
-
-    public void colisionar(ProyectilAliado pa) {}
-    public void colisionar(ProyectilEnemigo pe) {}
-    public void colisionar(Torre t) {}
 
     @Override
     public void colisionar(Enemigo e) {

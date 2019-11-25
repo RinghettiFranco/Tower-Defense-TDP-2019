@@ -14,11 +14,6 @@ public abstract class Proyectil extends GameObject {
         super(vida, alcance, impacto, graphic);
     }
 
-    @Override
-    public void morir() {
-        tableroJuego.delFromObjects(this);
-    }
-
     public void frenar() {}
 
     public Proyectil clone(int posX, int posY) {

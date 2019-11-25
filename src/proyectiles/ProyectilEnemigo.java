@@ -2,13 +2,10 @@ package proyectiles;
 
 import control_logico.Constantes;
 import control_logico.Visitor;
-import enemigos.Enemigo;
-import movimiento.MovimientoEnemigo;
 import movimiento.MovimientoProyectil;
 import torres.Torre;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.geom.Point2D;
 
 public class ProyectilEnemigo extends Proyectil {
@@ -26,10 +23,6 @@ public class ProyectilEnemigo extends Proyectil {
 
         this.cuentaRegresiva = 10;
     }
-
-    public void colisionar(Enemigo e) {}
-    public void colisionar(ProyectilAliado pa) {}
-    public void colisionar(ProyectilEnemigo pe) {}
 
     @Override
     public void colisionar(Torre t) {
