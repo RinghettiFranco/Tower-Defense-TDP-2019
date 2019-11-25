@@ -3,7 +3,7 @@ package control_logico;
 public class Constantes {
 
     public final static int ALTO_CELDA = 100;
-    public final static int ANCHO_CELDA = 100;
+    public final static int ANCHO_CELDA = 70;
 
     public final static int PANEL_COMPRA_ALTO = 150;
     public final static int PANEL_PUNTOS_ALTO = 20;

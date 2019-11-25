@@ -1,16 +1,15 @@
 
 package torres;
 
+import control_grafico.GameObject;
+import control_logico.Constantes;
+import control_logico.Visitor;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
-import control_grafico.GameObject;
-import control_logico.Visitor;
-import enemigos.Enemigo;
-
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public abstract class Torre extends GameObject {
 
@@ -48,6 +47,12 @@ public abstract class Torre extends GameObject {
     }
 
     public void morir() {
+        int posX = getX() - (getX() % Constantes.ANCHO_CELDA) + 15;
+        int posY = getY() - (getY() % Constantes.ALTO_CELDA);
+        int x = posX / Constantes.ANCHO_CELDA;
+        int y = posY / Constantes.ALTO_CELDA;
+
+        tableroJuego.liberarPosicion(x, y);
         tableroJuego.delFromObjects(this);
     }
     public void frenar() {}
@@ -60,10 +65,16 @@ public abstract class Torre extends GameObject {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			if(SwingUtilities.isRightMouseButton(e)){
+            int posX = getX() - (getX() % Constantes.ANCHO_CELDA) + 15;
+            int posY = getY() - (getY() % Constantes.ALTO_CELDA);
+            int x = posX / Constantes.ANCHO_CELDA;
+            int y = posY / Constantes.ALTO_CELDA;
+
+            if(SwingUtilities.isRightMouseButton(e)){
 				if(!recibioDmg()){
 					inventario.actualizarOro(costo);
-					morir();
+					tableroJuego.liberarPosicion(x, y);
+					tableroJuego.delFromObjects(Torre.this);
 				}else{
 					System.out.print("no se puede vender");
 				}

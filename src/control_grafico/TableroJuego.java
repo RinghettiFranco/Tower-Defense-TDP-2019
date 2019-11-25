@@ -67,10 +67,8 @@ public class TableroJuego extends JPanel implements Agregable {
         colisionar();
 
         // Se elimina a los objetos que murieron
-        for (GameObject go: toDel) {
+        for (GameObject go: toDel)
             objetosMapa.remove(go);
-            this.remove(go);
-        }
 
         // Movemos todos los objetos restantes del mapa
         // Ademas, verificamos si el jugador gana o pierde
@@ -88,10 +86,16 @@ public class TableroJuego extends JPanel implements Agregable {
     }
 
     private void perder() {
+        JLabel wasted = new JLabel();
+        wasted.setIcon(new ImageIcon("src/Imagenes/perder.png"));
+        wasted.setBounds(Constantes.VENTANA_ANCHO/5,0,Constantes.VENTANA_ANCHO, Constantes.PANEL_JUEGO_ALTO);
+
         for (GameObject go: objetosMapa)
             this.remove(go);
+        this.add(wasted);
+        this.repaint();
+
         objetosMapa.clear();
-        System.out.println("Perdiste papa...");
         ppal.stop();
     }
 
@@ -101,8 +105,9 @@ public class TableroJuego extends JPanel implements Agregable {
     }
 
     public synchronized void renderizar() {
-        for (GameObject go: objetosMapa)
-            go.repaint();
+        this.repaint();
+        /*for (GameObject go: objetosMapa)
+            go.repaint();*/
     }
 
     public synchronized void addToObjects(GameObject go) {
@@ -112,6 +117,12 @@ public class TableroJuego extends JPanel implements Agregable {
 
     public synchronized void delFromObjects(GameObject go) {
 		toDel.add(go);
+		this.remove(go);
+    }
+
+    @Override
+    public void liberarPosicion(int x, int y) {
+        posicionesOcupadas[x][y] = false;
     }
 
     private void colisionar() {
