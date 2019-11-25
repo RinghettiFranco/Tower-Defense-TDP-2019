@@ -134,7 +134,8 @@ public class TableroJuego extends JPanel implements Agregable {
                     } else
                         mediador.delObject();
                 }
-            }
+            } else
+                mediador.delObject();
         }
 
         @Override

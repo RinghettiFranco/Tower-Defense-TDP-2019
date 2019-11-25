@@ -2,12 +2,9 @@ package enemigos;
 
 import control_logico.Constantes;
 import movimiento.MovimientoEnemigo;
-import proyectiles.ProyectilAliado;
 import torres.Torre;
 
 import javax.swing.*;
-
-import java.awt.*;
 
 public class BobbaFet extends Enemigo {
 
@@ -23,6 +20,7 @@ public class BobbaFet extends Enemigo {
         tableroJuego.addToObjects(this);
 
         this.cuentaRegresiva = 1*Constantes.SEGUNDO;
+        this.puntaje = 7;
     }
 
     public void colisionar(Torre t) {

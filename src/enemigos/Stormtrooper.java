@@ -1,14 +1,11 @@
 package enemigos;
 
-import javax.swing.ImageIcon;
-
 import control_logico.Constantes;
-import proyectiles.ProyectilAliado;
+import movimiento.MovimientoEnemigo;
 import proyectiles.ProyectilEnemigo;
-import movimiento.*;
 import torres.Torre;
 
-import java.awt.*;
+import javax.swing.*;
 
 public class Stormtrooper extends Enemigo {
 	
@@ -25,6 +22,7 @@ public class Stormtrooper extends Enemigo {
 		tableroJuego.addToObjects(this);
 
 		this.cuentaRegresiva = 2*Constantes.SEGUNDO;
+		this.puntaje = 3;
 	}
 
 	public void colisionar(Torre t) {

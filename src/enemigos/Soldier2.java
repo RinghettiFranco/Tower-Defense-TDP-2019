@@ -3,13 +3,10 @@ package enemigos;
 
 import control_logico.Constantes;
 import movimiento.MovimientoEnemigo;
-import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import torres.Torre;
 
 import javax.swing.*;
-
-import java.awt.*;
 
 public class Soldier2 extends Enemigo {
 
@@ -25,6 +22,7 @@ public class Soldier2 extends Enemigo {
         tableroJuego.addToObjects(this);
 
         this.cuentaRegresiva = 1*Constantes.SEGUNDO;
+        this.puntaje = 5;
     }
 
     public void colisionar(Torre t) {

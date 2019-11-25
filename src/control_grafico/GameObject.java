@@ -16,6 +16,7 @@ public abstract class GameObject extends JLabel {
 
     protected static Agregable tableroJuego;
     protected static Inventario inventario;
+    protected static TableroPuntos puntos;
 
     protected Vida vida;
     protected int alcance, impacto;
@@ -42,6 +43,9 @@ public abstract class GameObject extends JLabel {
     }
     public static void setInventario(Inventario i) {
         inventario = i;
+    }
+    public static void setPuntaje(TableroPuntos tp) {
+        puntos = tp;
     }
 
     public abstract void aceptar(Visitor v);

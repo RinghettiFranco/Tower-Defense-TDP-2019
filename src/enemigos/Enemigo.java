@@ -15,6 +15,8 @@ import java.util.Random;
 
 public abstract class Enemigo extends GameObject {
 
+    private Random rnd = new Random(System.currentTimeMillis());
+
     protected int cuentaRegresiva;
     protected Movimiento pos;
 
@@ -22,7 +24,6 @@ public abstract class Enemigo extends GameObject {
         super(vida, alcance, impacto, graphic);
         this.setBounds(60,60,25, 63);
         
-        Random rnd = new Random(System.currentTimeMillis());
         int ran = rnd.nextInt(20);
         
         if(ran==10)this.vida=new Escudo(vida);
@@ -45,17 +46,22 @@ public abstract class Enemigo extends GameObject {
     }
 
     public void morir() {
+        int rand = rnd.nextInt() % 10;
+
         inventario.actualizarOro(this.oro);
         tableroJuego.delFromObjects(this);
-        // TODO Sumar puntos
+        puntos.actualizarPuntaje(puntaje);
+
+        // Ponemos un premio en el mapa con un
+        // 10% de probabilidad de aparicion
+        if (rand == 7) {
+
+        }
     }
 
     public void colisionar(Enemigo e) {}
     public void colisionar(ProyectilEnemigo pe) {}
-
-    public void colisionar(ProyectilAliado pa) {
-        //pa.morir();
-    }
+    public void colisionar(ProyectilAliado pa) {}
 
     public void frenar() {
         pos = new MovimientoQuieto(this.getX(), this.getY());

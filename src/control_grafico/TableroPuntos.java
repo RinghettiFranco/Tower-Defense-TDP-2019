@@ -25,6 +25,8 @@ public class TableroPuntos extends JPanel {
         texto = new JLabel("Puntaje: " + puntos);
         this.add(texto);
         this.mediador = mediador;
+
+        GameObject.setPuntaje(this);
     }
 
     public void actualizarPuntaje(int incremento) {
