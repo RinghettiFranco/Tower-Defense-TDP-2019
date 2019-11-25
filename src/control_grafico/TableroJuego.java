@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TableroJuego extends JPanel implements Agregable {
 
-    private boolean posicionesOcupadas[][];
+    private boolean[][] posicionesOcupadas;
 
     private int nivel;
 
@@ -23,6 +23,9 @@ public class TableroJuego extends JPanel implements Agregable {
     private ThreadPrincipal ppal;
 
     private Mediator mediador;
+
+    private VisitorPerder vp;
+    private VisitorContador vc;
 
     public TableroJuego(Mediator mediador) {
         super();
@@ -56,25 +59,45 @@ public class TableroJuego extends JPanel implements Agregable {
     }
 
     public void actualizar() {
+        vp = new VisitorPerder();
+        vc = new VisitorContador();
         // Colisionamos todo con todo O(n^2)
         //   Si un enemigo muere, sumammos los puntos y lo sacamos el mapa
         //   Si una torre muere, la sacamos del mapa
         colisionar();
 
-        VisitorPerder vp = new VisitorPerder();
-        // Movemos todos los objetos restantes del mapa
-        for (GameObject go: objetosMapa) {
-            go.actualizar();
-            go.aceptar(vp);
-        }
-
+        // Se elimina a los objetos que murieron
         for (GameObject go: toDel) {
             objetosMapa.remove(go);
             this.remove(go);
         }
 
+        // Movemos todos los objetos restantes del mapa
+        // Ademas, verificamos si el jugador gana o pierde
+        for (GameObject go: objetosMapa) {
+            go.actualizar();
+            go.aceptar(vp);
+            go.aceptar(vc);
+        }
+
+        if (vc.cantEnemigos() == 0)
+            oleadaNueva();
+
         if (vp.perdi())
-            System.exit(32);
+            perder();
+    }
+
+    private void perder() {
+        for (GameObject go: objetosMapa)
+            this.remove(go);
+        objetosMapa.clear();
+        System.out.println("Perdiste papa...");
+        ppal.stop();
+    }
+
+    private void oleadaNueva() {
+        nivel++;
+        objetosMapa.addAll(nivelGen.generar(nivel));
     }
 
     public synchronized void renderizar() {
