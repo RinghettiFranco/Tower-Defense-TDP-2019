@@ -1,7 +1,5 @@
 package objetos_jugador;
 
-import javax.swing.ImageIcon;
-
 import control_logico.Constantes;
 import control_logico.Visitor;
 import enemigos.Enemigo;
@@ -9,38 +7,26 @@ import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import torres.Torre;
 
+import javax.swing.*;
+
 public class RobotBarrera extends ObjetosJugador {
 	
 	 private static ImageIcon RobotBarrera = new ImageIcon("src/Imagenes/Barricada.png");
 
     public RobotBarrera(int x, int y) {
         super(450, 1* Constantes.ANCHO_CELDA, 0, RobotBarrera);
+        this.costo = 10;
+
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+
+        tableroJuego.addToObjects(this);
     }
 
-    @Override
-    public void aceptar(Visitor v) {
-
-    }
-
-    @Override
-    public void colisionar(Torre t) {
-
-    }
-
-    @Override
-    public void colisionar(Enemigo e) {
-
-    }
-
-    @Override
-    public void colisionar(ProyectilAliado pa) {
-
-    }
-
-    @Override
-    public void colisionar(ProyectilEnemigo pe) {
-
-    }
+    public void aceptar(Visitor v) {}
+    public void colisionar(Torre t) {}
+    public void colisionar(Enemigo e) {}
+    public void colisionar(ProyectilAliado pa) {}
+    public void colisionar(ProyectilEnemigo pe) {}
 
     @Override
     public void actualizar() {
@@ -59,6 +45,6 @@ public class RobotBarrera extends ObjetosJugador {
 
     @Override
     public RobotBarrera clone(int posX, int posY) {
-        return null;
+        return new RobotBarrera(posX, posY);
     }
 }

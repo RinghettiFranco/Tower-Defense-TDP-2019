@@ -105,9 +105,8 @@ public class TableroJuego extends JPanel implements Agregable {
     }
 
     public synchronized void renderizar() {
-        this.repaint();
-        /*for (GameObject go: objetosMapa)
-            go.repaint();*/
+        for (GameObject go: objetosMapa)
+            go.repaint();
     }
 
     public synchronized void addToObjects(GameObject go) {
@@ -133,9 +132,9 @@ public class TableroJuego extends JPanel implements Agregable {
             objectI = objetosMapa.get(i);
             for (int j = 0; j < objetosMapa.size(); j++) {
                 objectJ = objetosMapa.get(j);
-                if (objectI.distancia(objectJ) <= objectJ.obtenerAlcance()) {
+                if (objectI.distancia(objectJ) <= objectJ.obtenerAlcance())
                     objectI.aceptar(new VisitorAtaque(objectJ)); // Esto es equivalente a J.atacar(I)
-                }
+
             }
         }
     }
@@ -160,6 +159,7 @@ public class TableroJuego extends JPanel implements Agregable {
 
             if (!posicionesOcupadas[x][y]) {
                 GameObject t = mediador.getObject();
+                System.out.println("Pongo un " + t.getClass() + " en (" + x + ",  " + y + ")");
                 if (t != null) {
                     if (mediador.tengoOro()) {
                         t.clone(posX, posY);

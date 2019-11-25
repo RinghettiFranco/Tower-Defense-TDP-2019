@@ -1,13 +1,13 @@
 package objetos_jugador;
 
-import javax.swing.ImageIcon;
-
 import control_logico.Constantes;
 import control_logico.Visitor;
 import enemigos.Enemigo;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import torres.Torre;
+
+import javax.swing.*;
 
 public class Espinas extends ObjetosJugador {
 
@@ -16,11 +16,11 @@ public class Espinas extends ObjetosJugador {
 
     public Espinas(int x, int y) {
         super(30, 1* Constantes.ANCHO_CELDA, 10, espina);
-        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
-        System.out.println("pone");
-        tableroJuego.addToObjects(this);
+        this.costo = 10;
 
-       
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+
+        tableroJuego.addToObjects(this);
     }
 
     @Override
