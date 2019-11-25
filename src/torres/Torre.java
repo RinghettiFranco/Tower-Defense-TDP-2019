@@ -53,7 +53,7 @@ public abstract class Torre extends GameObject {
         int y = posY / Constantes.ALTO_CELDA;
 
         tableroJuego.liberarPosicion(x, y);
-        tableroJuego.delFromObjects(this);
+        super.morir();
     }
     public void frenar() {}
     
@@ -72,7 +72,7 @@ public abstract class Torre extends GameObject {
 
             if(SwingUtilities.isRightMouseButton(e)){
 				if(!recibioDmg()){
-					inventario.actualizarOro(costo);
+					inventario.actualizarOro((int) (costo*0.7));
 					tableroJuego.liberarPosicion(x, y);
 					tableroJuego.delFromObjects(Torre.this);
 				}else{
@@ -107,4 +107,3 @@ public abstract class Torre extends GameObject {
     	
     }
 }
-

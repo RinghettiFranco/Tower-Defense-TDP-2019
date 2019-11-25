@@ -15,52 +15,36 @@ public class Espinas extends ObjetosJugador {
 	 
 
     public Espinas(int x, int y) {
-        super(30, 1* Constantes.ANCHO_CELDA, 10, espina);
+        super(6*Constantes.SEGUNDO, 1* Constantes.ANCHO_CELDA, 10, espina);
+
         this.costo = 10;
+        this.cuentaRegresiva = 20;
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         tableroJuego.addToObjects(this);
     }
 
-    @Override
-    public void aceptar(Visitor v) {
+    public void aceptar(Visitor v) {}
+    public void colisionar(Torre t) {}
+    public void colisionar(ProyectilAliado pa) {}
+    public void colisionar(ProyectilEnemigo pe) {}
+    public void frenar() {}
 
-    }
-
-    @Override
-    public void colisionar(Torre t) {
-
-    }
-
-    @Override
     public void colisionar(Enemigo e) {
+        cuentaRegresiva--;
 
-    }
-
-    @Override
-    public void colisionar(ProyectilAliado pa) {
-
-    }
-
-    @Override
-    public void colisionar(ProyectilEnemigo pe) {
-
+        if (cuentaRegresiva == 0) {
+            e.recibirDmg(this.impacto);
+            cuentaRegresiva = 20;
+        }
     }
 
     @Override
     public void actualizar() {
-
-    }
-
-    @Override
-    public void frenar() {
-
-    }
-
-    @Override
-    public void morir() {
-
+        this.vida.recibirDmg(1);
+        if (this.vida.obtenerVida() <= 0)
+            morir();
     }
 
     @Override

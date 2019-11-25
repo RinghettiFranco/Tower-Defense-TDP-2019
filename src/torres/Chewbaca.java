@@ -4,11 +4,8 @@ package torres;
 
 import control_logico.Constantes;
 import enemigos.Enemigo;
-import proyectiles.ProyectilEnemigo;
 
 import javax.swing.*;
-
-import java.awt.*;
 
 public class Chewbaca extends Torre {
 

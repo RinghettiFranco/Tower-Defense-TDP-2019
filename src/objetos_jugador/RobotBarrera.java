@@ -14,8 +14,10 @@ public class RobotBarrera extends ObjetosJugador {
 	 private static ImageIcon RobotBarrera = new ImageIcon("src/Imagenes/Barricada.png");
 
     public RobotBarrera(int x, int y) {
-        super(450, 1* Constantes.ANCHO_CELDA, 0, RobotBarrera);
+        super(600, 1* Constantes.ANCHO_CELDA, 0, RobotBarrera);
+
         this.costo = 10;
+        this.cuentaRegresiva = 0;
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
@@ -31,11 +33,8 @@ public class RobotBarrera extends ObjetosJugador {
 
     @Override
     public void actualizar() {
-
-    }
-
-    public void morir() {
-
+        if (this.vida.obtenerVida() <= 0)
+            morir();
     }
 
     @Override

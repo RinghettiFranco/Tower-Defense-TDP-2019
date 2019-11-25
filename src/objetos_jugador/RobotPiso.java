@@ -22,43 +22,15 @@ public class RobotPiso extends ObjetosJugador {
         tableroJuego.addToObjects(this);
     }
 
-    @Override
-    public void aceptar(Visitor v) {
-
-    }
-
-    @Override
-    public void colisionar(Torre t) {
-
-    }
-
-    @Override
-    public void colisionar(Enemigo e) {
-
-    }
-
-    @Override
-    public void colisionar(ProyectilAliado pa) {
-
-    }
-
-    @Override
-    public void colisionar(ProyectilEnemigo pe) {
-
-    }
+    public void aceptar(Visitor v) {}
+    public void colisionar(Torre t) {}
+    public void colisionar(Enemigo e) {}
+    public void colisionar(ProyectilAliado pa) {}
+    public void colisionar(ProyectilEnemigo pe) {}
+    public void frenar() {}
 
     @Override
     public void actualizar() {
-
-    }
-
-    @Override
-    public void frenar() {
-
-    }
-
-    @Override
-    public void morir() {
 
     }
 

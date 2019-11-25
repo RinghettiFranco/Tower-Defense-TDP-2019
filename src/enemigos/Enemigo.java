@@ -2,6 +2,7 @@ package enemigos;
 
 
 import control_grafico.GameObject;
+import control_logico.Constantes;
 import control_logico.Escudo;
 import control_logico.Visitor;
 import movimiento.Movimiento;
@@ -37,7 +38,7 @@ public abstract class Enemigo extends GameObject {
             int x = (int) nueva.getX();
             int y = (int) nueva.getY();
 
-            this.setBounds(x, y, 100, 100);
+            this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
         }
     }
 
@@ -49,8 +50,8 @@ public abstract class Enemigo extends GameObject {
         int rand = rnd.nextInt() % 10;
 
         inventario.actualizarOro(this.oro);
-        tableroJuego.delFromObjects(this);
         puntos.actualizarPuntaje(puntaje);
+        super.morir();
 
         // Ponemos un premio en el mapa con un
         // 10% de probabilidad de aparicion

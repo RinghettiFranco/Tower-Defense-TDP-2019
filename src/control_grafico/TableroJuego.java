@@ -159,7 +159,6 @@ public class TableroJuego extends JPanel implements Agregable {
 
             if (!posicionesOcupadas[x][y]) {
                 GameObject t = mediador.getObject();
-                System.out.println("Pongo un " + t.getClass() + " en (" + x + ",  " + y + ")");
                 if (t != null) {
                     if (mediador.tengoOro()) {
                         t.clone(posX, posY);
