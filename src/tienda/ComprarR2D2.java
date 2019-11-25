@@ -19,7 +19,6 @@ public class ComprarR2D2 extends JLabel {
         this.med = med;
     }
 
-
     private class ClickListener implements MouseListener {
 
         @Override

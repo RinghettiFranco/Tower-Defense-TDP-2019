@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TableroJuego extends JPanel implements Agregable {
 
-    private boolean posicionesOcupadas[][];
+    private boolean[][] posicionesOcupadas;
 
     private int nivel;
 
@@ -23,6 +23,9 @@ public class TableroJuego extends JPanel implements Agregable {
     private ThreadPrincipal ppal;
 
     private Mediator mediador;
+
+    private VisitorPerder vp;
+    private VisitorContador vc;
 
     public TableroJuego(Mediator mediador) {
         super();
@@ -56,30 +59,55 @@ public class TableroJuego extends JPanel implements Agregable {
     }
 
     public void actualizar() {
+        vp = new VisitorPerder();
+        vc = new VisitorContador();
         // Colisionamos todo con todo O(n^2)
         //   Si un enemigo muere, sumammos los puntos y lo sacamos el mapa
         //   Si una torre muere, la sacamos del mapa
         colisionar();
 
-        VisitorPerder vp = new VisitorPerder();
+        // Se elimina a los objetos que murieron
+        for (GameObject go: toDel)
+            objetosMapa.remove(go);
+
         // Movemos todos los objetos restantes del mapa
+        // Ademas, verificamos si el jugador gana o pierde
         for (GameObject go: objetosMapa) {
             go.actualizar();
             go.aceptar(vp);
+            go.aceptar(vc);
         }
 
-        for (GameObject go: toDel) {
-            objetosMapa.remove(go);
-            this.remove(go);
-        }
+        if (vc.cantEnemigos() == 0)
+            oleadaNueva();
 
         if (vp.perdi())
-            System.exit(32);
+            perder();
+    }
+
+    private void perder() {
+        JLabel wasted = new JLabel();
+        wasted.setIcon(new ImageIcon("src/Imagenes/perder.png"));
+        wasted.setBounds(Constantes.VENTANA_ANCHO/5,0,Constantes.VENTANA_ANCHO, Constantes.PANEL_JUEGO_ALTO);
+
+        for (GameObject go: objetosMapa)
+            this.remove(go);
+        this.add(wasted);
+        this.repaint();
+
+        objetosMapa.clear();
+        ppal.stop();
+    }
+
+    private void oleadaNueva() {
+        nivel++;
+        objetosMapa.addAll(nivelGen.generar(nivel));
     }
 
     public synchronized void renderizar() {
-        for (GameObject go: objetosMapa)
-            go.repaint();
+        this.repaint();
+        /*for (GameObject go: objetosMapa)
+            go.repaint();*/
     }
 
     public synchronized void addToObjects(GameObject go) {
@@ -89,6 +117,12 @@ public class TableroJuego extends JPanel implements Agregable {
 
     public synchronized void delFromObjects(GameObject go) {
 		toDel.add(go);
+		this.remove(go);
+    }
+
+    @Override
+    public void liberarPosicion(int x, int y) {
+        posicionesOcupadas[x][y] = false;
     }
 
     private void colisionar() {
