@@ -9,9 +9,11 @@ import torres.Torre;
 import javax.swing.*;
 
 public class AgujeroNegro extends ObjetoMapa {
+	
+	 private static ImageIcon AgujeroNegro = new ImageIcon("src/Imagenes/AgujeroNegro.png");
 
-    public AgujeroNegro(int vida, int alcance, int impacto, ImageIcon graphic) {
-        super(vida, alcance, impacto, graphic);
+    public AgujeroNegro(int vida, int alcance, int impacto) {
+        super(vida, alcance, impacto, AgujeroNegro);
     }
 
     @Override

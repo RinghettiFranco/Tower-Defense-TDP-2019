@@ -9,9 +9,10 @@ import torres.Torre;
 import javax.swing.*;
 
 public class Meteorito extends ObjetoMapa {
+	 private static ImageIcon Fuego = new ImageIcon("src/Imagenes/fire.gif");
 
-    public Meteorito(int vida, int alcance, int impacto, ImageIcon graphic) {
-        super(vida, alcance, impacto, graphic);
+    public Meteorito(int vida, int alcance, int impacto) {
+        super(vida, alcance, impacto, Fuego);
     }
 
     @Override

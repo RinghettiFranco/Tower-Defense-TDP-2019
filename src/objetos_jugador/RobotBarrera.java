@@ -1,5 +1,7 @@
 package objetos_jugador;
 
+import javax.swing.ImageIcon;
+
 import control_logico.Constantes;
 import control_logico.Visitor;
 import enemigos.Enemigo;
@@ -8,9 +10,11 @@ import proyectiles.ProyectilEnemigo;
 import torres.Torre;
 
 public class RobotBarrera extends ObjetosJugador {
+	
+	 private static ImageIcon RobotBarrera = new ImageIcon("src/Imagenes/Barricada.png");
 
     public RobotBarrera(int x, int y) {
-        super(450, 1* Constantes.ANCHO_CELDA, 0, null);
+        super(450, 1* Constantes.ANCHO_CELDA, 0, RobotBarrera);
     }
 
     @Override

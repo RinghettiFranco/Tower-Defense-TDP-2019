@@ -1,5 +1,7 @@
 package objetos_jugador;
 
+import javax.swing.ImageIcon;
+
 import control_logico.Constantes;
 import control_logico.Visitor;
 import enemigos.Enemigo;
@@ -9,8 +11,16 @@ import torres.Torre;
 
 public class Espinas extends ObjetosJugador {
 
+	 private static ImageIcon espina = new ImageIcon("src/Imagenes/Espina.gif");
+	 
+
     public Espinas(int x, int y) {
-        super(30, 1* Constantes.ANCHO_CELDA, 10, null);
+        super(30, 1* Constantes.ANCHO_CELDA, 10, espina);
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+        System.out.println("pone");
+        tableroJuego.addToObjects(this);
+
+       
     }
 
     @Override
