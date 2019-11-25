@@ -14,7 +14,7 @@ public class ComprarPiso extends JLabel {
     public ComprarPiso(Mediator med) {
         super();
 
-        this.setText("Chewy");
+        this.setText("Piso");
         this.addMouseListener(new ClickListener());
         this.med = med;
     }

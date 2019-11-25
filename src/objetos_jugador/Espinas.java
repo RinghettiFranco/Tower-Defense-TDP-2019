@@ -65,6 +65,6 @@ public class Espinas extends ObjetosJugador {
 
     @Override
     public Espinas clone(int posX, int posY) {
-        return null;
+        return new Espinas(posX, posY);
     }
 }

@@ -64,6 +64,6 @@ public class RobotPiso extends ObjetosJugador {
 
     @Override
     public RobotPiso clone(int posX, int posY) {
-        return null;
+        return new RobotPiso(posX, posY);
     }
 }

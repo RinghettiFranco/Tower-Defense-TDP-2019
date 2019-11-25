@@ -85,7 +85,7 @@ public class TableroCompra extends JPanel implements Inventario {
         panelObjetos.add(objetos[1]);
         objetos[2] = new ComprarBarrera(mediator);
         panelObjetos.add(objetos[2]);
-        objetos[3] = new ComprarBarrera(mediator);
+        objetos[3] = new ComprarPiso(mediator);
         panelObjetos.add(objetos[3]);
 
         this.add(panelObjetos);

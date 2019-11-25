@@ -27,18 +27,13 @@ public class RobotBarrera extends ObjetosJugador {
     public void colisionar(Enemigo e) {}
     public void colisionar(ProyectilAliado pa) {}
     public void colisionar(ProyectilEnemigo pe) {}
+    public void frenar() {}
 
     @Override
     public void actualizar() {
 
     }
 
-    @Override
-    public void frenar() {
-
-    }
-
-    @Override
     public void morir() {
 
     }
