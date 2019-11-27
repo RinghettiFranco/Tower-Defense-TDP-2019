@@ -13,10 +13,10 @@ public class Chewbaca extends Torre {
     protected static ImageIcon attackingChewbaca = new ImageIcon("src/Imagenes/AttackingChewbaca.gif");
 
     public Chewbaca(int x, int y) {
-        super(200, 1*Constantes.ANCHO_CELDA,  20, standingChewbaca);
+        super(225, 1*Constantes.ANCHO_CELDA,  15, standingChewbaca);
 
         this.costo = 10;
-        this.cuentaRegresiva = (int) 1.3*Constantes.SEGUNDO;
+        this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
@@ -33,7 +33,7 @@ public class Chewbaca extends Torre {
 
         if (cuentaRegresiva == 0) {
             e.recibirDmg(this.impacto);
-            cuentaRegresiva = 55;
+            cuentaRegresiva = 1*Constantes.SEGUNDO;
         }
         e.frenar();
     }

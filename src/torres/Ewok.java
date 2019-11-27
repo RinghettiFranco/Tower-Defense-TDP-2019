@@ -13,14 +13,14 @@ public class Ewok extends Torre {
     protected static ImageIcon attackingEwok = new ImageIcon("src/Imagenes/AttackingEwok.gif");
 
     public Ewok(int x, int y) {
-        super(200, 1*Constantes.ANCHO_CELDA,  20, standingEwok);
+        super(100, 2*Constantes.ANCHO_CELDA,  12, standingEwok);
+
         this.costo = 10;
+        this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         tableroJuego.addToObjects(this);
-
-        this.cuentaRegresiva = 65;
     }
 
     @Override

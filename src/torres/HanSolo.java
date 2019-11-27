@@ -14,13 +14,13 @@ public class HanSolo extends Torre {
 
 	public HanSolo(int x, int y) {
 		super(150, 3*Constantes.ANCHO_CELDA, 15, standing);
+
 		this.costo = 12;
+		this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 
 		this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
 		tableroJuego.addToObjects(this);
-
-		this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class HanSolo extends Torre {
 				e.recibirDmg(3 * this.impacto / 4);
 				e.frenar();
 			}
-			cuentaRegresiva = 35;
+			cuentaRegresiva = 1*Constantes.SEGUNDO;
 		}
 	}
 }

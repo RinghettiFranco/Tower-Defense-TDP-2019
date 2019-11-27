@@ -1,14 +1,11 @@
 package enemigos;
 
-
 import control_grafico.GameObject;
 import control_logico.Constantes;
 import control_logico.Escudo;
 import control_logico.Grilla;
 import control_logico.Visitor;
 import movimiento.Movimiento;
-import movimiento.MovimientoEnemigo;
-import movimiento.MovimientoQuieto;
 import premios.Bomba;
 import premios.Fuego;
 import premios.Fuerza;
@@ -45,17 +42,15 @@ public abstract class Enemigo extends GameObject {
         else {
             int posX = getX() - (getX() % Constantes.ANCHO_CELDA);
             int posY = getY() - (getY() % Constantes.ALTO_CELDA);
-            int x = posX / Constantes.ANCHO_CELDA;
-            int y = posY / Constantes.ALTO_CELDA;
 
             if (posX < Constantes.VENTANA_ANCHO && posY < Constantes.PANEL_JUEGO_ALTO)
-                if (!miGrilla.estaOcupada(x, y) && frenado) {
+                if (!miGrilla.estaOcupada(posX / Constantes.ANCHO_CELDA, posY / Constantes.ALTO_CELDA) && frenado)
                     frenado = false;
-                    pos = new MovimientoEnemigo(posX, posY);
-                }
 
-            Point2D nueva = pos.proximaPosicion();
-            this.setBounds((int) nueva.getX(), (int) nueva.getY(), Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+            if (!frenado) {
+                Point2D nueva = pos.proximaPosicion();
+                this.setBounds((int) nueva.getX(), (int) nueva.getY(), Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+            }
         }
     }
 
@@ -95,7 +90,6 @@ public abstract class Enemigo extends GameObject {
 
     public void frenar() {
         this.frenado = true;
-        pos = new MovimientoQuieto(this.getX(), this.getY());
     }
 
     public Enemigo clone(int posX, int posY) {
