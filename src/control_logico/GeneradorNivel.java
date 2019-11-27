@@ -3,14 +3,14 @@ package control_logico;
 import control_grafico.GameObject;
 import enemigos.*;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GeneradorNivel {
 
 	public List<GameObject> generar(int nivel){
-		LinkedList oleada = new LinkedList();
+		List<GameObject> oleada = new CopyOnWriteArrayList<GameObject>();
 		Random rnd = new Random(System.currentTimeMillis());
 		int h = Constantes.PANEL_JUEGO_ALTO;
 		int corrimiento = 900;

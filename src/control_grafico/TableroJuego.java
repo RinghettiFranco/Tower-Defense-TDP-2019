@@ -41,28 +41,26 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
         this.setBackground(new Color(0xD8D5C4));
         this.addMouseListener(new ClickListener());
 
-        objetosMapa = new LinkedList<>();
         GameObject.setTableroJuego(this);
         Enemigo.setGrilla(this);
         Torre.setGrilla(this);
 
+        this.posicionesOcupadas = new boolean[Constantes.VENTANA_ANCHO/Constantes.ANCHO_CELDA][Constantes.VENTANA_ALTO/Constantes.ALTO_CELDA];
+
         nivel = 1;
         nivelGen = new GeneradorNivel();
-
+        objetosMapa = new LinkedList<>();
+        objetosMapa.addAll(nivelGen.generar(nivel));
         toDel = new LinkedList<>();
-        objetosMapa = nivelGen.generar(nivel);
 
-        int i=0;
+        this.mediador = mediador;
+
         for (GameObject go: objetosMapa){
             this.add(go);
         }
 
-        this.posicionesOcupadas = new boolean[Constantes.VENTANA_ANCHO/Constantes.ANCHO_CELDA][Constantes.VENTANA_ALTO/Constantes.ALTO_CELDA];
-
         ppal = new ThreadPrincipal(this);
         ppal.start();
-
-        this.mediador = mediador;
     }
 
     public void actualizar() {
