@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class Meteorito extends ObjetoMapa {
 	
-	private static ImageIcon meteoro = new ImageIcon("src/Imagenes/Meteoro.png");
+	private static ImageIcon meteoro = new ImageIcon("src/Imagenes/Meteorito.png");
 	protected Movimiento mov;
 	protected int lugarCaida;
 

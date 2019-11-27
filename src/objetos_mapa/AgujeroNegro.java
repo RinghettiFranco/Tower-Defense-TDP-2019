@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class AgujeroNegro extends ObjetoMapa {
 
-	 private static ImageIcon agujeroNegro = new ImageIcon("src/Imagenes/AgujeroNegro.png");
+	 private static ImageIcon agujeroNegro = new ImageIcon("src/Imagenes/An1.png");
 
     public AgujeroNegro(int x, int y) {
         super(7*Constantes.SEGUNDO, 1*Constantes.ANCHO_CELDA, 0, agujeroNegro);
