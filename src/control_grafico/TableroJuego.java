@@ -3,6 +3,8 @@ package control_grafico;
 
 import control_logico.*;
 import enemigos.Enemigo;
+import objetos_mapa.AgujeroNegro;
+import objetos_mapa.Meteorito;
 import tienda.Mediator;
 import torres.Torre;
 
@@ -12,6 +14,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class TableroJuego extends JPanel implements Agregable, Grilla {
 
@@ -82,11 +85,27 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
             go.aceptar(vc);
         }
 
+        colocarObjetoMapa();
+
         if (vc.cantEnemigos() == 0)
             oleadaNueva();
 
         if (vp.perdi())
             perder();
+    }
+
+    private void colocarObjetoMapa() {
+        int r;
+        Random rnd = new Random(System.currentTimeMillis());
+
+        // Ponemos un objeto aleatorio con un 1% de probabilidad
+        if (rnd.nextInt() % 100 == 5) {
+            if (rnd.nextInt() % 2 == 0)
+                addToObjects(new AgujeroNegro(rnd.nextInt(Constantes.VENTANA_ANCHO), rnd.nextInt(Constantes.PANEL_JUEGO_ALTO)));
+            else
+                addToObjects(new Meteorito(rnd.nextInt(Constantes.VENTANA_ANCHO), rnd.nextInt(Constantes.PANEL_JUEGO_ALTO)));
+        }
+
     }
 
     private void perder() {

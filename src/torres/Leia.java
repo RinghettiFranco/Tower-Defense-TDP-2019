@@ -13,13 +13,13 @@ public class Leia extends Torre {
 
 	public Leia(int x, int y) {
 		super(250, 4*Constantes.ANCHO_CELDA, 20, standingleia);
+
+		this.cuentaRegresiva = 2*Constantes.SEGUNDO;
 		this.costo = 12;
 
 		this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
 		tableroJuego.addToObjects(this);
-
-		this.cuentaRegresiva = 2*Constantes.SEGUNDO;
 	}
 
 	public void colisionar(Enemigo e) {

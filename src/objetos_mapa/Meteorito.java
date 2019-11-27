@@ -12,19 +12,19 @@ import java.util.Random;
 
 public class Meteorito extends ObjetoMapa {
 	
-	private static ImageIcon AgujeroNegro = new ImageIcon("src/Imagenes/AgujeroNegro.png");
+	private static ImageIcon meteoro = new ImageIcon("src/Imagenes/Meteoro.png");
 	protected Movimiento mov;
 	protected int lugarCaida;
 
     public Meteorito(int x, int y) {
-        super(Constantes.MAX_INF, 2*Constantes.ANCHO_CELDA, 0, AgujeroNegro);
+        super(Constantes.MAX_INF, 2*Constantes.ANCHO_CELDA, 0, meteoro);
 
         Random rnd = new Random(System.currentTimeMillis());
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
-        this.mov = new MovimientoCaida();
-        this.lugarCaida = y+rnd.nextInt(6)*Constantes.ALTO_CELDA;
+        this.mov = new MovimientoCaida(x, y);
+        this.lugarCaida = (y+rnd.nextInt(6)*Constantes.ALTO_CELDA) % 6;
 
         tableroJuego.addToObjects(this);
     }
