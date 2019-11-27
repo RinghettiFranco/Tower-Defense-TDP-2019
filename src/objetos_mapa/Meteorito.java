@@ -20,28 +20,27 @@ public class Meteorito extends ObjetoMapa {
         super(Constantes.MAX_INF, 2*Constantes.ANCHO_CELDA, 0, meteoro);
 
         Random rnd = new Random(System.currentTimeMillis());
+        int celdaX = x - (x % Constantes.ANCHO_CELDA) + 15;
+        int celdaY = y - (y % Constantes.ALTO_CELDA);
 
-        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+        this.setBounds(celdaX, celdaY, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         this.mov = new MovimientoCaida(x, y);
-        this.lugarCaida = (y+rnd.nextInt(6)*Constantes.ALTO_CELDA) % 6;
+        this.lugarCaida = (y+rnd.nextInt(6)*Constantes.ALTO_CELDA) % Constantes.PANEL_JUEGO_ALTO; //TODO revisar esta formula
 
         tableroJuego.addToObjects(this);
     }
 
-    @Override
     public void colisionar(Torre t) {
         t.morir();
     }
 
-    @Override
     public void colisionar(Enemigo e) {
         e.morir();
     }
 
-    @Override
     public void actualizar() {
-        if (mov.proximaPosicion().getY() == lugarCaida)
+        if (mov.proximaPosicion().getY() == lugarCaida || this.getY() >= Constantes.PANEL_JUEGO_ALTO)
             this.morir();
         else {
             Point2D pos = mov.proximaPosicion();
@@ -49,7 +48,6 @@ public class Meteorito extends ObjetoMapa {
         }
     }
 
-    @Override
     public Meteorito clone(int posX, int posY) {
         return null;
     }

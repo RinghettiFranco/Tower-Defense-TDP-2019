@@ -72,6 +72,7 @@ public abstract class Torre extends GameObject {
 					inventario.actualizarOro((int) (costo*0.7));
 					miGrilla.liberarPosicion(x, y);
 					tableroJuego.delFromObjects(Torre.this);
+					Torre.this.repaint();
 				}else{
 					System.out.print("no se puede vender");
 				}

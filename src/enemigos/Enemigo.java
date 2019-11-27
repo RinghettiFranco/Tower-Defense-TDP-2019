@@ -51,7 +51,7 @@ public abstract class Enemigo extends GameObject {
             if (posX < Constantes.VENTANA_ANCHO && posY < Constantes.PANEL_JUEGO_ALTO)
                 if (!miGrilla.estaOcupada(x, y) && frenado) {
                     frenado = false;
-                    pos = new MovimientoEnemigo(posX, posY);
+                    pos = new MovimientoEnemigo(getX(), getY());
                 }
 
             Point2D nueva = pos.proximaPosicion();

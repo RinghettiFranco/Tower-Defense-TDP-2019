@@ -68,24 +68,18 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
     public void actualizar() {
         vp = new VisitorPerder();
         vc = new VisitorContador();
-        // Colisionamos todo con todo O(n^2)
-        //   Si un enemigo muere, sumammos los puntos y lo sacamos el mapa
-        //   Si una torre muere, la sacamos del mapa
+
+        colocarObjetoMapa();
         colisionar();
 
-        // Se elimina a los objetos que murieron
         for (GameObject go: toDel)
             objetosMapa.remove(go);
 
-        // Movemos todos los objetos restantes del mapa
-        // Ademas, verificamos si el jugador gana o pierde
         for (GameObject go: objetosMapa) {
             go.actualizar();
             go.aceptar(vp);
             go.aceptar(vc);
         }
-
-        colocarObjetoMapa();
 
         if (vc.cantEnemigos() == 0)
             oleadaNueva();

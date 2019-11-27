@@ -13,7 +13,10 @@ public class AgujeroNegro extends ObjetoMapa {
     public AgujeroNegro(int x, int y) {
         super(7*Constantes.SEGUNDO, 1*Constantes.ANCHO_CELDA, 0, agujeroNegro);
 
-        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+        int celdaX = x - (x % Constantes.ANCHO_CELDA) + 15;
+        int celdaY = y - (y % Constantes.ALTO_CELDA);
+
+        this.setBounds(celdaX, celdaY, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         tableroJuego.addToObjects(this);
     }
