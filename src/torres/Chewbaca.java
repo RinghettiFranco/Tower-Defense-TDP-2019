@@ -14,13 +14,13 @@ public class Chewbaca extends Torre {
 
     public Chewbaca(int x, int y) {
         super(200, 1*Constantes.ANCHO_CELDA,  20, standingChewbaca);
+
         this.costo = 10;
+        this.cuentaRegresiva = (int) 1.3*Constantes.SEGUNDO;
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
         tableroJuego.addToObjects(this);
-
-        this.cuentaRegresiva = (int) 1.3*Constantes.SEGUNDO;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package objetos_jugador;
 
 import control_grafico.GameObject;
+import control_logico.Visitor;
 
 import javax.swing.*;
 
@@ -15,5 +16,10 @@ public abstract class ObjetosJugador extends GameObject {
 
     public int costo() {
         return costo;
+    }
+
+    @Override
+    public void aceptar(Visitor v) {
+        v.visitar(this);
     }
 }

@@ -2,6 +2,7 @@ package torres;
 
 import control_grafico.GameObject;
 import control_logico.Constantes;
+import control_logico.Grilla;
 import control_logico.Visitor;
 
 import javax.swing.*;
@@ -9,6 +10,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public abstract class Torre extends GameObject {
+
+    protected static Grilla miGrilla;
 
     protected int costo;
     protected int cuentaRegresiva;
@@ -19,6 +22,10 @@ public abstract class Torre extends GameObject {
         this.puntaje = -this.puntaje;
         this.vidaInicial=vida;
         addMouseListener(new Vender());
+    }
+
+    public static void setGrilla(Grilla g) {
+        miGrilla = g;
     }
 
     public void actualizar(){
@@ -42,7 +49,7 @@ public abstract class Torre extends GameObject {
         int x = posX / Constantes.ANCHO_CELDA;
         int y = posY / Constantes.ALTO_CELDA;
 
-        tableroJuego.liberarPosicion(x, y);
+        miGrilla.liberarPosicion(x, y);
         super.morir();
     }
     public void frenar() {}
@@ -63,7 +70,7 @@ public abstract class Torre extends GameObject {
             if(SwingUtilities.isRightMouseButton(e)){
 				if(!recibioDmg()){
 					inventario.actualizarOro((int) (costo*0.7));
-					tableroJuego.liberarPosicion(x, y);
+					miGrilla.liberarPosicion(x, y);
 					tableroJuego.delFromObjects(Torre.this);
 				}else{
 					System.out.print("no se puede vender");

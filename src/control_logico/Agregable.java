@@ -6,6 +6,4 @@ public interface Agregable {
 
     void addToObjects(GameObject go);
     void delFromObjects(GameObject go);
-
-    void liberarPosicion(int x, int y);
 }

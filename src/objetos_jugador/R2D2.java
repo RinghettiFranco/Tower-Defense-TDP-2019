@@ -1,13 +1,9 @@
 package objetos_jugador;
 
 import control_logico.Constantes;
-import control_logico.Visitor;
 import enemigos.Enemigo;
 import movimiento.Movimiento;
 import movimiento.MovimientoProyectil;
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
-import torres.Torre;
 
 import javax.swing.*;
 import java.awt.geom.Point2D;
@@ -30,10 +26,6 @@ public class R2D2 extends ObjetosJugador {
         tableroJuego.addToObjects(this);
     }
 
-    public void aceptar(Visitor v) {}
-    public void colisionar(Torre t) {}
-    public void colisionar(ProyectilAliado pa) {}
-    public void colisionar(ProyectilEnemigo pe) {}
     public void frenar() {}
 
     public void colisionar(Enemigo e) {
@@ -50,6 +42,9 @@ public class R2D2 extends ObjetosJugador {
 
         this.vida.recibirDmg(1);
         if (this.vida.obtenerVida() <= 0)
+            morir();
+
+        if (this.getX() >= Constantes.VENTANA_ANCHO)
             morir();
     }
 

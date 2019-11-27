@@ -1,42 +1,9 @@
 package premios;
 
-import control_logico.Visitor;
-import enemigos.Enemigo;
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
-import torres.Torre;
-
-import javax.swing.*;
-
 public class Fuerza extends Premio {
 
-    public Fuerza(int vida, int alcance, int impacto, ImageIcon graphic) {
-        super(vida, alcance, impacto, graphic);
-    }
-
-    @Override
-    public void aceptar(Visitor v) {
-
-    }
-
-    @Override
-    public void colisionar(Torre t) {
-
-    }
-
-    @Override
-    public void colisionar(Enemigo e) {
-
-    }
-
-    @Override
-    public void colisionar(ProyectilAliado pa) {
-
-    }
-
-    @Override
-    public void colisionar(ProyectilEnemigo pe) {
-
+    public Fuerza(int x, int y) {
+        super(3, 0, 0, null);
     }
 
     @Override
@@ -46,11 +13,6 @@ public class Fuerza extends Premio {
 
     @Override
     public void frenar() {
-
-    }
-
-    @Override
-    public void morir() {
 
     }
 

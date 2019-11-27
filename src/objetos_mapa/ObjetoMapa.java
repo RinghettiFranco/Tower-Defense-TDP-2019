@@ -1,6 +1,7 @@
 package objetos_mapa;
 
 import control_grafico.GameObject;
+import control_logico.Visitor;
 
 import javax.swing.*;
 
@@ -12,4 +13,9 @@ public abstract class ObjetoMapa extends GameObject {
     }
 
     public void frenar() {}
+
+    @Override
+    public void aceptar(Visitor v) {
+        v.visitar(this);
+    }
 }

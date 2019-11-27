@@ -2,15 +2,9 @@ package control_grafico;
 
 import control_logico.*;
 import enemigos.Enemigo;
-import objetos_jugador.Espinas;
-import objetos_jugador.R2D2;
-import objetos_jugador.RobotBarrera;
-import objetos_jugador.RobotPiso;
-import objetos_mapa.AgujeroNegro;
-import objetos_mapa.Meteorito;
-import premios.Bomba;
-import premios.Fuego;
-import premios.Fuerza;
+import objetos_jugador.ObjetosJugador;
+import objetos_mapa.ObjetoMapa;
+import premios.Premio;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import torres.Torre;
@@ -63,19 +57,9 @@ public abstract class GameObject extends JLabel {
     public void colisionar(Enemigo e) {}
     public void colisionar(ProyectilAliado pa) {}
     public void colisionar(ProyectilEnemigo pe) {}
-
-    public void colisionar(Espinas e) {}
-    public void colisionar(R2D2 r2) {}
-    public void colisionar(RobotBarrera rb) {}
-    public void colisionar(RobotPiso rp) {}
-
-    public void colisionar(AgujeroNegro an) {}
-    public void colisionar(Meteorito m) {}
-
-    public void colisionar(Bomba b) {}
-    public void colisionar(Escudo e) {}
-    public void colisionar(Fuego f) {}
-    public void colisionar(Fuerza f) {}
+    public void colisionar(ObjetosJugador oj) {}
+    public void colisionar(ObjetoMapa om) {}
+    public void colisionar(Premio p) {}
 
 
     public void recibirDmg(int dmg) {
@@ -85,6 +69,7 @@ public abstract class GameObject extends JLabel {
     public abstract void actualizar();
 
     public abstract void frenar();
+
     public void morir() {
         tableroJuego.delFromObjects(this);
     }

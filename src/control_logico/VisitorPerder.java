@@ -1,5 +1,8 @@
 package control_logico;
 
+import objetos_jugador.ObjetosJugador;
+import objetos_mapa.ObjetoMapa;
+import premios.Premio;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import enemigos.Enemigo;
@@ -12,16 +15,14 @@ public class VisitorPerder implements Visitor {
     public VisitorPerder() {
         perdi = false;
     }
-    @Override
+
     public void visitar(Torre t) {}
-
-    @Override
     public void visitar(ProyectilAliado pa) {}
-
-    @Override
     public void visitar(ProyectilEnemigo pe) {}
+    public void visitar(ObjetosJugador oj) {}
+    public void visitar(ObjetoMapa om) {}
+    public void visitar(Premio p) {}
 
-    @Override
     public void visitar(Enemigo e) {
         if (!perdi)
             perdi = (e.getX() == 0);

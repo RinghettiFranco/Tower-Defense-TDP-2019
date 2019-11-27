@@ -1,5 +1,8 @@
 package control_logico;
 
+import objetos_jugador.ObjetosJugador;
+import objetos_mapa.ObjetoMapa;
+import premios.Premio;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
 import control_grafico.GameObject;
@@ -32,5 +35,20 @@ public class VisitorAtaque implements Visitor {
     @Override
     public void visitar(ProyectilEnemigo pe) {
         objeto.colisionar(pe);
+    }
+
+    @Override
+    public void visitar(ObjetosJugador oj) {
+        objeto.colisionar(oj);
+    }
+
+    @Override
+    public void visitar(ObjetoMapa om) {
+        objeto.colisionar(om);
+    }
+
+    @Override
+    public void visitar(Premio p) {
+        objeto.colisionar(p);
     }
 }

@@ -1,53 +1,52 @@
 package objetos_mapa;
 
-import control_logico.Visitor;
+import control_logico.Constantes;
 import enemigos.Enemigo;
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
+import movimiento.Movimiento;
+import movimiento.MovimientoCaida;
 import torres.Torre;
 
 import javax.swing.*;
+import java.awt.geom.Point2D;
+import java.util.Random;
 
 public class Meteorito extends ObjetoMapa {
-	 private static ImageIcon Fuego = new ImageIcon("src/Imagenes/fire.gif");
+	
+	private static ImageIcon AgujeroNegro = new ImageIcon("src/Imagenes/AgujeroNegro.png");
+	protected Movimiento mov;
+	protected int lugarCaida;
 
-    public Meteorito(int vida, int alcance, int impacto) {
-        super(vida, alcance, impacto, Fuego);
-    }
+    public Meteorito(int x, int y) {
+        super(Constantes.MAX_INF, 2*Constantes.ANCHO_CELDA, 0, AgujeroNegro);
 
-    @Override
-    public void aceptar(Visitor v) {
+        Random rnd = new Random(System.currentTimeMillis());
 
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+
+        this.mov = new MovimientoCaida();
+        this.lugarCaida = y+rnd.nextInt(6)*Constantes.ALTO_CELDA;
+
+        tableroJuego.addToObjects(this);
     }
 
     @Override
     public void colisionar(Torre t) {
-
+        t.morir();
     }
 
     @Override
     public void colisionar(Enemigo e) {
-
-    }
-
-    @Override
-    public void colisionar(ProyectilAliado pa) {
-
-    }
-
-    @Override
-    public void colisionar(ProyectilEnemigo pe) {
-
+        e.morir();
     }
 
     @Override
     public void actualizar() {
-
-    }
-
-    @Override
-    public void morir() {
-
+        if (mov.proximaPosicion().getY() == lugarCaida)
+            this.morir();
+        else {
+            Point2D pos = mov.proximaPosicion();
+            this.setBounds((int)pos.getX(), (int)pos.getY(), Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+        }
     }
 
     @Override

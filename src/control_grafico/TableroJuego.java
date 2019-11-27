@@ -2,7 +2,9 @@ package control_grafico;
 
 
 import control_logico.*;
+import enemigos.Enemigo;
 import tienda.Mediator;
+import torres.Torre;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +13,7 @@ import java.awt.event.MouseListener;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TableroJuego extends JPanel implements Agregable {
+public class TableroJuego extends JPanel implements Agregable, Grilla {
 
     private boolean[][] posicionesOcupadas;
 
@@ -38,6 +40,8 @@ public class TableroJuego extends JPanel implements Agregable {
 
         objetosMapa = new LinkedList<>();
         GameObject.setTableroJuego(this);
+        Enemigo.setGrilla(this);
+        Torre.setGrilla(this);
 
         nivel = 1;
         nivelGen = new GeneradorNivel();
@@ -96,7 +100,7 @@ public class TableroJuego extends JPanel implements Agregable {
         this.repaint();
 
         objetosMapa.clear();
-        ppal.stop();
+        ppal.pausar();
     }
 
     private void oleadaNueva() {
@@ -119,9 +123,14 @@ public class TableroJuego extends JPanel implements Agregable {
 		this.remove(go);
     }
 
-    @Override
     public void liberarPosicion(int x, int y) {
         posicionesOcupadas[x][y] = false;
+    }
+
+    // Devuelve verdadero si la posicion (x, y) no esta
+    // marcada como ocupada
+    public boolean estaOcupada(int x, int y) {
+        return posicionesOcupadas[x][y];
     }
 
     private void colisionar() {
