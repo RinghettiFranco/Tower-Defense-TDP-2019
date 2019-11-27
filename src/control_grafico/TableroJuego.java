@@ -3,6 +3,8 @@ package control_grafico;
 
 import control_logico.*;
 import enemigos.Enemigo;
+import objetos_mapa.AgujeroNegro;
+import objetos_mapa.Meteorito;
 import tienda.Mediator;
 import torres.Torre;
 
@@ -12,6 +14,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class TableroJuego extends JPanel implements Agregable, Grilla {
 
@@ -65,12 +68,10 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
     public void actualizar() {
         vp = new VisitorPerder();
         vc = new VisitorContador();
-        // Colisionamos todo con todo O(n^2)
-        //   Si un enemigo muere, sumammos los puntos y lo sacamos el mapa
-        //   Si una torre muere, la sacamos del mapa
+
+        objetosMapa();
         colisionar();
 
-        // Se elimina a los objetos que murieron
         for (GameObject go: toDel)
             objetosMapa.remove(go);
 
@@ -87,6 +88,25 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
 
         if (vp.perdi())
             perder();
+    }
+
+    private void objetosMapa() {
+        int x, y;
+        Random rnd = new Random(System.currentTimeMillis());
+
+        // Se agrega un objeto de mapa con un 0.5% de probabilidad
+        if (rnd.nextInt() % 200 == 1) {
+            x = rnd.nextInt(Constantes.VENTANA_ANCHO);
+            y = rnd.nextInt(Constantes.PANEL_JUEGO_ALTO);
+            switch (rnd.nextInt() % 2) {
+                case 0:
+                    addToObjects(new AgujeroNegro(x, y));
+                    break;
+                case 1:
+                    addToObjects(new Meteorito(x, y));
+                    break;
+            }
+        }
     }
 
     private void perder() {
