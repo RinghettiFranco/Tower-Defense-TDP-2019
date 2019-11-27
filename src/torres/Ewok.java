@@ -1,16 +1,11 @@
 package torres;
 
 
-
 import control_logico.Constantes;
 import enemigos.Enemigo;
-import proyectiles.BalaAliado;
 import proyectiles.Flecha;
-import proyectiles.ProyectilEnemigo;
 
 import javax.swing.*;
-
-import java.awt.*;
 
 public class Ewok extends Torre {
 

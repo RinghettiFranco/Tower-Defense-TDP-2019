@@ -1,14 +1,10 @@
 package torres;
 
 
-
 import control_logico.Constantes;
 import enemigos.Enemigo;
-import proyectiles.ProyectilEnemigo;
 
-import javax.swing.ImageIcon;
-
-import java.awt.*;
+import javax.swing.*;
 
 public class Leia extends Torre {
 

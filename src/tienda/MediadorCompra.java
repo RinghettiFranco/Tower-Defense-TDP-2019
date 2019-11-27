@@ -2,7 +2,6 @@ package tienda;
 
 import control_grafico.GameObject;
 import control_grafico.TableroCompra;
-import torres.*;
 
 public class MediadorCompra implements Mediator {
 

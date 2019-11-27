@@ -1,11 +1,9 @@
 package proyectiles;
 
-import java.awt.Rectangle;
-
-import javax.swing.ImageIcon;
-
 import control_logico.Constantes;
 import movimiento.MovimientoProyectil;
+
+import javax.swing.*;
 
 public class Flecha extends ProyectilAliado {
 	 protected static ImageIcon grafico = new ImageIcon("src/Imagenes/flechaewok.png");
