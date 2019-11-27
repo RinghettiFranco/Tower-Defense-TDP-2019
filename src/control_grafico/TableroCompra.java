@@ -51,6 +51,7 @@ public class TableroCompra extends JPanel implements Inventario {
     public void actualizarOro(int incremento) {
         cantOro += incremento;
         labelOro.setText("Oro: " + cantOro);
+        this.repaint();
 
     }
 

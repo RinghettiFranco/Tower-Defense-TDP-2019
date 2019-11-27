@@ -12,15 +12,15 @@ public class BobbaFet extends Enemigo {
     protected static ImageIcon attackingBobbaFet = new ImageIcon("");
 
     public BobbaFet(int x, int y) {
-        super(150, 1*Constantes.ANCHO_CELDA, 20, walkingBobbaFet);
+        super(250, 1*Constantes.ANCHO_CELDA, 23, walkingBobbaFet);
         pos = new MovimientoEnemigo(x, y);
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
-        tableroJuego.addToObjects(this);
-
         this.cuentaRegresiva = 1*Constantes.SEGUNDO;
         this.puntaje = 7;
+
+        tableroJuego.addToObjects(this);
     }
 
     public void colisionar(Torre t) {
@@ -28,7 +28,7 @@ public class BobbaFet extends Enemigo {
 
         if (cuentaRegresiva == 0) {
             t.recibirDmg(this.impacto);
-            cuentaRegresiva = 35;
+            cuentaRegresiva = 1*Constantes.SEGUNDO;
         }
     }
 }

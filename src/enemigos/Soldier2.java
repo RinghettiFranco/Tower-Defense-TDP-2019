@@ -14,15 +14,15 @@ public class Soldier2 extends Enemigo {
     private static ImageIcon attackingSoldier2 = new ImageIcon("src/Imagenes/AttackingE2.gif");
 
     public Soldier2(int x, int y) {
-        super(100, 2*Constantes.ANCHO_CELDA, 12, walkingSoldier2);
+        super(120, 2*Constantes.ANCHO_CELDA, 20, walkingSoldier2);
         pos = new MovimientoEnemigo(x, y);
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
-        tableroJuego.addToObjects(this);
-
-        this.cuentaRegresiva = 1*Constantes.SEGUNDO;
+        this.cuentaRegresiva = 2*Constantes.SEGUNDO;
         this.puntaje = 5;
+
+        tableroJuego.addToObjects(this);
     }
 
     public void colisionar(Torre t) {
@@ -33,7 +33,7 @@ public class Soldier2 extends Enemigo {
                 tableroJuego.addToObjects(new ProyectilEnemigo(this.getX(), this.getY(), this.impacto));
             else
                 t.recibirDmg(this.impacto/2);
-            cuentaRegresiva = 35;
+            cuentaRegresiva = 2*Constantes.SEGUNDO;
         }
     }
 }

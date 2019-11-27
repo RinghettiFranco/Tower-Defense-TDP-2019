@@ -12,7 +12,7 @@ public class Soldier extends Enemigo {
     protected static ImageIcon attackingSoldier = new ImageIcon("");
 
     public Soldier(int x, int y) {
-        super(100, 1*Constantes.ANCHO_CELDA, 12, walkingSoldier);
+        super(110, 1*Constantes.ANCHO_CELDA, 11, walkingSoldier);
         pos = new MovimientoEnemigo(x, y);
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
@@ -28,7 +28,7 @@ public class Soldier extends Enemigo {
 
         if (cuentaRegresiva == 0) {
             t.recibirDmg(this.impacto);
-            cuentaRegresiva = 35;
+            cuentaRegresiva = 1*Constantes.SEGUNDO;
         }
     }
 }

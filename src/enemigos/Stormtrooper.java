@@ -13,16 +13,15 @@ public class Stormtrooper extends Enemigo {
 	protected int cuentaRegresiva;
 
 	public Stormtrooper(int x, int y) {
-		super(125, 3*Constantes.ANCHO_CELDA, 13, runningGif);
+		super(125, 3*Constantes.ANCHO_CELDA, 14, runningGif);
 		pos=new MovimientoEnemigo(x,y);
 
 		this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
-		cuentaRegresiva = 70;
-		tableroJuego.addToObjects(this);
-
-		this.cuentaRegresiva = 2*Constantes.SEGUNDO;
+		this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 		this.puntaje = 3;
+
+		tableroJuego.addToObjects(this);
 	}
 
 	public void colisionar(Torre t) {
@@ -33,7 +32,7 @@ public class Stormtrooper extends Enemigo {
 				tableroJuego.addToObjects(new ProyectilEnemigo(this.getX(), this.getY(), this.impacto));
 			else
 				t.recibirDmg(3*this.impacto/4);
-			cuentaRegresiva = 70;
+			cuentaRegresiva = 1*Constantes.SEGUNDO;
 		}
 	}
 }

@@ -5,12 +5,8 @@ package torres;
 import control_logico.Constantes;
 import enemigos.Enemigo;
 import proyectiles.BalaAliado;
-import proyectiles.ProyectilAliado;
-import proyectiles.ProyectilEnemigo;
 
-import javax.swing.ImageIcon;
-
-import java.awt.*;
+import javax.swing.*;
 
 public class HanSolo extends Torre {
 
@@ -43,7 +39,7 @@ public class HanSolo extends Torre {
 				e.recibirDmg(3 * this.impacto / 4);
 				e.frenar();
 			}
-			cuentaRegresiva = 35;
+			cuentaRegresiva = 1*Constantes.SEGUNDO;
 		}
 	}
 }

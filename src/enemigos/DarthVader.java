@@ -13,15 +13,15 @@ public class DarthVader extends Enemigo {
     private static ImageIcon attackingVader = new ImageIcon("");
 
     public DarthVader(int x, int y) {
-        super(350, 1*Constantes.ANCHO_CELDA, 29 ,walkingVader);
+        super(350, 1*Constantes.ANCHO_CELDA, 35 ,walkingVader);
         pos = new MovimientoEnemigo(x, y);
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
-        tableroJuego.addToObjects(this);
-
-        this.cuentaRegresiva = (int) 0.9*Constantes.SEGUNDO;
+        this.cuentaRegresiva = Constantes.SEGUNDO/2;
         this.puntaje = 15;
+
+        tableroJuego.addToObjects(this);
     }
 
     public void colisionar(Torre t) {
@@ -29,7 +29,7 @@ public class DarthVader extends Enemigo {
 
         if (cuentaRegresiva == 0) {
             t.recibirDmg(this.impacto);
-            cuentaRegresiva = 30;
+            cuentaRegresiva = Constantes.SEGUNDO/2;
         }
     }
 }
