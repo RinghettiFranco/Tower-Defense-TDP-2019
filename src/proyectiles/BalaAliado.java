@@ -1,7 +1,6 @@
 package proyectiles;
 
 import control_logico.Constantes;
-import enemigos.Enemigo;
 import movimiento.MovimientoProyectil;
 
 import javax.swing.*;

@@ -2,7 +2,6 @@ package control_grafico;
 
 import control_logico.Constantes;
 import control_logico.Inventario;
-import tienda.Mediator;
 import premios.Premio;
 import tienda.*;
 

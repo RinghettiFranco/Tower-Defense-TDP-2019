@@ -1,11 +1,11 @@
 package control_logico;
 
+import enemigos.Enemigo;
 import objetos_jugador.ObjetosJugador;
 import objetos_mapa.ObjetoMapa;
 import premios.Premio;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
-import enemigos.Enemigo;
 import torres.Torre;
 
 public class VisitorPerder implements Visitor {

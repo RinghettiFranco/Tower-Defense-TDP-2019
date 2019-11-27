@@ -1,12 +1,12 @@
 package control_logico;
 
+import control_grafico.GameObject;
+import enemigos.Enemigo;
 import objetos_jugador.ObjetosJugador;
 import objetos_mapa.ObjetoMapa;
 import premios.Premio;
 import proyectiles.ProyectilAliado;
 import proyectiles.ProyectilEnemigo;
-import control_grafico.GameObject;
-import enemigos.Enemigo;
 import torres.Torre;
 
 public class VisitorAtaque implements Visitor {

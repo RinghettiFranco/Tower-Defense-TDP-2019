@@ -87,8 +87,6 @@ public abstract class Enemigo extends GameObject {
                 case 3:
                     tableroJuego.addToObjects(new Fuerza(this.getX(), this.getY()));
                     break;
-                default:
-                    System.exit(32);
             }
         }
     }
