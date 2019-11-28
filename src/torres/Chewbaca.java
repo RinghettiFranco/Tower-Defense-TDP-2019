@@ -13,7 +13,7 @@ public class Chewbaca extends Torre {
     protected static ImageIcon attackingChewbaca = new ImageIcon("src/Imagenes/AttackingChewbaca.gif");
 
     public Chewbaca(int x, int y) {
-        super(225, 1*Constantes.ANCHO_CELDA,  15, standingChewbaca);
+        super(225, 1*Constantes.ANCHO_CELDA,  18, standingChewbaca);
 
         this.costo = 10;
         this.cuentaRegresiva = 1*Constantes.SEGUNDO;

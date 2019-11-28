@@ -1,21 +1,28 @@
 package premios;
 
+import control_logico.Constantes;
+
+import javax.swing.*;
+
 public class Bomba extends Premio {
 
+    protected static ImageIcon bomba = new ImageIcon("src/Imagenes/Bomba.png");
+
     public Bomba(int x, int y) {
-        super(3, 0, 0, null);
+        super(5*Constantes.SEGUNDO, 0, 0, bomba);
+
+        this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+
+        tableroJuego.addToObjects(this);
     }
 
-
-    @Override
     public void actualizar() {
-
+        this.vida.recibirDmg(1);
+        if (this.vida.obtenerVida() <= 0)
+            morir();
     }
 
-    @Override
-    public void frenar() {
-
-    }
+    public void frenar() {}
 
     @Override
     public Bomba clone(int posX, int posY) {

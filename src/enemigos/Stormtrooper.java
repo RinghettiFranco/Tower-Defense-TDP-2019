@@ -13,7 +13,7 @@ public class Stormtrooper extends Enemigo {
 	protected int cuentaRegresiva;
 
 	public Stormtrooper(int x, int y) {
-		super(150, 3*Constantes.ANCHO_CELDA, 17, runningGif);
+		super(150, 3*Constantes.ANCHO_CELDA, 10, runningGif);
 
 		this.pos=new MovimientoEnemigo(x,y);
 		this.cuentaRegresiva = 2*Constantes.SEGUNDO/3;

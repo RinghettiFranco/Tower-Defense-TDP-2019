@@ -32,7 +32,7 @@ public class TableroCompra extends JPanel implements Inventario {
         this.setBackground(new Color(0x505668));
         this.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-        cantOro = 35;
+        cantOro = 100;
 
         inicializarTorres();
         inicializarObjetos();

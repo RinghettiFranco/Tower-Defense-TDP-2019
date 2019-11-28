@@ -13,7 +13,7 @@ public class HanSolo extends Torre {
 	protected static ImageIcon standing = new ImageIcon("src/Imagenes/StandingHanSolo.png");
 
 	public HanSolo(int x, int y) {
-		super(150, 3*Constantes.ANCHO_CELDA, 15, standing);
+		super(170, 3*Constantes.ANCHO_CELDA, 17, standing);
 
 		this.costo = 12;
 		this.cuentaRegresiva = 1*Constantes.SEGUNDO;

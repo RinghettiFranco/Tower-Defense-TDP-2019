@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -66,31 +67,20 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
     }
 
     public void actualizar() {
-        vp = new VisitorPerder();
-        vc = new VisitorContador();
-
-        objetosMapa();
+        ponerObjetoMapa();
         colisionar();
 
         for (GameObject go: toDel)
             objetosMapa.remove(go);
 
-        // Movemos todos los objetos restantes del mapa
-        // Ademas, verificamos si el jugador gana o pierde
-        for (GameObject go: objetosMapa) {
-            go.actualizar();
-            go.aceptar(vp);
-            go.aceptar(vc);
-        }
+        for (int i = 0; i < objetosMapa.size(); i++)
+            objetosMapa.get(i).actualizar();
 
-        if (vc.cantEnemigos() == 0)
-            oleadaNueva();
-
-        if (vp.perdi())
-            perder();
+        verificarPerder();
+        verificarOleadaNueva();
     }
 
-    private void objetosMapa() {
+    private void ponerObjetoMapa() {
         int x, y;
         Random rnd = new Random(System.currentTimeMillis());
 
@@ -109,23 +99,38 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
         }
     }
 
-    private void perder() {
-        JLabel wasted = new JLabel();
-        wasted.setIcon(new ImageIcon("src/Imagenes/perder.png"));
-        wasted.setBounds(Constantes.VENTANA_ANCHO/5,0,Constantes.VENTANA_ANCHO, Constantes.PANEL_JUEGO_ALTO);
+    private synchronized void verificarPerder() {
+        JLabel wasted;
 
+        vp = new VisitorPerder();
         for (GameObject go: objetosMapa)
-            this.remove(go);
-        this.add(wasted);
-        this.repaint();
+            go.aceptar(vp);
 
-        objetosMapa.clear();
-        ppal.pausar();
+        if (vp.perdi()) {
+            wasted = new JLabel();
+            wasted.setIcon(new ImageIcon("src/Imagenes/perder.png"));
+            wasted.setBounds(Constantes.VENTANA_ANCHO/5,0,Constantes.VENTANA_ANCHO, Constantes.PANEL_JUEGO_ALTO);
+
+            for (GameObject go : objetosMapa)
+                this.remove(go);
+            this.add(wasted);
+            this.repaint();
+
+            objetosMapa.clear();
+            ppal.pausar();
+        }
     }
 
-    private void oleadaNueva() {
-        nivel++;
-        objetosMapa.addAll(nivelGen.generar(nivel));
+    private synchronized void verificarOleadaNueva() {
+        vc = new VisitorContador();
+
+        for (GameObject go: objetosMapa)
+            go.aceptar(vc);
+
+        if (vc.cantEnemigos() == 0) {
+            nivel++;
+            objetosMapa.addAll(nivelGen.generar(nivel));
+        }
     }
 
     public synchronized void renderizar() {
