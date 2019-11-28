@@ -122,14 +122,31 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
     }
 
     private synchronized void verificarOleadaNueva() {
-        vc = new VisitorContador();
+        JLabel msj;
+    	vc = new VisitorContador();
 
         for (GameObject go: objetosMapa)
             go.aceptar(vc);
 
         if (vc.cantEnemigos() == 0) {
-            nivel++;
-            objetosMapa.addAll(nivelGen.generar(nivel));
+            if(nivel<3){
+            	nivel++;
+            	objetosMapa.addAll(nivelGen.generar(nivel));
+            	
+            	//ver como hacer para que el cartel de siguiente ronda dure un rato nomas
+            }else{
+            	msj = new JLabel();
+            	msj.setIcon(new ImageIcon("src/Imagenes/victoria.png"));
+            	msj.setBounds(Constantes.VENTANA_ANCHO/5,0,Constantes.VENTANA_ANCHO, Constantes.PANEL_JUEGO_ALTO);
+            	
+            	for (GameObject go : objetosMapa)
+                    this.remove(go);
+                this.add(msj);
+                this.repaint();
+
+                objetosMapa.clear();
+                ppal.pausar();
+            }
         }
     }
 
