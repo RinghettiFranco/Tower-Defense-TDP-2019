@@ -191,18 +191,20 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
             int x = posX / Constantes.ANCHO_CELDA;
             int y = posY / Constantes.ALTO_CELDA;
 
-            if (!posicionesOcupadas[x][y]) {
-                GameObject t = mediador.getObject();
-                if (t != null) {
-                    if (mediador.tengoOro()) {
-                        t.clone(posX, posY);
-                        posicionesOcupadas[x][y] = true;
-                        mediador.gastar(t.costo());
-                    } else
-                        mediador.delObject();
-                }
-            } else
-                mediador.delObject();
+            if(SwingUtilities.isLeftMouseButton(mouseEvent)){
+            	if (!posicionesOcupadas[x][y]) {
+            		GameObject t = mediador.getObject();
+                	if (t != null) {
+                    	if (mediador.tengoOro()) {
+                        	t.clone(posX, posY);
+                        	posicionesOcupadas[x][y] = true;
+                        	mediador.gastar(t.costo());
+                    	} else
+                    		mediador.delObject();
+                	}
+            	} else
+            		mediador.delObject();
+            }
         }
 
         @Override
