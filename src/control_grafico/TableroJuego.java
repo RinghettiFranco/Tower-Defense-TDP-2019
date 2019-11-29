@@ -122,21 +122,37 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
     }
 
     private synchronized void verificarOleadaNueva() {
+        JLabel msj;
         vc = new VisitorContador();
 
         for (GameObject go: objetosMapa)
             go.aceptar(vc);
 
         if (vc.cantEnemigos() == 0) {
-            nivel++;
-            objetosMapa.addAll(nivelGen.generar(nivel));
+            if(nivel<3){
+                nivel++;
+                objetosMapa.addAll(nivelGen.generar(nivel));
+
+                //ver como hacer para que el cartel de siguiente ronda dure un rato nomas
+            }else{
+                msj = new JLabel();
+                msj.setIcon(new ImageIcon("src/Imagenes/victoria.png"));
+                msj.setBounds(Constantes.VENTANA_ANCHO/5,0,Constantes.VENTANA_ANCHO, Constantes.PANEL_JUEGO_ALTO);
+
+                for (GameObject go : objetosMapa)
+                    this.remove(go);
+                this.add(msj);
+                this.repaint();
+
+                objetosMapa.clear();
+                ppal.pausar();
+            }
         }
     }
 
     public synchronized void renderizar() {
         for (GameObject go: objetosMapa)
             go.repaint();
-        this.repaint();
     }
 
     public synchronized void addToObjects(GameObject go) {
@@ -145,8 +161,8 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
     }
 
     public synchronized void delFromObjects(GameObject go) {
-		toDel.add(go);
-		this.remove(go);
+        toDel.add(go);
+        this.remove(go);
     }
 
     public void liberarPosicion(int x, int y) {
@@ -192,19 +208,21 @@ public class TableroJuego extends JPanel implements Agregable, Grilla {
             int x = posX / Constantes.ANCHO_CELDA;
             int y = posY / Constantes.ALTO_CELDA;
 
-            if (!posicionesOcupadas[x][y]) {
-                GameObject t = mediador.getObject();
-                if (t != null) {
-                    if (mediador.tengoOro()) {
-                        t.setBounds(posX, posY, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
-                        posicionesOcupadas[x][y] = true;
-                        mediador.gastar(t.costo());
-                        mediador.delObject();
-                    } else
-                        mediador.delObject();
-                }
-            } else
-                mediador.delObject();
+            if(SwingUtilities.isLeftMouseButton(mouseEvent)){
+                if (!posicionesOcupadas[x][y]) {
+                    GameObject t = mediador.getObject();
+                    if (t != null) {
+                        if (mediador.tengoOro()) {
+                            t.setBounds(posX, posY, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+                            posicionesOcupadas[x][y] = true;
+                            mediador.gastar(t.costo());
+                            mediador.delObject();
+                        } else
+                            mediador.delObject();
+                    }
+                } else
+                    mediador.delObject();
+            }
         }
 
         @Override
