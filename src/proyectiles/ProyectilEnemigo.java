@@ -47,4 +47,6 @@ public class ProyectilEnemigo extends Proyectil {
 
         this.setBounds(x, y, 100, 100);
     }
+    public void CambiarImagenEscudo() {}
+    public void CambiarImagenSinEscudo() {}
 }

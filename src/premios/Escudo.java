@@ -15,4 +15,16 @@ public class Escudo extends Premio {
     public void frenar() {
 
     }
+
+	@Override
+	public void CambiarImagenEscudo() {
+	
+		
+	}
+
+	@Override
+	public void CambiarImagenSinEscudo() {
+		
+		
+	}
 }

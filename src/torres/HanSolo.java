@@ -11,7 +11,7 @@ public class HanSolo extends Torre {
 
 	protected static ImageIcon shooting = new ImageIcon("src/Imagenes/ShootingHanSolo.png");
 	protected static ImageIcon standing = new ImageIcon("src/Imagenes/StandingHanSolo.png");
-
+	 protected static ImageIcon StandingHanSoloEscudo = new ImageIcon("src/Imagenes/StandingHanSoloEscudo.gif");
 	public HanSolo(int x, int y) {
 		super(170, 3*Constantes.ANCHO_CELDA, 17, standing);
 
@@ -35,5 +35,17 @@ public class HanSolo extends Torre {
 			}
 			cuentaRegresiva = 1*Constantes.SEGUNDO;
 		}
+	}
+
+	@Override
+	public void CambiarImagenEscudo() {
+		this.setIcon(StandingHanSoloEscudo);
+		
+	}
+
+	@Override
+	public void CambiarImagenSinEscudo() {
+		this.setIcon(standing);
+		
 	}
 }

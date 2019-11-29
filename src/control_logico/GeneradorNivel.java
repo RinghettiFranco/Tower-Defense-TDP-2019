@@ -10,7 +10,7 @@ import java.util.Random;
 public class GeneradorNivel {
 
 	public List<GameObject> generar(int nivel){
-		LinkedList oleada = new LinkedList();
+		LinkedList<GameObject> oleada = new LinkedList<GameObject>();
 		Random rnd = new Random(System.currentTimeMillis());
 		int h = Constantes.PANEL_JUEGO_ALTO;
 		int corrimiento = 900;

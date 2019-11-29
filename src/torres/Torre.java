@@ -3,6 +3,9 @@ package torres;
 import control_grafico.GameObject;
 import control_logico.Constantes;
 import control_logico.Grilla;
+import control_logico.SinEscudo;
+import control_logico.Escudo;
+import control_logico.Vida;
 import control_logico.Visitor;
 
 import javax.swing.*;
@@ -13,15 +16,21 @@ public abstract class Torre extends GameObject {
 
     protected static Grilla miGrilla;
 
+    protected Vida vida;
     protected int costo;
     protected int cuentaRegresiva;
     protected int vidaInicial;
 
-    public Torre(int vida, int alcance, int impacto, ImageIcon graphic) {
-        super(vida, alcance, impacto, graphic);
+    public Torre(int vidaInicial, int alcance, int impacto, ImageIcon graphic) {
+        super(vidaInicial, alcance, impacto, graphic);
         this.puntaje = -this.puntaje;
-        this.vidaInicial=vida;
+        this.vidaInicial=vidaInicial;
+        vida=new SinEscudo(vidaInicial);
         addMouseListener(new Vender());
+    }
+    
+    public void cambiarEstado() {
+    	vida.cambiarEstado(this);
     }
 
     public static void setGrilla(Grilla g) {

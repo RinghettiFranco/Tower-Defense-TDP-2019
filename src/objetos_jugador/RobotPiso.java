@@ -22,6 +22,8 @@ public class RobotPiso extends ObjetosJugador {
     }
 
     public void frenar() {}
+    public void CambiarImagenEscudo() {}
+    public void CambiarImagenSinEscudo() {}
 
     public void colisionar(Enemigo e) {
         cuentaRegresiva--;

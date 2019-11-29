@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class Leia extends Torre {
 
-	protected static ImageIcon shootingleia = new ImageIcon("src/Imagenes/leia100.png");
+	protected static ImageIcon standingLeiaEscudo = new ImageIcon("src/Imagenes/standingLeiaEscudo.gif");
 	protected static ImageIcon standingleia = new ImageIcon("src/Imagenes/standingLeia.png");
 
 	public Leia(int x, int y) {
@@ -36,5 +36,17 @@ public class Leia extends Torre {
 			cuentaRegresiva = 2*Constantes.SEGUNDO;
 		}
 		e.frenar();
+	}
+
+	@Override
+	public void CambiarImagenEscudo() {
+		this.setIcon(standingLeiaEscudo);
+		
+	}
+
+	@Override
+	public void CambiarImagenSinEscudo() {
+		this.setIcon(standingleia);
+		
 	}
 }

@@ -11,7 +11,7 @@ public class Ewok extends Torre {
 
     protected static ImageIcon standingEwok = new ImageIcon("src/Imagenes/standingEwok.png");
     protected static ImageIcon attackingEwok = new ImageIcon("src/Imagenes/AttackingEwok.gif");
-
+    protected static ImageIcon StandingEwokEscudo = new ImageIcon("src/Imagenes/EwokEscudo.gif");
     public Ewok(int x, int y) {
         super(100, 2*Constantes.ANCHO_CELDA,  12, standingEwok);
 
@@ -36,5 +36,17 @@ public class Ewok extends Torre {
 			}
             this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 		}
+	}
+
+	
+	public void CambiarImagenEscudo() {
+		this.setIcon(StandingEwokEscudo);
+		
+	}
+
+	
+	public void CambiarImagenSinEscudo() {
+		this.setIcon(standingEwok);
+		
 	}
 }

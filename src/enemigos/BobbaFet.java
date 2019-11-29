@@ -9,7 +9,7 @@ import javax.swing.*;
 public class BobbaFet extends Enemigo {
 
     protected static ImageIcon walkingBobbaFet = new ImageIcon("src/Imagenes/WBobbaFet.gif");
-    protected static ImageIcon attackingBobbaFet = new ImageIcon("");
+    protected static ImageIcon walkingBobbaFetEscudo = new ImageIcon("src/Imagenes/WBobbaEscudo.gif");
 
     public BobbaFet(int x, int y) {
         super(150, 1*Constantes.ANCHO_CELDA, 20, walkingBobbaFet);
@@ -31,4 +31,16 @@ public class BobbaFet extends Enemigo {
             cuentaRegresiva = 1*Constantes.SEGUNDO;
         }
     }
+
+	@Override
+	public void CambiarImagenEscudo() {
+		
+		
+	}
+
+	@Override
+	public void CambiarImagenSinEscudo() {
+	
+		
+	}
 }

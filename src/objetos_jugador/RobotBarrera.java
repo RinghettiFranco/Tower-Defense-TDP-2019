@@ -20,6 +20,8 @@ public class RobotBarrera extends ObjetosJugador {
     }
 
     public void frenar() {}
+    public void CambiarImagenEscudo() {}
+    public void CambiarImagenSinEscudo() {}
 
     @Override
     public void actualizar() {

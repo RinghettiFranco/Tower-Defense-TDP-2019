@@ -34,4 +34,7 @@ public class AgujeroNegro extends ObjetoMapa {
         if (this.vida.obtenerVida() <= 0)
             morir();
     }
+    
+    public void CambiarImagenEscudo() {}
+    public void CambiarImagenSinEscudo() {}
 }

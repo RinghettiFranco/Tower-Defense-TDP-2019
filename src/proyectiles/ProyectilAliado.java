@@ -31,7 +31,7 @@ public class ProyectilAliado extends Proyectil {
         }
     }
 
-    @Override
+   
     public void aceptar(Visitor v) {
         v.visitar(this);
     }
@@ -43,4 +43,7 @@ public class ProyectilAliado extends Proyectil {
         int y = (int) nueva.getY();
         this.setBounds(x, y, 100, 100);
     }
+    
+    public void CambiarImagenEscudo() {}
+    public void CambiarImagenSinEscudo() {}
 }

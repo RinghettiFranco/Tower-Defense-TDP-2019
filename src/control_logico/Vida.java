@@ -1,5 +1,7 @@
 package control_logico;
 
+import control_grafico.GameObject;
+
 public abstract class Vida {
 
     protected int vida;
@@ -13,4 +15,6 @@ public abstract class Vida {
     }
 
     public abstract void recibirDmg(int dmg);
+    
+    public abstract void cambiarEstado(GameObject go);
 }
