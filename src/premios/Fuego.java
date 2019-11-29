@@ -25,4 +25,6 @@ public class Fuego extends Premio {
 
     @Override
     public void frenar() {}
+    public void CambiarImagenEscudo() {}
+    public void CambiarImagenSinEscudo() {}
 }

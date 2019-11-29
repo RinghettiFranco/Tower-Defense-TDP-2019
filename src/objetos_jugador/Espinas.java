@@ -32,10 +32,14 @@ public class Espinas extends ObjetosJugador {
         }
     }
 
-    @Override
+   
     public void actualizar() {
         this.vida.recibirDmg(1);
         if (this.vida.obtenerVida() <= 0)
             morir();
     }
+
+    public void CambiarImagenEscudo() {}
+    public void CambiarImagenSinEscudo() {}
+    
 }

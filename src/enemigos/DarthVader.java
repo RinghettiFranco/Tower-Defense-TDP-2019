@@ -8,8 +8,8 @@ import javax.swing.*;
 
 public class DarthVader extends Enemigo {
 
-    private static ImageIcon walkingVader = new ImageIcon("src/Imagenes/WDarthVader.gif");
-    private static ImageIcon attackingVader = new ImageIcon("");
+    private static ImageIcon walkingVader = new ImageIcon("src/Imagenes/WalkingVader.gif");
+    private static ImageIcon walkingVaderEscudo = new ImageIcon("src/Imagenes/WalkingVaderEscudo.gif");
 
     public DarthVader(int x, int y) {
         super(450, 1*Constantes.ANCHO_CELDA, 40, walkingVader);
@@ -32,4 +32,16 @@ public class DarthVader extends Enemigo {
             cuentaRegresiva = 30;
         }
     }
+
+	@Override
+	public void CambiarImagenEscudo() {
+	
+		
+	}
+
+	@Override
+	public void CambiarImagenSinEscudo() {
+
+		
+	}
 }

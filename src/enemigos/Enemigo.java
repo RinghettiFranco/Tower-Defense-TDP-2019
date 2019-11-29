@@ -4,6 +4,7 @@ import control_grafico.GameObject;
 import control_logico.Constantes;
 import control_logico.Escudo;
 import control_logico.Grilla;
+import control_logico.SinEscudo;
 import control_logico.Visitor;
 import movimiento.Movimiento;
 import premios.Bomba;
@@ -28,8 +29,8 @@ public abstract class Enemigo extends GameObject {
         super(vida, alcance, impacto, graphic);
         this.frenado = false;
 
-        int ran = rnd.nextInt(20);
-        if(ran==10)this.vida=new Escudo(vida);
+        int ran = rnd.nextInt(5);
+        if(ran==1) {this.cambiarEstado();}
     }
 
     public static void setGrilla(Grilla g) {

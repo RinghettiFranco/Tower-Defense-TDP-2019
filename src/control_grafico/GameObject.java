@@ -73,6 +73,11 @@ public abstract class GameObject extends JLabel {
     public void morir() {
         tableroJuego.delFromObjects(this);
     }
+    
+    public int obtenerVida() {
+    	return vida.obtenerVida();
+    }
+    
     public boolean estaMuerto() {
         return vida.obtenerVida() <= 0;
     }
@@ -92,6 +97,14 @@ public abstract class GameObject extends JLabel {
     public int costo() {
         return 0;
     }
+    
+    public void cambiarEstado() {
+    	vida.cambiarEstado(this);	
+    }
+    
+    public void setEstado(Vida v) {
+    	vida=v;
+    }
 
     public int distancia (GameObject go) {
         if (this.getY() == go.getY())
@@ -99,4 +112,8 @@ public abstract class GameObject extends JLabel {
         else
             return Constantes.MAX_INF;
     }
+
+	public abstract void CambiarImagenEscudo();
+
+	public abstract void CambiarImagenSinEscudo();
 }

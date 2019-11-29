@@ -9,7 +9,7 @@ import javax.swing.*;
 public class Soldier extends Enemigo {
 
     protected static ImageIcon walkingSoldier = new ImageIcon("src/Imagenes/WSoldier.gif");
-    protected static ImageIcon attackingSoldier = new ImageIcon("");
+    protected static ImageIcon walkingSoldierEscudo = new ImageIcon("src/Imagenes/WSoldierEscudo.gif");
 
     public Soldier(int x, int y) {
         super(150, 1*Constantes.ANCHO_CELDA, 12, walkingSoldier);
@@ -31,4 +31,16 @@ public class Soldier extends Enemigo {
             cuentaRegresiva = 1*Constantes.SEGUNDO;
         }
     }
+
+
+	public void CambiarImagenEscudo() {
+		this.setIcon(walkingSoldierEscudo);
+		
+	}
+
+	
+	public void CambiarImagenSinEscudo() {
+		this.setIcon(walkingSoldier);
+		
+	}
 }

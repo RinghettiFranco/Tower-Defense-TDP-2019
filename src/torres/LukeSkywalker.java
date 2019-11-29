@@ -9,7 +9,7 @@ public class LukeSkywalker extends Torre {
 
     protected static ImageIcon standingLuke = new ImageIcon("src/Imagenes/StandingLuke.png");
     protected static ImageIcon attackingLuke = new ImageIcon("src/Imagenes/luke.gif");
-
+    protected static ImageIcon standingLukeEscudo = new ImageIcon("src/Imagenes/StandingLukeEscudo");
     public LukeSkywalker(int x, int y) {
         super(350, 1*Constantes.ANCHO_CELDA, 33, standingLuke);
 
@@ -30,4 +30,16 @@ public class LukeSkywalker extends Torre {
         }
         e.frenar();
     }
+
+	
+	public void CambiarImagenEscudo() {
+	this.setIcon(standingLukeEscudo);
+		
+	}
+
+	
+	public void CambiarImagenSinEscudo() {
+		this.setIcon(standingLuke);	
+		
+	}
 }

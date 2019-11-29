@@ -10,6 +10,7 @@ import javax.swing.*;
 public class Stormtrooper extends Enemigo {
 	
 	protected static ImageIcon runningGif = new ImageIcon("src/Imagenes/Stormtrooper.gif");
+	protected static ImageIcon runningGifEscudo = new ImageIcon("src/Imagenes/StpEscudo.gif");
 	protected int cuentaRegresiva;
 
 	public Stormtrooper(int x, int y) {
@@ -34,5 +35,17 @@ public class Stormtrooper extends Enemigo {
 				t.recibirDmg(3*this.impacto/4);
 			cuentaRegresiva = 2*Constantes.SEGUNDO/3;
 		}
+	}
+
+	@Override
+	public void CambiarImagenEscudo() {
+		this.setIcon(runningGifEscudo);
+		
+	}
+
+
+	public void CambiarImagenSinEscudo() {
+		this.setIcon(runningGif);
+		
 	}
 }
