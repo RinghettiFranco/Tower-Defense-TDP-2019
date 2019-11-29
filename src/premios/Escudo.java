@@ -15,9 +15,4 @@ public class Escudo extends Premio {
     public void frenar() {
 
     }
-
-    @Override
-    public Escudo clone(int posX, int posY) {
-        return null;
-    }
 }

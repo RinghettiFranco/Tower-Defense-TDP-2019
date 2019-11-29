@@ -26,9 +26,4 @@ public class RobotBarrera extends ObjetosJugador {
         if (this.vida.obtenerVida() <= 0)
             morir();
     }
-
-    @Override
-    public RobotBarrera clone(int posX, int posY) {
-        return new RobotBarrera(posX, posY);
-    }
 }

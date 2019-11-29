@@ -25,9 +25,4 @@ public class Fuego extends Premio {
 
     @Override
     public void frenar() {}
-
-    @Override
-    public Fuego clone(int posX, int posY) {
-        return null;
-    }
 }

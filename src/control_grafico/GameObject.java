@@ -93,8 +93,6 @@ public abstract class GameObject extends JLabel {
         return 0;
     }
 
-    public abstract GameObject clone(int posX, int posY);
-
     public int distancia (GameObject go) {
         if (this.getY() == go.getY())
             return (int) Math.sqrt((go.getX()-this.getX())*(go.getX()-this.getX()) + (go.getY()-this.getY())*(go.getY()-this.getY()));

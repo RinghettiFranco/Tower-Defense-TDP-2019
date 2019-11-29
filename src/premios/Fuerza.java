@@ -23,9 +23,4 @@ public class Fuerza extends Premio {
 
     @Override
     public void frenar() {}
-
-    @Override
-    public Fuerza clone(int posX, int posY) {
-        return null;
-    }
 }

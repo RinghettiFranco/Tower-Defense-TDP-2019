@@ -37,8 +37,6 @@ public abstract class Torre extends GameObject {
         return costo;
     }
 
-    public abstract Torre clone(int x, int y);
-
     public void aceptar(Visitor v) {
         v.visitar(this);
     }

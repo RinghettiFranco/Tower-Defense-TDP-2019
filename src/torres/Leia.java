@@ -23,11 +23,6 @@ public class Leia extends Torre {
 		tableroJuego.addToObjects(this);
 	}
 
-	@Override
-	public Torre clone(int x, int y) {
-		return new Leia(x, y);
-	}
-
 	public void colisionar(Enemigo e) {
 		cuentaRegresiva--;
 

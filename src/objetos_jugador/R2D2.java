@@ -47,9 +47,4 @@ public class R2D2 extends ObjetosJugador {
         if (this.getX() >= Constantes.VENTANA_ANCHO)
             morir();
     }
-
-    @Override
-    public R2D2 clone(int posX, int posY) {
-        return new R2D2(posX, posY);
-    }
 }

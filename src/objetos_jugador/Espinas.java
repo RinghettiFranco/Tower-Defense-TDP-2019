@@ -38,9 +38,4 @@ public class Espinas extends ObjetosJugador {
         if (this.vida.obtenerVida() <= 0)
             morir();
     }
-
-    @Override
-    public Espinas clone(int posX, int posY) {
-        return new Espinas(posX, posY);
-    }
 }

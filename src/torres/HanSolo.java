@@ -23,11 +23,6 @@ public class HanSolo extends Torre {
 		tableroJuego.addToObjects(this);
 	}
 
-	@Override
-	public Torre clone(int x, int y) {
-		return new HanSolo(x, y);
-	}
-
 	public void colisionar(Enemigo e) {
 		cuentaRegresiva--;
 

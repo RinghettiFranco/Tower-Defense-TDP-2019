@@ -15,8 +15,4 @@ public abstract class Proyectil extends GameObject {
     }
 
     public void frenar() {}
-
-    public Proyectil clone(int posX, int posY) {
-        return null;
-    }
 }

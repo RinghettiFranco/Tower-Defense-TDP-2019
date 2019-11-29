@@ -34,9 +34,4 @@ public class AgujeroNegro extends ObjetoMapa {
         if (this.vida.obtenerVida() <= 0)
             morir();
     }
-
-    @Override
-    public AgujeroNegro clone(int posX, int posY) {
-        return null;
-    }
 }

@@ -23,9 +23,4 @@ public class Bomba extends Premio {
     }
 
     public void frenar() {}
-
-    @Override
-    public Bomba clone(int posX, int posY) {
-        return null;
-    }
 }

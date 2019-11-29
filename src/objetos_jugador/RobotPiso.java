@@ -23,10 +23,6 @@ public class RobotPiso extends ObjetosJugador {
 
     public void frenar() {}
 
-    @Override
-    public void aceptar(Visitor v) {
-    }
-
     public void colisionar(Enemigo e) {
         cuentaRegresiva--;
 
@@ -40,10 +36,5 @@ public class RobotPiso extends ObjetosJugador {
     public void actualizar() {
         if (this.vida.obtenerVida() <= 0)
             morir();
-    }
-
-    @Override
-    public RobotPiso clone(int posX, int posY) {
-        return new RobotPiso(posX, posY);
     }
 }

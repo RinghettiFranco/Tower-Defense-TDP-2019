@@ -89,8 +89,4 @@ public abstract class Enemigo extends GameObject {
     public void frenar() {
         this.frenado = true;
     }
-
-    public Enemigo clone(int posX, int posY) {
-        return null;
-    }
 }

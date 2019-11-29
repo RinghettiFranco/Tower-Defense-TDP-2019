@@ -23,11 +23,6 @@ public class Ewok extends Torre {
         tableroJuego.addToObjects(this);
     }
 
-    @Override
-    public Torre clone(int x, int y) {
-        return new Ewok(x, y);
-    }
-
     public void colisionar(Enemigo e) {
     	cuentaRegresiva--;
     	this.setIcon(attackingEwok);

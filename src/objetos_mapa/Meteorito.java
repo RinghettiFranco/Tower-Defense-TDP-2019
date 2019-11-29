@@ -47,8 +47,4 @@ public class Meteorito extends ObjetoMapa {
             this.setBounds((int)pos.getX(), (int)pos.getY(), Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
         }
     }
-
-    public Meteorito clone(int posX, int posY) {
-        return null;
-    }
 }

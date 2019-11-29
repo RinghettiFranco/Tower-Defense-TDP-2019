@@ -23,11 +23,6 @@ public class Chewbaca extends Torre {
         tableroJuego.addToObjects(this);
     }
 
-    @Override
-    public Torre clone(int x, int y) {
-        return new Chewbaca(x, y);
-    }
-
     public void colisionar(Enemigo e) {
         cuentaRegresiva--;
 
