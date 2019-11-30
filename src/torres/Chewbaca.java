@@ -33,15 +33,11 @@ public class Chewbaca extends Torre {
         e.frenar();
     }
 
-	@Override
 	public void CambiarImagenEscudo() {
 		this.setIcon(StandingChewbacaEscudo);
-		
 	}
 
-	@Override
 	public void CambiarImagenSinEscudo() {
 		this.setIcon(standingChewbaca);
-		
 	}
 }

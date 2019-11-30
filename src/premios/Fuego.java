@@ -22,8 +22,8 @@ public class Fuego extends Premio {
 
     @Override
     public void actualizar() {
-        this.vida.recibirDmg(1);
-        if (this.vida.obtenerVida() <= 0)
+        this.recibirDmg(1);
+        if (this.obtenerVida() <= 0)
             morir();
     }
 
@@ -37,9 +37,4 @@ public class Fuego extends Premio {
             System.out.println("Fuego -> enemigo");
         }
     }
-
-    @Override
-    public void frenar() {}
-    public void CambiarImagenEscudo() {}
-    public void CambiarImagenSinEscudo() {}
 }

@@ -19,6 +19,4 @@ public class Flecha extends ProyectilAliado {
 
 			this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 	    }
-
-
 }

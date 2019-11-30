@@ -38,15 +38,12 @@ public class Leia extends Torre {
 		e.frenar();
 	}
 
-	@Override
 	public void CambiarImagenEscudo() {
 		this.setIcon(standingLeiaEscudo);
 		
 	}
 
-	@Override
 	public void CambiarImagenSinEscudo() {
 		this.setIcon(standingleia);
-		
 	}
 }

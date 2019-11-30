@@ -12,10 +12,10 @@ public class DarthVader extends Enemigo {
     private static ImageIcon walkingVaderEscudo = new ImageIcon("src/Imagenes/WalkingVaderEscudo.gif");
 
     public DarthVader(int x, int y) {
-        super(450, 1*Constantes.ANCHO_CELDA, 40, walkingVader);
+        super(450, 1 * Constantes.ANCHO_CELDA, 40, walkingVader);
 
         this.pos = new MovimientoEnemigo(x, y);
-        this.cuentaRegresiva = (int) 0.9*Constantes.SEGUNDO;
+        this.cuentaRegresiva = (int) 0.9 * Constantes.SEGUNDO;
         this.puntaje = 15;
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
@@ -32,16 +32,4 @@ public class DarthVader extends Enemigo {
             cuentaRegresiva = 30;
         }
     }
-
-	@Override
-	public void CambiarImagenEscudo() {
-	
-		
-	}
-
-	@Override
-	public void CambiarImagenSinEscudo() {
-
-		
-	}
 }

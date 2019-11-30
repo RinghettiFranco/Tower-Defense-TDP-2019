@@ -19,13 +19,10 @@ public class RobotBarrera extends ObjetosJugador {
         tableroJuego.addToObjects(this);
     }
 
-    public void frenar() {}
-    public void CambiarImagenEscudo() {}
-    public void CambiarImagenSinEscudo() {}
 
     @Override
     public void actualizar() {
-        if (this.vida.obtenerVida() <= 0)
+        if (this.obtenerVida() <= 0)
             morir();
     }
 }

@@ -13,7 +13,7 @@ public class Bomba extends Premio {
     protected boolean exploto;
 
     public Bomba(int x, int y) {
-        super(5*Constantes.SEGUNDO, Constantes.ANCHO_CELDA/2, 0, bomba);
+        super(15*Constantes.SEGUNDO, Constantes.ANCHO_CELDA/2, 0, bomba);
 
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
 
@@ -26,29 +26,19 @@ public class Bomba extends Premio {
         if (exploto)
             morir();
         else {
-            this.vida.recibirDmg(1);
-            if (this.vida.obtenerVida() <= 0)
+            this.recibirDmg(1);
+            if (this.obtenerVida() <= 0)
                 morir();
         }
     }
 
-    @Override
     public void colisionar(Enemigo e) {
         this.exploto = true;
         e.morir();
     }
 
-    @Override
     public void colisionar(Torre t) {
         this.exploto = true;
         t.morir();
     }
-
-    public void frenar() {}
-
-
-	public void CambiarImagenEscudo() {}
-
-	
-	public void CambiarImagenSinEscudo() {}
 }

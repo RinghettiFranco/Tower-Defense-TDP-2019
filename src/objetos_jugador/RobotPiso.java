@@ -20,10 +20,6 @@ public class RobotPiso extends ObjetosJugador {
         tableroJuego.addToObjects(this);
     }
 
-    public void frenar() {}
-    public void CambiarImagenEscudo() {}
-    public void CambiarImagenSinEscudo() {}
-
     public void colisionar(Enemigo e) {
         cuentaRegresiva--;
 
@@ -35,7 +31,7 @@ public class RobotPiso extends ObjetosJugador {
 
     @Override
     public void actualizar() {
-        if (this.vida.obtenerVida() <= 0)
+        if (this.obtenerVida() <= 0)
             morir();
     }
 }

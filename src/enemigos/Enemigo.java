@@ -2,9 +2,7 @@ package enemigos;
 
 import control_grafico.GameObject;
 import control_logico.Constantes;
-import control_logico.Escudo;
 import control_logico.Grilla;
-import control_logico.SinEscudo;
 import control_logico.Visitor;
 import movimiento.Movimiento;
 import premios.Bomba;
@@ -32,7 +30,7 @@ public abstract class Enemigo extends GameObject {
 
         this.frenado = false;
 
-        if(ran==1) {this.cambiarEstado();}
+        if(ran==1) {this.aplicarEscudo();}
     }
 
     public static void setGrilla(Grilla g) {
@@ -40,7 +38,7 @@ public abstract class Enemigo extends GameObject {
     }
 
     public void actualizar() {
-        if (this.vida.obtenerVida() <= 0)
+        if (this.obtenerVida() <= 0)
             morir();
         else {
             int posX = getX() - (getX() % Constantes.ANCHO_CELDA);
@@ -97,5 +95,9 @@ public abstract class Enemigo extends GameObject {
 
     public void frenar() {
         this.frenado = true;
+    }
+
+    public void aplicarEscudo() {
+
     }
 }

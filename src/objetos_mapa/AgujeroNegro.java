@@ -30,11 +30,8 @@ public class AgujeroNegro extends ObjetoMapa {
     }
 
     public void actualizar() {
-        this.vida.recibirDmg(1);
-        if (this.vida.obtenerVida() <= 0)
+        this.recibirDmg(1);
+        if (this.obtenerVida() <= 0)
             morir();
     }
-    
-    public void CambiarImagenEscudo() {}
-    public void CambiarImagenSinEscudo() {}
 }

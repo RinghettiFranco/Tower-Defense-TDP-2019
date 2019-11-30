@@ -21,13 +21,12 @@ public abstract class GameObject extends JLabel {
     protected static Inventario inventario;
     protected static TableroPuntos puntos;
 
-    protected Vida vida;
-    protected int alcance, impacto;
+    protected int vida, alcance, impacto;
     protected int puntaje, oro;
 
     public GameObject(int vida, int alcance, int impacto, ImageIcon graphic) {
         Random rnd = new Random(System.currentTimeMillis());
-        this.vida = new SinEscudo(vida);
+        this.vida = vida;
         this.alcance = alcance;
         this.impacto = impacto;
 
@@ -61,25 +60,22 @@ public abstract class GameObject extends JLabel {
     public void colisionar(ObjetoMapa om) {}
     public void colisionar(Premio p) {}
 
-
     public void recibirDmg(int dmg) {
-        vida.recibirDmg(dmg);
+        vida -= dmg;
     }
 
     public abstract void actualizar();
-
-    public abstract void frenar();
 
     public void morir() {
         tableroJuego.delFromObjects(this);
     }
     
     public int obtenerVida() {
-    	return vida.obtenerVida();
+    	return vida;
     }
     
     public boolean estaMuerto() {
-        return vida.obtenerVida() <= 0;
+        return vida <= 0;
     }
 
     public int obtenerAlcance() {
@@ -101,14 +97,6 @@ public abstract class GameObject extends JLabel {
     public int costo() {
         return 0;
     }
-    
-    public void cambiarEstado() {
-    	vida.cambiarEstado(this);	
-    }
-    
-    public void setEstado(Vida v) {
-    	vida=v;
-    }
 
     public int distancia (GameObject go) {
         if (this.getY() == go.getY())
@@ -116,8 +104,4 @@ public abstract class GameObject extends JLabel {
         else
             return Constantes.MAX_INF;
     }
-
-	public abstract void CambiarImagenEscudo();
-
-	public abstract void CambiarImagenSinEscudo();
 }

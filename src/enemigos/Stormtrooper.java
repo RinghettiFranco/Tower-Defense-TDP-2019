@@ -36,16 +36,4 @@ public class Stormtrooper extends Enemigo {
 			cuentaRegresiva = 2*Constantes.SEGUNDO/3;
 		}
 	}
-
-	@Override
-	public void CambiarImagenEscudo() {
-		this.setIcon(runningGifEscudo);
-		
-	}
-
-
-	public void CambiarImagenSinEscudo() {
-		this.setIcon(runningGif);
-		
-	}
 }

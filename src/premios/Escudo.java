@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Escudo extends Premio {
 
-    protected static ImageIcon escudo = new ImageIcon("src/Imagenes/meditation.png");
+    protected static ImageIcon escudo = new ImageIcon("src/Imagenes/Vida.png");
 
     public Escudo(int x, int y) {
         super(6*Constantes.SEGUNDO, 1*Constantes.ANCHO_CELDA, 0, escudo);
@@ -16,24 +16,15 @@ public class Escudo extends Premio {
         this.setBounds(x, y, Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
     }
 
-    @Override
     public void colisionar(Torre t) {
-        t.cambiarEstado();
+        t.aplicarEscudo();
         this.morir();
     }
 
-    @Override
     public void colisionar(Enemigo e) {
-        e.cambiarEstado();
+        e.aplicarEscudo();
         this.morir();
     }
 
-    @Override
-    public void actualizar() {
-
-    }
-
-    public void frenar() {}
-	public void CambiarImagenEscudo() {}
-	public void CambiarImagenSinEscudo() {}
+    public void actualizar() {}
 }

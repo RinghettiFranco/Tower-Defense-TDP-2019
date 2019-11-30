@@ -3,9 +3,6 @@ package torres;
 import control_grafico.GameObject;
 import control_logico.Constantes;
 import control_logico.Grilla;
-import control_logico.SinEscudo;
-import control_logico.Escudo;
-import control_logico.Vida;
 import control_logico.Visitor;
 
 import javax.swing.*;
@@ -16,7 +13,6 @@ public abstract class Torre extends GameObject {
 
     protected static Grilla miGrilla;
 
-    protected Vida vida;
     protected int costo;
     protected int cuentaRegresiva;
     protected int vidaInicial;
@@ -25,12 +21,12 @@ public abstract class Torre extends GameObject {
         super(vidaInicial, alcance, impacto, graphic);
         this.puntaje = -this.puntaje;
         this.vidaInicial=vidaInicial;
-        vida=new SinEscudo(vidaInicial);
+        vida=vidaInicial;
         addMouseListener(new Vender());
     }
     
-    public void cambiarEstado() {
-    	vida.cambiarEstado(this);
+    public void aplicarEscudo() {
+
     }
 
     public static void setGrilla(Grilla g) {
@@ -38,7 +34,7 @@ public abstract class Torre extends GameObject {
     }
 
     public void actualizar(){
-        if (this.vida.obtenerVida() <= 0)
+        if (this.obtenerVida() <= 0)
             morir();
     }
 
@@ -59,15 +55,13 @@ public abstract class Torre extends GameObject {
         miGrilla.liberarPosicion(x, y);
         super.morir();
     }
-    public void frenar() {}
     
     public boolean recibioDmg(){
-    	return !(vidaInicial==this.vida.obtenerVida());
+    	return !(vidaInicial==this.obtenerVida());
     }
     
     private class Vender implements MouseListener{
 
-		@Override
 		public void mouseClicked(MouseEvent e) {
             int posX = getX() - (getX() % Constantes.ANCHO_CELDA) + 15;
             int posY = getY() - (getY() % Constantes.ALTO_CELDA);
@@ -85,13 +79,9 @@ public abstract class Torre extends GameObject {
 			}
 		}
 
-		@Override
 		public void mouseEntered(MouseEvent e) {}
-		@Override
 		public void mouseExited(MouseEvent e) {}
-		@Override
 		public void mousePressed(MouseEvent e) {}
-		@Override
 		public void mouseReleased(MouseEvent e) {}
     	
     }

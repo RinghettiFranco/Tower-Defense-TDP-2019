@@ -25,10 +25,6 @@ public class R2D2 extends ObjetosJugador {
         tableroJuego.addToObjects(this);
     }
 
-    public void frenar() {}
-    public void CambiarImagenEscudo() {}
-    public void CambiarImagenSinEscudo() {}
-
     public void colisionar(Enemigo e) {
         e.morir();
     }
@@ -38,8 +34,8 @@ public class R2D2 extends ObjetosJugador {
         /*Point2D pos = mov.proximaPosicion();
         this.setBounds((int) pos.getX(), (int) pos.getY(), Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);*/
 
-        this.vida.recibirDmg(1);
-        if (this.vida.obtenerVida() <= 0)
+        this.recibirDmg(1);
+        if (this.obtenerVida() <= 0)
             morir();
     }
 }

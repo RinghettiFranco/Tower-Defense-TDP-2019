@@ -31,16 +31,4 @@ public class BobbaFet extends Enemigo {
             cuentaRegresiva = 1*Constantes.SEGUNDO;
         }
     }
-
-	@Override
-	public void CambiarImagenEscudo() {
-		
-		
-	}
-
-	@Override
-	public void CambiarImagenSinEscudo() {
-	
-		
-	}
 }

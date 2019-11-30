@@ -37,15 +37,11 @@ public class HanSolo extends Torre {
 		}
 	}
 
-	@Override
 	public void CambiarImagenEscudo() {
 		this.setIcon(StandingHanSoloEscudo);
-		
 	}
 
-	@Override
 	public void CambiarImagenSinEscudo() {
 		this.setIcon(standing);
-		
 	}
 }

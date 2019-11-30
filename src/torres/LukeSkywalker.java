@@ -33,13 +33,11 @@ public class LukeSkywalker extends Torre {
 
 	
 	public void CambiarImagenEscudo() {
-	this.setIcon(standingLukeEscudo);
-		
+	    this.setIcon(standingLukeEscudo);
 	}
 
 	
 	public void CambiarImagenSinEscudo() {
-		this.setIcon(standingLuke);	
-		
+		this.setIcon(standingLuke);
 	}
 }

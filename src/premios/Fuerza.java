@@ -6,6 +6,7 @@ import enemigos.Enemigo;
 import torres.Torre;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Fuerza extends Premio {
 
@@ -25,6 +26,7 @@ public class Fuerza extends Premio {
         if (miObjetivo == null) {
             miObjetivo = e;
             e.deltaImpacto(5);
+            System.out.println("Fuerza -> enemigo");
         }
         // Sacamos el objeto de la vista
         this.setIcon(null);
@@ -36,6 +38,9 @@ public class Fuerza extends Premio {
         if (miObjetivo == null) {
             miObjetivo = t;
             t.deltaImpacto(5);
+            t.setOpaque(true);
+            t.setBackground(Color.RED);
+            System.out.println("Fuerza -> torre");
         }
         // Sacamos el objeto de la vista
         this.setIcon(null);
@@ -44,14 +49,12 @@ public class Fuerza extends Premio {
 
     public void actualizar() {
         this.recibirDmg(1);
-        if (this.vida.obtenerVida() <= 0) {
-            if (miObjetivo != null)
+        if (this.obtenerVida() <= 0) {
+            if (miObjetivo != null) {
                 miObjetivo.deltaImpacto(-5);
+                miObjetivo.setOpaque(false);
+            }
             this.morir();
         }
     }
-
-    public void frenar() {}
-    public void CambiarImagenEscudo() {}
-    public void CambiarImagenSinEscudo() {}
 }

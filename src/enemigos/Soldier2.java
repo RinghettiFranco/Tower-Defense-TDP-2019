@@ -36,15 +36,4 @@ public class Soldier2 extends Enemigo {
             cuentaRegresiva = 2*Constantes.SEGUNDO;
         }
     }
-    
-    public void CambiarImagenEscudo() {
-		this.setIcon(walkingSoldier2Escudo);
-		
-	}
-
-	
-	public void CambiarImagenSinEscudo() {
-		this.setIcon(walkingSoldier2);
-		
-	}
 }
