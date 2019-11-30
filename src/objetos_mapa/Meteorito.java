@@ -17,7 +17,7 @@ public class Meteorito extends ObjetoMapa {
     protected int lugarCaida;
 
     public Meteorito(int x, int y) {
-        super(Constantes.MAX_INF, 2*Constantes.ANCHO_CELDA, 0, meteoro);
+        super(Constantes.MAX_INF, Constantes.ANCHO_CELDA/2, 0, meteoro);
 
         Random rnd = new Random(System.currentTimeMillis());
         int celdaX = x - (x % Constantes.ANCHO_CELDA) + 15;

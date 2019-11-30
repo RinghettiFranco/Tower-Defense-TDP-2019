@@ -16,8 +16,7 @@ public class R2D2 extends ObjetosJugador {
     public R2D2(int x, int y) {
         super(10*Constantes.SEGUNDO, 1* Constantes.ANCHO_CELDA, 0, r2d2);
 
-        this.costo = 100;
-        this.cuentaRegresiva = 3;
+        this.costo = 75;
 
         this.mov = new MovimientoProyectil(x, y, 5);
 
@@ -29,23 +28,18 @@ public class R2D2 extends ObjetosJugador {
     public void frenar() {}
     public void CambiarImagenEscudo() {}
     public void CambiarImagenSinEscudo() {}
-    public void colisionar(Enemigo e) {
-        cuentaRegresiva--;
 
-        if (cuentaRegresiva == 0)
-            e.morir();
+    public void colisionar(Enemigo e) {
+        e.morir();
     }
 
     @Override
     public void actualizar() {
-        Point2D pos = mov.proximaPosicion();
-        this.setBounds((int) pos.getX(), (int) pos.getY(), Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);
+        /*Point2D pos = mov.proximaPosicion();
+        this.setBounds((int) pos.getX(), (int) pos.getY(), Constantes.ANCHO_CELDA, Constantes.ALTO_CELDA);*/
 
         this.vida.recibirDmg(1);
         if (this.vida.obtenerVida() <= 0)
-            morir();
-
-        if (this.getX() >= Constantes.VENTANA_ANCHO)
             morir();
     }
 }

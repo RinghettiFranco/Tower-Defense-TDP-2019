@@ -90,6 +90,10 @@ public abstract class GameObject extends JLabel {
         return impacto;
     }
 
+    public void deltaImpacto(int incr) {
+        this.impacto += incr;
+    }
+
     public int obtenerPuntaje() {
         return puntaje;
     }

@@ -1,7 +1,6 @@
 package objetos_jugador;
 
 import control_logico.Constantes;
-import control_logico.Visitor;
 import enemigos.Enemigo;
 
 import javax.swing.*;

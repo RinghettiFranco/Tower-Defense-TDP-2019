@@ -20,16 +20,18 @@ public abstract class Enemigo extends GameObject {
     protected boolean frenado;
     protected static Grilla miGrilla;
 
-    private Random rnd = new Random(System.currentTimeMillis());
+    private Random rnd;
 
     protected int cuentaRegresiva;
     protected Movimiento pos;
 
     public Enemigo(int vida, int alcance, int impacto, ImageIcon graphic) {
         super(vida, alcance, impacto, graphic);
+        rnd = new Random(System.currentTimeMillis());
+        int ran = rnd.nextInt(5);
+
         this.frenado = false;
 
-        int ran = rnd.nextInt(5);
         if(ran==1) {this.cambiarEstado();}
     }
 
@@ -60,7 +62,7 @@ public abstract class Enemigo extends GameObject {
     }
 
     public void morir() {
-        int rand = rnd.nextInt() % 10;
+        int rand = rnd.nextInt() % 2;
 
         inventario.actualizarOro(this.oro);
         puntos.actualizarPuntaje(puntaje);
@@ -68,20 +70,26 @@ public abstract class Enemigo extends GameObject {
 
         // Ponemos un premio en el mapa con un
         // 10% de probabilidad de aparicion
-        if (rand == 7) {
+        if (rand == 1) {
+            rnd.setSeed(System.currentTimeMillis());
+            int randPosX = rnd.nextInt(Constantes.VENTANA_ANCHO);
+            int randPosY = rnd.nextInt(Constantes.PANEL_JUEGO_ALTO);
+            int x = (randPosX - (randPosX % Constantes.ANCHO_CELDA));
+            int y = (randPosY - (randPosY % Constantes.ALTO_CELDA));
+
             rand = rnd.nextInt() % 4;
             switch (rand) {
                 case 0:
-                    tableroJuego.addToObjects(new Bomba(this.getX(), this.getY()));
+                    tableroJuego.addToObjects(new Bomba(x, y));
                     break;
                 case 1:
-                    tableroJuego.addToObjects(new premios.Escudo(this.getX(), this.getY()));
+                    tableroJuego.addToObjects(new premios.Escudo(x, y));
                     break;
                 case 2:
-                    tableroJuego.addToObjects(new Fuego(this.getX(), this.getY()));
+                    tableroJuego.addToObjects(new Fuego(x, y));
                     break;
                 case 3:
-                    tableroJuego.addToObjects(new Fuerza(this.getX(), this.getY()));
+                    tableroJuego.addToObjects(new Fuerza(x, y));
                     break;
             }
         }
