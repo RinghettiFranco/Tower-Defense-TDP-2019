@@ -29,10 +29,6 @@ public abstract class Torre extends GameObject {
         addMouseListener(new Vender());
     }
     
-    public void cambiarEstado() {
-    	vida.cambiarEstado(this);
-    }
-
     public static void setGrilla(Grilla g) {
         miGrilla = g;
     }
