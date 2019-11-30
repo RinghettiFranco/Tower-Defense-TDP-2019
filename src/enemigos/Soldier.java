@@ -27,8 +27,20 @@ public class Soldier extends Enemigo {
         cuentaRegresiva--;
 
         if (cuentaRegresiva == 0) {
-            t.recibirDmg(this.impacto);
-            cuentaRegresiva = 1*Constantes.SEGUNDO;
+            if (escudo) {
+                t.morir();
+                this.setIcon(walkingSoldier);
+                escudo = false;
+            } else {
+                t.recibirDmg(this.impacto);
+                cuentaRegresiva = 1 * Constantes.SEGUNDO;
+            }
         }
+    }
+
+    @Override
+    public void aplicarEscudo() {
+        escudo = true;
+        this.setIcon(walkingSoldierEscudo);
     }
 }

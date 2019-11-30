@@ -12,6 +12,7 @@ public class Chewbaca extends Torre {
     protected static ImageIcon standingChewbaca = new ImageIcon("src/Imagenes/StandingChewbaca.png");
     protected static ImageIcon attackingChewbaca = new ImageIcon("src/Imagenes/AttackingChewbaca.gif");
     protected static ImageIcon StandingChewbacaEscudo = new ImageIcon("src/Imagenes/ChewyEscudo.gif");
+
     public Chewbaca(int x, int y) {
         super(225, 1*Constantes.ANCHO_CELDA,  18, standingChewbaca);
 
@@ -27,17 +28,19 @@ public class Chewbaca extends Torre {
         cuentaRegresiva--;
 
         if (cuentaRegresiva == 0) {
-            e.recibirDmg(this.impacto);
+            if (escudo) {
+                e.morir();
+                escudo = false;
+                this.setIcon(standingChewbaca);
+            } else
+                e.recibirDmg(this.impacto);
             cuentaRegresiva = 1*Constantes.SEGUNDO;
         }
         e.frenar();
     }
 
-	public void CambiarImagenEscudo() {
-		this.setIcon(StandingChewbacaEscudo);
-	}
-
-	public void CambiarImagenSinEscudo() {
-		this.setIcon(standingChewbaca);
-	}
+    public void aplicarEscudo() {
+        escudo = true;
+        this.setIcon(StandingChewbacaEscudo);
+    }
 }

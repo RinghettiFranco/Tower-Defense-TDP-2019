@@ -28,8 +28,20 @@ public class DarthVader extends Enemigo {
         cuentaRegresiva--;
 
         if (cuentaRegresiva == 0) {
-            t.recibirDmg(this.impacto);
-            cuentaRegresiva = 30;
+            if (escudo) {
+                t.morir();
+                this.setIcon(walkingVader);
+                escudo = false;
+            } else {
+                t.recibirDmg(this.impacto);
+                cuentaRegresiva = Constantes.SEGUNDO/2;
+            }
         }
+    }
+
+    @Override
+    public void aplicarEscudo() {
+        escudo = true;
+        this.setIcon(walkingVaderEscudo);
     }
 }

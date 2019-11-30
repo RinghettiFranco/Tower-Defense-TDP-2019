@@ -15,6 +15,7 @@ import java.util.Random;
 
 public abstract class Enemigo extends GameObject {
 
+    protected boolean escudo;
     protected boolean frenado;
     protected static Grilla miGrilla;
 
@@ -29,8 +30,12 @@ public abstract class Enemigo extends GameObject {
         int ran = rnd.nextInt(5);
 
         this.frenado = false;
+        this.escudo = false;
 
-        if(ran==1) {this.aplicarEscudo();}
+        if(ran==1) {
+            this.aplicarEscudo();
+            System.out.println("Aplico un escudo");
+        }
     }
 
     public static void setGrilla(Grilla g) {
@@ -97,7 +102,5 @@ public abstract class Enemigo extends GameObject {
         this.frenado = true;
     }
 
-    public void aplicarEscudo() {
-
-    }
+    public abstract void aplicarEscudo();
 }

@@ -27,23 +27,26 @@ public class Leia extends Torre {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
-			if (distancia(e) >= Constantes.ANCHO_CELDA)
-				tableroJuego.addToObjects(new BalaAliado(this.getX(), this.getY(), this.impacto));
-			else {
-				e.recibirDmg(3 * this.impacto / 4);
-				e.frenar();
+			if (escudo) {
+				e.morir();
+				escudo = false;
+				this.setIcon(standingleia);
+			} else {
+				if (distancia(e) >= Constantes.ANCHO_CELDA)
+					tableroJuego.addToObjects(new BalaAliado(this.getX(), this.getY(), this.impacto));
+				else {
+					e.recibirDmg(3 * this.impacto / 4);
+					e.frenar();
+				}
 			}
 			cuentaRegresiva = 2*Constantes.SEGUNDO;
 		}
 		e.frenar();
 	}
 
-	public void CambiarImagenEscudo() {
+	@Override
+	public void aplicarEscudo() {
+		escudo = true;
 		this.setIcon(standingLeiaEscudo);
-		
-	}
-
-	public void CambiarImagenSinEscudo() {
-		this.setIcon(standingleia);
 	}
 }

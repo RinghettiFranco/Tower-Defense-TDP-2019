@@ -28,25 +28,25 @@ public class Ewok extends Torre {
     	this.setIcon(attackingEwok);
 
 		if (cuentaRegresiva == 0) {
-			if (distancia(e) >= Constantes.ANCHO_CELDA)
-				tableroJuego.addToObjects(new Flecha(this.getX(), this.getY(), this.impacto));
-			else {
-				e.recibirDmg(3 * this.impacto / 4);
-				e.frenar();
+			if (escudo) {
+				e.morir();
+				escudo = false;
+				this.setIcon(standingEwok);
+			} else {
+				if (distancia(e) >= Constantes.ANCHO_CELDA)
+					tableroJuego.addToObjects(new Flecha(this.getX(), this.getY(), this.impacto));
+				else {
+					e.recibirDmg(3 * this.impacto / 4);
+					e.frenar();
+				}
 			}
             this.cuentaRegresiva = 1*Constantes.SEGUNDO;
 		}
 	}
 
-	
-	public void CambiarImagenEscudo() {
+	@Override
+	public void aplicarEscudo() {
+		escudo = true;
 		this.setIcon(StandingEwokEscudo);
-		
-	}
-
-	
-	public void CambiarImagenSinEscudo() {
-		this.setIcon(standingEwok);
-		
 	}
 }

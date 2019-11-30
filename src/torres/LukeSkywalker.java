@@ -25,19 +25,20 @@ public class LukeSkywalker extends Torre {
         cuentaRegresiva--;
 
         if (cuentaRegresiva == 0) {
-            e.recibirDmg(this.impacto);
+            if (escudo) {
+                e.morir();
+                escudo = false;
+                this.setIcon(standingLuke);
+            } else
+                e.recibirDmg(this.impacto);
             cuentaRegresiva = Constantes.SEGUNDO/2;
         }
         e.frenar();
     }
 
-	
-	public void CambiarImagenEscudo() {
-	    this.setIcon(standingLukeEscudo);
-	}
-
-	
-	public void CambiarImagenSinEscudo() {
-		this.setIcon(standingLuke);
-	}
+    @Override
+    public void aplicarEscudo() {
+        escudo = true;
+        this.setIcon(standingLukeEscudo);
+    }
 }

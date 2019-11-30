@@ -29,11 +29,23 @@ public class Soldier2 extends Enemigo {
         cuentaRegresiva--;
 
         if (cuentaRegresiva == 0) {
-            if (distancia(t) >= Constantes.ANCHO_CELDA)
-                tableroJuego.addToObjects(new ProyectilEnemigo(this.getX(), this.getY(), this.impacto));
-            else
-                t.recibirDmg(this.impacto/2);
+            if (escudo) {
+                t.morir();
+                this.setIcon(walkingSoldier2);
+                escudo = false;
+            } else {
+                if (distancia(t) >= Constantes.ANCHO_CELDA)
+                    tableroJuego.addToObjects(new ProyectilEnemigo(this.getX(), this.getY(), this.impacto));
+                else
+                    t.recibirDmg(this.impacto / 2);
+            }
             cuentaRegresiva = 2*Constantes.SEGUNDO;
         }
+    }
+
+    @Override
+    public void aplicarEscudo() {
+        escudo = true;
+        this.setIcon(walkingSoldier2Escudo);
     }
 }

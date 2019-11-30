@@ -29,11 +29,22 @@ public class Stormtrooper extends Enemigo {
 		cuentaRegresiva--;
 
 		if (cuentaRegresiva == 0) {
-			if (distancia(t) >= Constantes.ANCHO_CELDA)
-				tableroJuego.addToObjects(new ProyectilEnemigo(this.getX(), this.getY(), this.impacto));
-			else
-				t.recibirDmg(3*this.impacto/4);
-			cuentaRegresiva = 2*Constantes.SEGUNDO/3;
+		    if (escudo) {
+		        t.morir();
+		        this.setIcon(runningGif);
+		        escudo = false;
+            } else {
+                if (distancia(t) >= Constantes.ANCHO_CELDA)
+                    tableroJuego.addToObjects(new ProyectilEnemigo(this.getX(), this.getY(), this.impacto));
+                else
+                    t.recibirDmg(3 * this.impacto / 4);
+            }
+		    cuentaRegresiva = 2 * Constantes.SEGUNDO / 3;
 		}
 	}
+
+    public void aplicarEscudo() {
+	    escudo = true;
+        this.setIcon(runningGifEscudo);
+    }
 }
