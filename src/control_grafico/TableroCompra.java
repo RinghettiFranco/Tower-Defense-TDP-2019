@@ -55,14 +55,14 @@ public class TableroCompra extends JPanel implements Inventario {
 
     public void limpiarSeleccion() {
         for (int i = 0; i < 5; i++)
-            torres[i].setForeground(Color.BLACK);
+            torres[i].setForeground(Color.black);
         for (int i = 0; i < 4; i++)
-            objetos[i].setForeground(Color.BLACK);
+            objetos[i].setForeground(Color.black);
     }
 
     private void inicializarTorres() {
         this.torres = new JLabel[5];
-
+       
         torres[0] = new ComprarHan(mediator);
         this.add(torres[0]);
         torres[1] = new ComprarChewy(mediator);
@@ -73,11 +73,13 @@ public class TableroCompra extends JPanel implements Inventario {
         this.add(torres[3]);
         torres[4] = new ComprarEwok(mediator);
         this.add(torres[4]);
+     
+
     }
 
     private void inicializarObjetos() {
         this.objetos = new JLabel[4];
-
+        
         objetos[0] = new ComprarR2D2(mediator);
         panelObjetos.add(objetos[0]);
         objetos[1] = new ComprarEspinas(mediator);
@@ -86,11 +88,12 @@ public class TableroCompra extends JPanel implements Inventario {
         panelObjetos.add(objetos[2]);
         objetos[3] = new ComprarPiso(mediator);
         panelObjetos.add(objetos[3]);
+        panelObjetos.setBackground(Color.white);
 
         this.add(panelObjetos);
     }
 
-    @Override
+
     public void addPremio(Premio p) {
         System.out.println("Not yet implemented");
     }
